@@ -30,6 +30,8 @@ export const projects: Project[] = [
     badge: "AI/ML",
     tech: ["Python", "LangChain", "FastAPI", "React"],
     image: "/projects/project-1.jpg",
+    liveUrl: "https://example.com",
+    githubUrl: "https://button.github.com",
     featured: true,
   },
   {
@@ -40,6 +42,8 @@ export const projects: Project[] = [
     badge: "Mobile App",
     tech: ["React Native", "Firebase", "ML Kit"],
     image: "/projects/project-2.jpg",
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com",
     featured: false,
   },
   {
@@ -50,6 +54,8 @@ export const projects: Project[] = [
     badge: "Web App",
     tech: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
     image: "/projects/project-3.jpg",
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com",
     featured: false,
   },
   {
@@ -60,6 +66,8 @@ export const projects: Project[] = [
     badge: "Machine Learning",
     tech: ["BERT", "Flask", "Chart.js"],
     image: "/projects/project-4.jpg",
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com",
     featured: false,
   },
   {
@@ -70,6 +78,8 @@ export const projects: Project[] = [
     badge: "Mobile App",
     tech: ["Flutter", "Supabase"],
     image: "/projects/project-5.jpg",
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com",
     featured: false,
   },
   {
@@ -80,6 +90,8 @@ export const projects: Project[] = [
     badge: "Web App",
     tech: ["Next.js", "Tailwind", "Framer"],
     image: "/projects/project-6.jpg",
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com",
     featured: false,
   },
 ];
@@ -134,18 +146,40 @@ export const journeyItems: JourneyItem[] = [
 
 export const skills = {
   aiml: [
-    "Python", "TensorFlow", "PyTorch", "Scikit-learn",
-    "Computer Vision", "NLP", "LangChain", "RAG Systems",
-    "Jupyter", "Hugging Face", "OpenAI API"
+    { name: "Python", icon: "python/python-original.svg" },
+    { name: "TensorFlow", icon: "tensorflow/tensorflow-original.svg" },
+    { name: "PyTorch", icon: "pytorch/pytorch-original.svg" },
+    { name: "Scikit-learn", icon: "scikitlearn/scikitlearn-original.svg" },
+    { name: "Computer Vision", icon: null },
+    { name: "NLP", icon: null },
+    { name: "LangChain", icon: null },
+    { name: "RAG Systems", icon: null },
+    { name: "Jupyter", icon: "jupyter/jupyter-original.svg" },
+    { name: "Hugging Face", icon: null },
+    { name: "OpenAI API", icon: "/openai-svgrepo-com.svg" }
+
   ],
   appDev: [
-    "React Native", "Flutter", "Expo",
-    "Firebase", "Supabase", "REST APIs",
-    "iOS & Android Deployment"
+    { name: "React Native", icon: "react/react-original.svg" },
+    { name: "Expo", icon: "expo/expo-original.svg" },
+    { name: "Firebase", icon: "firebase/firebase-plain.svg" },
+    { name: "Supabase", icon: "supabase/supabase-original.svg" },
+    { name: "REST APIs", icon: null },
+    { name: "Android Studio", icon: "androidstudio/androidstudio-original.svg" },
+    {name : "Play Store", icon : "/google-play-store-logo-svgrepo-com.svg"},
+    {name : "App Store", icon : "apple/apple-original.svg"}
   ],
   webDev: [
-    "Next.js", "React", "Node.js", "TypeScript",
-    "PostgreSQL", "MongoDB", "Prisma",
-    "AWS", "Vercel", "Docker"
-  ]
-};
+    { name: "Next.js", icon: "nextjs/nextjs-original.svg" },
+    { name: "React", icon: "react/react-original.svg" },
+    { name: "Node.js", icon: "nodejs/nodejs-original.svg" },
+    { name: "Express", icon: "express/express-original.svg" },
+    { name: "TypeScript", icon: "typescript/typescript-original.svg" },
+    { name: "PostgreSQL", icon: "postgresql/postgresql-original.svg" },
+    { name: "MongoDB", icon: "mongodb/mongodb-original.svg" },
+    { name: "AWS", icon: "amazonwebservices/amazonwebservices-original-wordmark.svg" },
+    { name: "Vercel", icon: "vercel/vercel-original.svg" },
+    { name: "Docker", icon: "docker/docker-original.svg" },
+    { name: "Git", icon: "git/git-original.svg" },
+    { name: "GitHub", icon: "github/github-original.svg" },
+],}

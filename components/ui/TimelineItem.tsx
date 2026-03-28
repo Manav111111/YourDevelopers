@@ -1,45 +1,111 @@
+"use client";
+
 import { JourneyItem } from "@/lib/data";
 import { Briefcase, Trophy, GraduationCap } from "lucide-react";
 
 interface TimelineItemProps {
   item: JourneyItem;
+  index: number;
 }
 
-export function TimelineItem({ item }: TimelineItemProps) {
-  const isEdu = item.type === "education";
-  const isAchiev = item.type === "achievement";
+const typeConfig = {
+  internship: {
+    icon: Briefcase,
+    label: "Internship",
+    color: "bg-blue-50 text-blue-600 border-blue-200",
+    dot: "border-blue-500",
+    dotBg: "bg-blue-500",
+  },
+  achievement: {
+    icon: Trophy,
+    label: "Achievement",
+    color: "bg-amber-50 text-amber-600 border-amber-200",
+    dot: "border-amber-500",
+    dotBg: "bg-amber-500",
+  },
+  education: {
+    icon: GraduationCap,
+    label: "Education",
+    color: "bg-emerald-50 text-emerald-600 border-emerald-200",
+    dot: "border-emerald-500",
+    dotBg: "bg-emerald-500",
+  },
+};
+
+export function TimelineItem({ item, index }: TimelineItemProps) {
+  const config = typeConfig[item.type];
+  const Icon = config.icon;
 
   return (
-    <div className="relative pl-12 md:pl-0 w-full md:w-1/2 md:even:ml-auto md:even:pl-16 md:odd:pr-16 mb-16 last:mb-0 group timeline-item">
-      {/* Node Bullet */}
-      <div className="absolute left-0 md:left-auto md:right-[-6px] md:group-even:left-[-6px] md:group-even:right-auto top-6 w-3 h-3 rounded-full bg-dark border-2 border-accent z-10 group-hover:bg-accent transition-colors duration-300 md:hidden block" />
-      
-      <div className="bg-[#1f1f1d] border border-white/5 rounded-2xl p-6 md:p-8 hover-target group-hover:border-accent/30 transition-colors duration-500">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-          <span className="p-3 rounded-xl bg-white/5 text-accent self-start sm:self-auto">
-            {isEdu ? <GraduationCap size={24} /> : isAchiev ? <Trophy size={24} /> : <Briefcase size={24} />}
-          </span>
-          <div>
-            <span className="font-mono text-xs font-bold tracking-widest text-accent uppercase block mb-1">
-              {item.date}
-            </span>
-            <h4 className="text-lg font-body font-medium text-white/80">{item.org}</h4>
-          </div>
-        </div>
-        
-        <h3 className="text-2xl font-display font-bold text-white mb-4 group-hover:text-accent transition-colors duration-300">{item.role}</h3>
-        
-        <p className="text-muted leading-relaxed mb-6">
-          {item.description}
-        </p>
+    <div className="timeline-item group relative shrink-0 w-[300px] md:w-[360px] snap-start flex flex-col">
 
-        <div className="flex flex-wrap gap-2">
+      {/* Dot & connector stem */}
+      <div className="flex flex-col items-center mb-0">
+        {/* Dot on the line */}
+        <div
+          className={`relative z-20 w-5 h-5 rounded-full border-[3px] ${config.dot} bg-cream
+            group-hover:${config.dotBg} group-hover:scale-125 transition-all duration-300 shadow-sm`}
+        >
+          {/* pulse ring on hover */}
+          <span
+            className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-[2.5] ${config.dotBg} transition-all duration-500`}
+          />
+        </div>
+
+        {/* Vertical stem from dot to card */}
+        <div className="w-[2px] h-8 bg-gradient-to-b from-dark/20 to-transparent" />
+      </div>
+
+      {/* Card */}
+      <div
+        className={`
+          relative flex flex-col grow
+          bg-white border border-dark/8 rounded-2xl p-6
+          shadow-sm hover:shadow-xl
+          group-hover:border-accent/25 group-hover:-translate-y-1
+          transition-all duration-500 ease-out
+        `}
+      >
+        {/* Type badge */}
+        <span
+          className={`self-start mb-4 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border ${config.color}`}
+        >
+          <Icon size={11} strokeWidth={2.5} />
+          {config.label}
+        </span>
+
+        {/* Date */}
+        <span className="font-mono text-xs font-semibold tracking-widest text-accent uppercase mb-1">
+          {item.date}
+        </span>
+
+        {/* Org */}
+        <p className="text-sm text-dark/55 font-body mb-3">{item.org}</p>
+
+        {/* Role */}
+        <h3 className="text-lg font-display font-bold text-dark mb-3 leading-tight group-hover:text-accent transition-colors duration-300">
+          {item.role}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm text-gray-500 leading-relaxed mb-5 grow">{item.description}</p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5">
           {item.tags.map((tag, i) => (
-            <span key={i} className="px-3 py-1.5 rounded bg-white/5 text-[11px] font-mono tracking-widest uppercase text-muted">
+            <span
+              key={i}
+              className="px-2.5 py-1 rounded-md bg-dark/5 text-[10px] font-mono tracking-wider uppercase text-gray-500 border border-dark/5"
+            >
               {tag}
             </span>
           ))}
         </div>
+
+        {/* Index number — decorative */}
+        <span className="absolute top-4 right-5 font-display font-black text-5xl text-dark/[0.04] select-none leading-none">
+          {String(index + 1).padStart(2, "0")}
+        </span>
       </div>
     </div>
   );

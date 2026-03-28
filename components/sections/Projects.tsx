@@ -29,12 +29,12 @@ export function Projects() {
   }, { scope: containerRef });
 
   return (
-    <section id="projects" ref={containerRef} className="py-24 md:py-32 bg-cream text-dark">
+    <section id="projects" ref={containerRef} className="py-24 md:py-32 bg-cream text-dark border-t border-dark/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12 projects-container">
         
         <div className="flex items-center gap-6 mb-12 projects-header">
           <h2 className="text-3xl font-display font-bold uppercase tracking-widest">Selected Works</h2>
-          <div className="flex-grow h-[1px] bg-dark/10"></div>
+          <div className="grow h-px bg-dark/10"></div>
         </div>
 
         <div className="flex flex-wrap gap-3 mb-16 projects-header">
@@ -47,10 +47,10 @@ export function Projects() {
             <button
               key={btn.id}
               onClick={() => setFilter(btn.id as any)}
-              className={`px-6 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 hover-target ${
+              className={`px-6 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
                 filter === btn.id 
                   ? "bg-accent text-dark shadow-[0_8px_16px_rgba(255,137,1,0.3)]" 
-                  : "bg-dark/[0.03] text-dark/60 hover:bg-dark/10 hover:text-dark"
+                  : "bg-dark/5 text-dark/60 hover:bg-dark/10 hover:text-dark"
               }`}
             >
               {btn.label}

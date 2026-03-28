@@ -1,32 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > 50) {
+        if (currentScrollY > lastScrollY.current) {
+          // Scrolling down -> show
+          setIsVisible(true);
+        } else if (currentScrollY < lastScrollY.current) {
+          // Scrolling up -> hide
+          setIsVisible(false);
+        }
+      } else {
+        // At the very top -> hide
+        setIsVisible(false);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useGSAP(() => {
-    gsap.from(".navbar-container", {
-      y: -100,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-      delay: 0.2
-    });
-  });
 
   const navLinks = [
     { name: "ABOUT", href: "#about" },
@@ -37,16 +44,16 @@ export function Navbar() {
 
   return (
     <header 
-      className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 pointer-events-auto ${
-        isScrolled 
-          ? "bg-dark/95 backdrop-blur-md border-b border-white/5 py-4" 
-          : "bg-transparent py-6"
+      className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isVisible 
+          ? "bg-cream/95 backdrop-blur-md border-b border-dark/5 py-4 translate-y-0 opacity-100 pointer-events-auto" 
+          : "-translate-y-full opacity-0 pointer-events-none"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         
         {/* Logo */}
-        <Link href="/" className="group text-2xl font-display font-bold text-white flex items-center relative z-50 hover-target">
+        <Link href="/" className="group text-2xl font-display font-bold text-dark flex items-center relative z-50">
           YourName<span className="text-accent group-hover:scale-125 transition-transform">.</span>
         </Link>
 
@@ -56,7 +63,7 @@ export function Navbar() {
             <Link 
               key={link.name} 
               href={link.href} 
-              className="text-sm font-mono font-medium tracking-widest text-muted hover:text-white transition-colors hover-target"
+              className="text-sm font-mono font-medium tracking-widest text-gray-600 hover:text-dark transition-colors"
             >
               {link.name}
             </Link>
@@ -66,14 +73,14 @@ export function Navbar() {
         {/* Desktop CTA */}
         <a 
           href="#contact" 
-          className="hidden md:inline-flex items-center justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-colors hover-target"
+          className="hidden md:inline-flex items-center text-sm font-mono font-medium tracking-widest text-gray-700 rounded-lg hover:text-dark transition-colors justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-colors"
         >
-          Hire Me
+          Connect With Me
         </a>
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden relative z-50 text-white p-2 hover-target"
+          className="md:hidden relative z-50 text-dark p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,7 +90,7 @@ export function Navbar() {
 
       {/* Mobile Nav Overlay */}
       <div 
-        className={`fixed inset-0 bg-dark z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out origin-top ${
+        className={`fixed inset-0 bg-cream z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out origin-top ${
           mobileMenuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
         }`}
       >
@@ -93,7 +100,7 @@ export function Navbar() {
               key={link.name} 
               href={link.href} 
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display font-medium text-white hover:text-accent transition-colors"
+              className="text-3xl font-display font-medium text-dark hover:text-accent transition-colors"
               style={{
                 transitionDelay: mobileMenuOpen ? `${0.1 * (i + 1)}s` : "0s",
                 transform: mobileMenuOpen ? "translateY(0)" : "translateY(20px)",

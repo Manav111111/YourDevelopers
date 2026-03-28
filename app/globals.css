@@ -42,9 +42,4 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Custom Cursor Setup (Desktop only) */
-@media (prefers-reduced-motion: no-preference) and (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
-}
+

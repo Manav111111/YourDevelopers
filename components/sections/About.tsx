@@ -38,12 +38,12 @@ export function About() {
   }, { scope: containerRef });
 
   return (
-    <section id="about" ref={containerRef} className="py-24 md:py-32 bg-cream text-dark">
+    <section id="about" ref={containerRef} className="py-24 md:py-0 md:min-h-[110vh] flex items-center bg-cream text-dark">
       <div className="max-w-7xl mx-auto px-6 md:px-12 about-container">
         
         <div className="flex items-center gap-6 mb-16">
           <h2 className="text-3xl font-display font-bold uppercase tracking-widest">About</h2>
-          <div className="flex-grow h-[1px] bg-dark/10"></div>
+          <div className="grow h-px bg-dark/10"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
@@ -80,16 +80,16 @@ export function About() {
           </div>
 
           {/* Right: Abstract/Portrait */}
-          <div className="lg:col-span-5 relative about-content h-[40vh] lg:h-[70vh] w-full rounded-3xl overflow-hidden group">
-            <div className="absolute inset-0 bg-[#2b2b2b] group-hover:scale-105 transition-transform duration-1000 ease-out flex items-center justify-center">
-               <span className="text-white/10 font-display font-black text-8xl -rotate-90 scale-150 uppercase tracking-tighter">Code</span>
+          <div className="lg:col-span-5 relative about-content h-[40vh] lg:h-[70vh] w-full rounded-3xl overflow-hidden group shadow-xl">
+            <div className="absolute inset-0 bg-white group-hover:scale-105 transition-transform duration-1000 ease-out flex items-center justify-center border border-dark/5">
+               <span className="text-dark/5 font-display font-black text-8xl -rotate-90 scale-150 uppercase tracking-tighter">Code</span>
             </div>
             {/* Pattern Overlay */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
             
             {/* Decorative Element */}
-            <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-               <p className="font-mono text-sm text-white uppercase tracking-wider">"Design is how it works."</p>
+            <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/80 backdrop-blur-xl border border-dark/10 rounded-2xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+               <p className="font-mono text-sm text-dark uppercase tracking-wider">"Design is how it works."</p>
             </div>
           </div>
 

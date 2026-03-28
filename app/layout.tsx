@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/layout/LenisProvider";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -38,7 +37,6 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col selection:bg-accent selection:text-dark">
         <LenisProvider>
-          <CustomCursor />
           {children}
         </LenisProvider>
       </body>

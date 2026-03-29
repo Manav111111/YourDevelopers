@@ -1,39 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > 50) {
-        if (currentScrollY > lastScrollY.current) {
-          // Scrolling down -> show
-          setIsVisible(true);
-        } else if (currentScrollY < lastScrollY.current) {
-          // Scrolling up -> hide
-          setIsVisible(false);
-        }
-      } else {
-        // At the very top -> hide
-        setIsVisible(false);
-      }
-      
-      lastScrollY.current = currentScrollY;
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { name: "ABOUT", href: "#about" },
@@ -44,17 +16,13 @@ export function Navbar() {
 
   return (
     <header 
-      className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isVisible 
-          ? "bg-cream/95 backdrop-blur-md border-b border-dark/5 py-4 translate-y-0 opacity-100 pointer-events-auto" 
-          : "-translate-y-full opacity-0 pointer-events-none"
-      }`}
+      className="navbar-container fixed top-0 left-0 mx-35 mt-5 rounded-2xl right-0 z-50 transition-all duration-300 bg-cream/95 backdrop-blur-md border-b border-dark/5 py-4 translate-y-0 opacity-100 pointer-events-auto"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         
         {/* Logo */}
         <Link href="/" className="group text-2xl font-display font-bold text-dark flex items-center relative z-50">
-          YourName<span className="text-accent group-hover:scale-125 transition-transform">.</span>
+          Mohit Aggarwal<span className="text-accent group-hover:scale-125 transition-transform">.</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -73,7 +41,7 @@ export function Navbar() {
         {/* Desktop CTA */}
         <a 
           href="#contact" 
-          className="hidden md:inline-flex items-center text-sm font-mono font-medium tracking-widest text-gray-700 rounded-lg hover:text-dark transition-colors justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-colors"
+          className="hidden md:inline-flex items-center text-sm  tracking-widest text-gray-700 rounded-lg hover:text-dark transition-colors justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-colors"
         >
           Connect With Me
         </a>

@@ -21,6 +21,11 @@ export type JourneyItem = {
   tags: string[];
 };
 
+// =========================================================
+//                  Projects Sections
+// =========================================================
+
+
 export const projects: Project[] = [
   {
     id: 1,
@@ -96,6 +101,10 @@ export const projects: Project[] = [
   },
 ];
 
+// ====================================================
+//                  Journey Sections
+// ====================================================
+
 export const journeyItems: JourneyItem[] = [
   {
     id: 1,
@@ -144,6 +153,10 @@ export const journeyItems: JourneyItem[] = [
   },
 ];
 
+// ====================================================
+//                  Skills Sections
+// ====================================================
+
 export const skills = {
   aiml: [
     { name: "Python", icon: "python/python-original.svg" },
@@ -155,8 +168,9 @@ export const skills = {
     { name: "LangChain", icon: null },
     { name: "RAG Systems", icon: null },
     { name: "Jupyter", icon: "jupyter/jupyter-original.svg" },
-    { name: "Hugging Face", icon: null },
-    { name: "OpenAI API", icon: "/openai-svgrepo-com.svg" }
+    { name: "Hugging Face", icon: "/hugging-face-svgrepo-com.svg" },
+    { name: "OpenAI ", icon: "/openai-svgrepo-com.svg" },
+    { name: "Google Colab", icon: "googlecolab/googlecolab-original.svg"}
 
   ],
   appDev: [

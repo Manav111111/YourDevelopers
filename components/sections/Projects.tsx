@@ -29,7 +29,7 @@ export function Projects() {
   }, { scope: containerRef });
 
   return (
-    <section id="projects" ref={containerRef} className="py-24 md:py-32 bg-cream text-dark border-t border-dark/5">
+    <section id="projects" ref={containerRef} className="py-24 md:py-32 bg-cream text-dark ">
       <div className="max-w-7xl mx-auto px-6 md:px-12 projects-container">
         
         <div className="flex items-center gap-6 mb-12 projects-header">

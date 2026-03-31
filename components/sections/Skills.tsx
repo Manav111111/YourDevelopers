@@ -35,7 +35,7 @@ export function Skills() {
   }, { scope: containerRef });
 
   return (
-    <section id="skills" ref={containerRef} className="skills-section py-10 md:py-10 bg-cream text-dark overflow-hidden border-t border-dark/5 relative z-10">
+    <section id="skills" ref={containerRef} className="skills-section py-10 md:py-10 bg-cream text-dark overflow-hidden  relative z-10">
       
 
 
@@ -44,7 +44,7 @@ export function Skills() {
           <div className="grow h-px bg-dark/10"></div>
         </div>
       {/* Background Marquee */}
-      <div className="absolute top-35 left-0 w-[120vw] -ml-[10vw] mb-20 -rotate-3 bg-accent py-6 overflow-hidden shadow-2xl z-0 pointer-events-none">
+      <div className="absolute top-35 left-0 w-[120vw] -ml-[10vw] mb-20 -rotate-3 bg-accent py-6 overflow-hidden shadow-xl z-0 pointer-events-none">
         <div className="marquee-inner flex whitespace-nowrap w-[200%]">
           {/* Repeating text block */}
           {Array(8).fill(

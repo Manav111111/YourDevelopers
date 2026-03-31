@@ -1,6 +1,6 @@
 import { Badge } from "./Badge";
 import { ArrowUpRight, ExternalLink, Code } from "lucide-react";
-import { Project } from "@/lib/data";
+import { Project, projectTechLogos } from "@/lib/data";
 
 interface ProjectCardProps {
   project: Project;
@@ -40,11 +40,26 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <p className="text-muted leading-relaxed mb-6">{project.description}</p>
         
         <div className="flex flex-wrap gap-2 mb-8">
-          {project.tech.map((t, i) => (
-            <span key={i} className="text-[11px] font-mono tracking-widest uppercase text-dark/70 bg-white border border-dark/5 px-2 py-1 rounded">
-              {t}
-            </span>
-          ))}
+          {project.tech.map((t, i) => {
+            const logoSrc = projectTechLogos[t];
+
+            return (
+              <span key={i} className="inline-flex items-center gap-1.5 text-[11px] font-mono tracking-widest uppercase text-dark/70 bg-white border border-dark/5 px-2 py-1 rounded">
+                {logoSrc ? (
+                  <img
+                    src={logoSrc}
+                    alt=""
+                    aria-hidden
+                    className="h-3.5 w-3.5 object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Code size={12} aria-hidden className="text-dark/45" />
+                )}
+                {t}
+              </span>
+            );
+          })}
         </div>
 
         <div className="mt-auto pt-6 border-t border-dark/5 flex items-center justify-between">

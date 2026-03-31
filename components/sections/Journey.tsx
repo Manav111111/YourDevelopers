@@ -48,12 +48,8 @@ export function Journey() {
     <section
       id="journey"
       ref={containerRef}
-      className="py-24 md:py-32 bg-cream text-dark border-t border-dark/5 relative overflow-hidden"
+      className="py-24 md:py-24 bg-cream text-dark relative overflow-hidden"
     >
-      {/* Decorative blobs */}
-      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] bg-blue-400/5 rounded-full blur-[100px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
         {/* Section heading */}

@@ -16,7 +16,7 @@ export function Navbar() {
 
   return (
     <header 
-      className="navbar-container fixed top-0 left-0 mx-35 mt-5 rounded-2xl right-0 z-50 transition-all duration-300 bg-cream/95 backdrop-blur-md border-b border-dark/5 py-4 translate-y-0 opacity-100 pointer-events-auto"
+      className="navbar-container fixed top-0 left-0  rounded-2xl right-0 z-50 transition-all duration-300 bg-cream/95 backdrop-blur-md border-b border-dark/5 py-4 translate-y-0 opacity-100 pointer-events-auto"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         

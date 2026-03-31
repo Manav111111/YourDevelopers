@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -41,7 +42,7 @@ export function About() {
     <section id="about" ref={containerRef} className="py-24 md:py-0 md:min-h-[110vh] flex items-center bg-cream text-dark">
       <div className="max-w-7xl mx-auto px-6 md:px-12 about-container">
 
-        <div className="flex items-center gap-6 mb-16">
+        <div className="flex items-center gap-6 mb-8">
           <h2 className="text-3xl font-display font-bold uppercase tracking-widest">About</h2>
           <div className="grow h-px bg-dark/10"></div>
         </div>
@@ -52,12 +53,21 @@ export function About() {
           {/* Right: Abstract/Portrait */}
           <div className="lg:col-span-5 relative about-content h-[40vh] lg:h-[70vh] w-full rounded-3xl group shadow-xl">
             {/* Clipped background layers */}
-            <div className="absolute inset-0 rounded-3xl overflow-hidden">
-              <div className="absolute inset-0 bg-white group-hover:scale-105 transition-transform duration-1000 ease-out flex items-center justify-center border border-dark/5">
-                <span className="text-dark/5 font-display font-black text-8xl -rotate-90 scale-150 uppercase tracking-tighter">Code</span>
+            <div className="absolute inset-0 rounded-3xl bg-white overflow-hidden">
+              <div className="absolute  inset-0 -right-90 -top-65 flex items-center justify-center border border-dark/5">
+                <span className="text-dark/20 font-display font-black text-8xl -rotate-90 scale-50  uppercase tracking-tighter">Code</span>
               </div>
-              {/* Pattern Overlay */}
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+
+                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-100"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-dark/35 via-dark/10 to-transparent"></div>
+              <Image
+                src="/final.png"
+                alt="Portrait"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-center opacity-100 "
+              />
+        
             </div>
 
             {/* Decorative Element - now outside the clipping boundary */}
@@ -67,21 +77,21 @@ export function About() {
           </div>
 
           {/* Left: Text Content */}
-          <div className="lg:col-span-7 about-content flex flex-col gap-8">
+          <div className="lg:col-span-7 about-content flex flex-col gap-5">
             <h3 className="text-4xl md:text-5xl font-display font-medium leading-tight">
               Bridging the gap between <span className="font-bold text-accent">intelligence</span> <br className="hidden md:block" />and <span className="font-bold text-accent">interaction</span>.
             </h3>
 
-            <p className="text-lg md:text-xl font-body leading-relaxed text-dark/80">
+            <p className="text-lg md:text-md font-body leading-relaxed text-dark/80">
               I am a multidisciplinary engineer who writes clean code and builds scalable systems. With a strong foundation in Artificial Intelligence and Machine Learning, I create products that are not just highly functional, but also visually striking and intuitive.
             </p>
 
-            <p className="text-lg md:text-xl font-body leading-relaxed text-dark/80">
+            <p className="text-lg md:text-md font-body leading-relaxed text-dark/80">
               Whether it's training a robust ML model, developing a cross-platform mobile application, or crafting a buttery-smooth web experience, I bring a product-first mindset to every line of code.
             </p>
 
             {/* Stats */}
-            <div className="about-stats pt-8 flex gap-12 border-t border-dark/10 mt-4">
+            <div className="about-stats pt-4 flex gap-12 border-t border-dark/10 mt-4">
               <div>
                 <div className="flex items-baseline gap-1 font-display font-black text-5xl md:text-6xl text-dark">
                   <span ref={counterRef}>0</span><span className="text-accent">+</span>

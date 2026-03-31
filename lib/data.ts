@@ -11,6 +11,27 @@ export type Project = {
   featured: boolean;
 };
 
+export const projectTechLogos: Record<string, string> = {
+  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "LangChain": "https://cdn.simpleicons.org/langchain",
+  "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "React Native": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  "ML Kit": "https://cdn.simpleicons.org/googlemlkit",
+  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  "Stripe": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stripe/stripe-original.svg",
+  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "Prisma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+  "BERT": "/hugging-face-svgrepo-com.svg",
+  "Flask": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+  "Chart.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chartjs/chartjs-original.svg",
+  "Flutter": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+  "Supabase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  "Tailwind": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  "Framer": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framer/framer-original.svg",
+};
+
 export type JourneyItem = {
   id: number;
   type: "internship" | "achievement" | "education";
@@ -29,10 +50,10 @@ export type JourneyItem = {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "AI-Powered Resume Screener",
-    description: "Built an intelligent screener for recruiters.",
-    domain: "ai-ml",
-    badge: "AI/ML",
+    title: "Code Veda",
+    description: "Code Veda is an AI-powered platform that helps students and professionals learn coding more effectively. It provides personalized learning paths, real-time feedback, and a comprehensive library of coding resources.",
+    domain: "web-dev",
+    badge: "Web App",
     tech: ["Python", "LangChain", "FastAPI", "React"],
     image: "/projects/project-1.jpg",
     liveUrl: "https://example.com",
@@ -41,7 +62,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "HealthTrack",
+    title: "TrueKnoc",
     description: "Mobile app for tracking daily fitness and calories.",
     domain: "app-dev",
     badge: "Mobile App",
@@ -53,7 +74,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "EcoMarket Platform",
+    title: "HomeQuickes",
     description: "A specialized e-commerce platform for sustainable goods.",
     domain: "web-dev",
     badge: "Web App",
@@ -65,7 +86,7 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Sentiment Analysis Dashboard",
+    title: "Quant Agent",
     description: "Real-time Twitter sentiment visualizer.",
     domain: "ai-ml",
     badge: "Machine Learning",
@@ -77,7 +98,7 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Task Manager App",
+    title: "Soul Chef AI",
     description: "Cross-platform to-do list with real-time sync.",
     domain: "app-dev",
     badge: "Mobile App",
@@ -89,7 +110,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: "SaaS Landing Page Builder",
+    title: "WoodenStories",
     description: "No-code editor for fast campaign pages.",
     domain: "web-dev",
     badge: "Web App",

@@ -99,11 +99,11 @@ export function Hero() {
           <div className="hero-image-wrap relative aspect-4/5 w-full rounded-3xl overflow-hidden bg-gray-200 border-2 border-white/50 shadow-2xl z-10 group">
             {/* Using a professional Unsplash portrait placeholder. Can be replaced with personal photo later. */}
             <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80"
+              src="/image.png"
               alt="Mohit Aggarwal"
               width={400}
-              height={400}
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105"
+              height={600}
+              className="object-cover grayscale  aspect-4/5 group-hover:grayscale-0 transition-all duration-600 "
               priority
             />
             {/* Subtle overlay gradient */}

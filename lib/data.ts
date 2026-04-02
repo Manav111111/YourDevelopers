@@ -12,24 +12,57 @@ export type Project = {
 };
 
 export const projectTechLogos: Record<string, string> = {
-  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  "LangChain": "https://cdn.simpleicons.org/langchain",
-  "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  // Languages
+  "Python":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "TypeScript":   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  "JavaScript":   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+
+  // AI / ML
+  "LangChain":    "https://cdn.simpleicons.org/langchain/000000",
+  "BERT":         "/hugging-face-svgrepo-com.svg",
+  "TensorFlow":   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  "PyTorch":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  "OpenAI":       "/openai-svgrepo-com.svg",
+  "Hugging Face": "/hugging-face-svgrepo-com.svg",
+  "ML Kit":       "https://www.gstatic.com/devrel-devsite/prod/vb794fa47da5b73ba8b76d3bace2e1aba14ad59bb8da3e9f40e5e696f4fdadee2/firebase/images/favicon.png",
+
+  // Backend Frameworks
+  "FastAPI":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  "Flask":        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+  "Node.js":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "Express":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  "Django":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+
+  // Frontend
+  "React":        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   "React Native": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-  "ML Kit": "https://cdn.simpleicons.org/googlemlkit",
-  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  "Stripe": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stripe/stripe-original.svg",
-  "PostgreSQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  "Prisma": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
-  "BERT": "/hugging-face-svgrepo-com.svg",
-  "Flask": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
-  "Chart.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chartjs/chartjs-original.svg",
-  "Flutter": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
-  "Supabase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
-  "Tailwind": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-  "Framer": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framer/framer-original.svg",
+  "Next.js":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  "Tailwind":     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  "Framer":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framer/framer-original.svg",
+  "Chart.js":     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chartjs/chartjs-original.svg",
+
+  // Mobile
+  "Flutter":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+  "Expo":         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg",
+  "Android":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
+
+  // Databases / Backend-as-a-Service
+  "Firebase":     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  "Supabase":     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+  "PostgreSQL":   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "MongoDB":      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "Prisma":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+  "Redis":        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+
+  // Payments / Services
+  "Stripe":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stripe/stripe-original.svg",
+
+  // DevOps / Cloud
+  "Docker":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "AWS":          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  "Vercel":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+  "Git":          "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  "GitHub":       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
 };
 
 export type JourneyItem = {
@@ -56,8 +89,8 @@ export const projects: Project[] = [
     badge: "Web App",
     tech: ["Python", "LangChain", "FastAPI", "React"],
     image: "/projects/project-1.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://button.github.com",
+    liveUrl: "https://code-veda-mu.vercel.app/",
+    githubUrl: "https://github.com/Mohit776/Code-Veda",
     featured: true,
   },
   {
@@ -68,8 +101,8 @@ export const projects: Project[] = [
     badge: "Mobile App",
     tech: ["React Native", "Firebase", "ML Kit"],
     image: "/projects/project-2.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    liveUrl: "",
+    githubUrl: "https://github.com/Mohit776/Knoc",
     featured: false,
   },
   {
@@ -81,7 +114,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
     image: "/projects/project-3.jpg",
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/Mohit776/Quickhomies-1",
     featured: false,
   },
   {
@@ -93,7 +126,7 @@ export const projects: Project[] = [
     tech: ["BERT", "Flask", "Chart.js"],
     image: "/projects/project-4.jpg",
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/Mohit776/DualModeResearchAgent",
     featured: false,
   },
   {
@@ -105,7 +138,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "Supabase"],
     image: "/projects/project-5.jpg",
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/Mohit776/SoulChef-AI",
     featured: false,
   },
   {
@@ -116,8 +149,8 @@ export const projects: Project[] = [
     badge: "Web App",
     tech: ["Next.js", "Tailwind", "Framer"],
     image: "/projects/project-6.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    liveUrl: "https://the-wooden-stories.vercel.app",
+    githubUrl: "https://github.com/Mohit776/The-Wooden-Stories",
     featured: false,
   },
 ];
@@ -130,29 +163,29 @@ export const journeyItems: JourneyItem[] = [
   {
     id: 1,
     type: "internship",
-    date: "Jun 2024 – Aug 2024",
-    org: "Tech Innovations Inc.",
-    role: "AI/ML Engineer Intern",
+    date: "Oct 2025 – Jan 2026",
+    org: "Lakshmi Information Technology Private Limited",
+    role: "Full Stack Developer Intern",
     description: "Built NLP pipeline for document classification, deployed on AWS.",
-    tags: ["Python", "BERT", "AWS", "FastAPI"],
+    tags: ["Android Development", "React Native", "React", "Node.js","Express.js"],
   },
   {
     id: 2,
     type: "achievement",
-    date: "Feb 2024",
-    org: "National Hackathon",
-    role: "1st Place Winner",
-    description: "1st place for building an AI-based crop disease detector.",
-    tags: ["Computer Vision", "TensorFlow", "React Native"],
+    date: "",
+    org: "National Level Hackathons",
+    role: "Winner & Runner Up",
+    description: "8 Times National Hackathon",
+    tags: ["AI/ML", "Web Development", "App Development"],
   },
   {
     id: 3,
     type: "internship",
     date: "May 2023 – Aug 2023",
-    org: "Digital Solutions LLC",
-    role: "Full-Stack Developer Intern",
+    org: "The famous Halwai Private Limited",
+    role: "Android Developer Intern",
     description: "Developed REST APIs and React frontend for internal dashboard.",
-    tags: ["Node.js", "PostgreSQL", "React"],
+    tags: ["Android", "React Native", "Firebase"],
   },
   {
     id: 4,
@@ -163,15 +196,7 @@ export const journeyItems: JourneyItem[] = [
     description: "Merged PR adding multilingual support to a popular UI library.",
     tags: ["React", "i18n", "TypeScript"],
   },
-  {
-    id: 5,
-    type: "education",
-    date: "Aug 2021 – May 2025",
-    org: "State University",
-    role: "B.Tech Computer Science",
-    description: "Relevant coursework: ML, Algorithms, Cloud Computing.",
-    tags: ["C++", "Python", "Data Structures"],
-  },
+
 ];
 
 // ====================================================

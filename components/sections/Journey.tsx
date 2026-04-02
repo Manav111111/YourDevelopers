@@ -55,9 +55,6 @@ export function Journey() {
         {/* Section heading */}
         <div className="flex items-end justify-between gap-6 mb-16">
           <div>
-            <p className="font-mono text-xs font-bold tracking-widest text-accent uppercase mb-3">
-              // Career Path
-            </p>
             <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight">
               The Journey
             </h2>

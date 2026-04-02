@@ -35,7 +35,7 @@ export function Skills() {
   }, { scope: containerRef });
 
   return (
-    <section id="skills" ref={containerRef} className="skills-section py-10 md:py-10 bg-cream text-dark overflow-hidden  relative z-10">
+    <section id="skills" ref={containerRef} className="skills-section py-10 md:py-10  bg-cream text-dark overflow-hidden  relative z-10">
       
 
 
@@ -57,7 +57,7 @@ export function Skills() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 mt-[20vh] md:mt-[30vh]">
+      <div className="pb-12 max-w-7xl mx-auto px-6 md:px-12 relative z-20 mt-[20vh] md:mt-[30vh]">
         
        
 

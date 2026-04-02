@@ -1,6 +1,6 @@
 "use client";
 
-import { JourneyItem } from "@/lib/data";
+import { JourneyItem, projectTechLogos } from "@/lib/data";
 import { Briefcase, Trophy, GraduationCap } from "lucide-react";
 
 interface TimelineItemProps {
@@ -92,14 +92,31 @@ export function TimelineItem({ item, index }: TimelineItemProps) {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5">
-          {item.tags.map((tag, i) => (
-            <span
-              key={i}
-              className="px-2.5 py-1 rounded-md bg-dark/5 text-[10px] font-mono tracking-wider uppercase text-gray-500 border border-dark/5"
-            >
-              {tag}
-            </span>
-          ))}
+          {item.tags.map((tag, i) => {
+            const logoSrc = projectTechLogos[tag];
+            return (
+              <span
+                key={i}
+                title={tag}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-dark/5 text-[10px] font-mono tracking-wider uppercase text-gray-500 border border-dark/5"
+              >
+                {logoSrc ? (
+                  <img
+                    src={logoSrc}
+                    alt={tag}
+                    className="h-3.5 w-3.5 object-contain shrink-0"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                ) : (
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-current opacity-50 shrink-0" />
+                )}
+                {tag}
+              </span>
+            );
+          })}
         </div>
 
         {/* Index number — decorative */}

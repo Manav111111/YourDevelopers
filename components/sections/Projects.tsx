@@ -29,17 +29,17 @@ export function Projects() {
   }, { scope: containerRef });
 
   return (
-    <section id="projects" ref={containerRef} className="py-24 md:py-32 bg-cream text-dark ">
+    <section id="projects" ref={containerRef} className="py-24 md:py-12 bg-cream text-dark ">
       <div className="max-w-7xl mx-auto px-6 md:px-12 projects-container">
         
-        <div className="flex items-center gap-6 mb-12 projects-header">
+        <div className="flex items-center gap-6  projects-header">
           <h2 className="text-3xl font-display font-bold uppercase tracking-widest">Selected Works</h2>
           <div className="grow h-px bg-dark/10"></div>
         </div>
 
         <div className="flex flex-wrap gap-3 mb-16 projects-header">
           {[
-            { id: "all", label: "All Projects" },
+            { id: "all", label: "All Projects" }, 
             { id: "ai-ml", label: "AI/ML" },
             { id: "app-dev", label: "Mobile Apps" },
             { id: "web-dev", label: "Web Scale" }

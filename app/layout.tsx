@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mohit | Portfolio",
+  title: "Mohit Aggarwal | Portfolio",
   description: "AI, App, and Web capabilities. Products that scale.",
 };
 

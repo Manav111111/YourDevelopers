@@ -42,4 +42,26 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+/* Hide scrollbar for filter rows */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
+/* Safe area for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .navbar-container {
+    padding-top: env(safe-area-inset-top);
+  }
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+}

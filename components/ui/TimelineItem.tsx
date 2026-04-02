@@ -12,117 +12,164 @@ const typeConfig = {
   internship: {
     icon: Briefcase,
     label: "Internship",
-    color: "bg-blue-50 text-blue-600 border-blue-200",
-    dot: "border-blue-500",
-    dotBg: "bg-blue-500",
+    color: "bg-[#ff8901]/10 text-[#ff8901] border-[#ff8901]/30",
+    dot: "border-[#ff8901]",
+    glowDot: "shadow-[0_0_10px_rgba(255,137,1,0.6)]",
   },
   achievement: {
     icon: Trophy,
     label: "Achievement",
-    color: "bg-amber-50 text-amber-600 border-amber-200",
-    dot: "border-amber-500",
-    dotBg: "bg-amber-500",
+    color: "bg-[#ff8901]/10 text-[#ff8901] border-[#ff8901]/30",
+    dot: "border-[#ff8901]",
+    glowDot: "shadow-[0_0_10px_rgba(255,137,1,0.6)]",
   },
   education: {
     icon: GraduationCap,
     label: "Education",
-    color: "bg-emerald-50 text-emerald-600 border-emerald-200",
-    dot: "border-emerald-500",
-    dotBg: "bg-emerald-500",
+    color: "bg-[#006492]/10 text-[#006492] border-[#006492]/30",
+    dot: "border-[#00b2fe]",
+    glowDot: "shadow-[0_0_10px_rgba(0,178,254,0.6)]",
   },
 };
 
 export function TimelineItem({ item, index }: TimelineItemProps) {
-  const config = typeConfig[item.type];
+  const config = typeConfig[item.type] ?? typeConfig.internship;
   const Icon = config.icon;
+  const isEven = index % 2 === 0;
 
   return (
-    <div className="timeline-item group relative shrink-0 w-[300px] md:w-[360px] snap-start flex flex-col">
+    /* Outer row — pure layout, no visual chrome */
+    <div
+      className={[
+        "timeline-item",
+        "group relative flex items-start w-full",
+        "mb-16 last:mb-0",
+        // On desktop alternate left / right
+        isEven ? "md:flex-row" : "md:flex-row-reverse",
+      ].join(" ")}
+    >
+      {/* ── Left / Right half-spacer (desktop only) ── */}
+      <div className="hidden md:block md:w-1/2 shrink-0" />
 
-      {/* Dot & connector stem */}
-      <div className="flex flex-col items-center mb-0">
-        {/* Dot on the line */}
+      {/* ── Center dot (absolutely on the vertical spine) ── */}
+      <div
+        className="absolute left-4.5 md:left-1/2 top-8
+                   flex items-center justify-center
+                   -translate-x-1/2 z-20"
+      >
         <div
-          className={`relative z-20 w-5 h-5 rounded-full border-[3px] ${config.dot} bg-cream
-            group-hover:${config.dotBg} group-hover:scale-125 transition-all duration-300 shadow-sm`}
-        >
-          {/* pulse ring on hover */}
-          <span
-            className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-[2.5] ${config.dotBg} transition-all duration-500`}
-          />
-        </div>
-
-        {/* Vertical stem from dot to card */}
-        <div className="w-[2px] h-8 bg-gradient-to-b from-dark/20 to-transparent" />
+          className={[
+            "w-3.5 h-3.5 rounded-full border-[3px]",
+            config.dot,
+            config.glowDot,
+            "bg-[#fdfafa]",
+            "group-hover:scale-125 transition-transform duration-300",
+          ].join(" ")}
+        />
       </div>
 
-      {/* Card */}
+      {/* ── Card container — sits in the correct half ── */}
       <div
-        className={`
-          relative flex flex-col grow
-          bg-white border border-dark/8 rounded-2xl p-6
-          shadow-sm hover:shadow-xl
-          group-hover:border-accent/25 group-hover:-translate-y-1
-          transition-all duration-500 ease-out
-        `}
+        className={[
+          "w-full pl-10 md:pl-0",
+          "md:w-1/2",
+          isEven ? "md:pl-12 lg:pl-16" : "md:pr-12 lg:pr-16",
+          "flex",
+          isEven ? "md:justify-start" : "md:justify-end",
+        ].join(" ")}
       >
-        {/* Type badge */}
-        <span
-          className={`self-start mb-4 flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border ${config.color}`}
+        {/* Card */}
+        <div
+          data-timeline-card
+          className={[
+            "relative w-full max-w-[480px]",
+            "bg-white/80 backdrop-blur-md",
+            "border border-dark/6 rounded-2xl",
+            "p-6 sm:p-7",
+            "shadow-sm hover:shadow-lg",
+            "group-hover:border-[#ff8901]/25",
+            "hover:-translate-y-1",
+            "transition-all duration-500 ease-out",
+          ].join(" ")}
         >
-          <Icon size={11} strokeWidth={2.5} />
-          {config.label}
-        </span>
+          {/* Badge + Date row */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <span
+              className={`inline-flex items-center gap-1.5 text-[10px] font-mono font-bold
+                          uppercase tracking-widest px-2.5 py-1 rounded-full border ${config.color}`}
+            >
+              <Icon size={10} strokeWidth={2.5} />
+              {config.label}
+            </span>
+            <span
+              className="font-mono text-[10px] font-semibold tracking-widest
+                         text-[#ff8901] uppercase border border-[#ff8901]/20
+                         bg-[#ff8901]/5 px-2 py-0.5 rounded"
+            >
+              {item.date}
+            </span>
+          </div>
 
-        {/* Date */}
-        <span className="font-mono text-xs font-semibold tracking-widest text-accent uppercase mb-1">
-          {item.date}
-        </span>
+          {/* Role */}
+          <h3
+            className="text-xl sm:text-2xl font-display font-semibold text-dark
+                       leading-tight mb-1
+                       group-hover:text-[#ff8901] transition-colors duration-300"
+          >
+            {item.role}
+          </h3>
 
-        {/* Org */}
-        <p className="text-sm text-dark/55 font-body mb-3">{item.org}</p>
+          {/* Org */}
+          <p className="text-[11px] font-mono text-dark/40 mb-4 uppercase tracking-[0.08em]">
+            {item.org}
+          </p>
 
-        {/* Role */}
-        <h3 className="text-lg font-display font-bold text-dark mb-3 leading-tight group-hover:text-accent transition-colors duration-300">
-          {item.role}
-        </h3>
+          {/* Description */}
+          <p className="text-sm text-gray-500 leading-relaxed mb-5">
+            {item.description}
+          </p>
 
-        {/* Description */}
-        <p className="text-sm text-gray-500 leading-relaxed mb-5 grow">{item.description}</p>
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1.5">
+            {item.tags.map((tag, i) => {
+              const logoSrc = projectTechLogos[tag];
+              return (
+                <span
+                  key={i}
+                  title={tag}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1
+                             rounded border border-dark/[0.06] bg-white
+                             text-[9px] font-mono tracking-wider uppercase
+                             text-dark/60 shadow-sm
+                             hover:border-dark/20 transition-colors cursor-default"
+                >
+                  {logoSrc ? (
+                    <img
+                      src={logoSrc}
+                      alt={tag}
+                      className="h-3 w-3 object-contain opacity-80"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                      }}
+                    />
+                  ) : (
+                    <span className="inline-block w-1 h-1 rounded-full bg-current opacity-40" />
+                  )}
+                  {tag}
+                </span>
+              );
+            })}
+          </div>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-1.5">
-          {item.tags.map((tag, i) => {
-            const logoSrc = projectTechLogos[tag];
-            return (
-              <span
-                key={i}
-                title={tag}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-dark/5 text-[10px] font-mono tracking-wider uppercase text-gray-500 border border-dark/5"
-              >
-                {logoSrc ? (
-                  <img
-                    src={logoSrc}
-                    alt={tag}
-                    className="h-3.5 w-3.5 object-contain shrink-0"
-                    loading="lazy"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                ) : (
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-current opacity-50 shrink-0" />
-                )}
-                {tag}
-              </span>
-            );
-          })}
+          {/* Bottom glow bar on hover */}
+          <div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2
+                       h-[2px] w-0 rounded-full
+                       bg-linear-to-r from-transparent via-[#ff8901]/60 to-transparent
+                       group-hover:w-3/4 transition-all duration-700 ease-out"
+          />
         </div>
-
-        {/* Index number — decorative */}
-        <span className="absolute top-4 right-5 font-display font-black text-5xl text-dark/[0.04] select-none leading-none">
-          {String(index + 1).padStart(2, "0")}
-        </span>
       </div>
     </div>
   );

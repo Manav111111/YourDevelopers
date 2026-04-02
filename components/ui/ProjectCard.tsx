@@ -9,18 +9,18 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="group relative flex flex-col w-full overflow-hidden rounded-2xl bg-[#fdfafa] border border-dark/10 hover:border-accent/40 transition-colors duration-500 shadow-sm hover:shadow-xl">
-   
-      <div className="p-8 flex flex-col grow">
+
+      <div className="p-5 sm:p-8 flex flex-col grow">
         <div className="flex justify-between items-start mb-6">
           <Badge>{project.badge}</Badge>
           <div className="font-mono text-xs tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 uppercase">
             &lt; View /&gt;
           </div>
         </div>
-        
-        <h3 className="text-3xl font-display font-bold text-dark mb-4 group-hover:text-accent transition-colors duration-300">{project.title}</h3>
-        <p className="text-muted leading-relaxed mb-6">{project.description}</p>
-        
+
+        <h3 className="text-2xl sm:text-3xl font-display font-bold text-dark mb-3 sm:mb-4 group-hover:text-accent transition-colors duration-300">{project.title}</h3>
+        <p className="text-muted leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">{project.description}</p>
+
         <div className="flex flex-wrap gap-2 mb-8">
           {project.tech.map((t, i) => {
             const logoSrc = projectTechLogos[t];
@@ -47,13 +47,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           })}
         </div>
 
-        <div className="mt-auto pt-6 border-t border-dark/5 flex items-center justify-between">
+        <div className="mt-auto pt-4 sm:pt-6 border-t border-dark/5 flex items-center justify-between">
           <div className="flex gap-4">
             {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-dark/50 hover:text-accent transition-colors"
                 title="View Source Code"
               >
@@ -61,10 +61,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </a>
             )}
             {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-dark/50 hover:text-accent transition-colors"
                 title="View Live Demo"
               >

@@ -23,25 +23,25 @@ export function Footer() {
             Let's Collaborate
           </p>
           
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-medium tracking-tighter mb-12 leading-[0.9]">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-medium tracking-tighter mb-8 sm:mb-12 leading-[0.9]">
             Let&apos;s build something <br />
             <span className="text-accent italic font-light">extraordinary</span> together.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-24">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-24">
             
             {/* Contact Details */}
             <div className="space-y-8">
               <div>
                 <h4 className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">CONTACT DIRECT</h4>
                 <div className="space-y-4">
-                  <a href="mailto:mohitaggarwal551@gmail.com" className="group flex items-center gap-4 text-xl md:text-xl font-body transition-colors hover:text-accent">
+                  <a href="mailto:mohitaggarwal551@gmail.com" className="group flex items-center gap-3 sm:gap-4 text-sm sm:text-xl md:text-xl font-body transition-colors hover:text-accent break-all sm:break-normal">
                     <span className="p-3 rounded-full bg-white/5 group-hover:bg-accent/10 transition-colors">
                       <Mail size={20} className="text-accent" />
                     </span>
                     mohitaggarwal551@gmail.com
                   </a>
-                  <a href="tel:+919205394233" className="group flex items-center gap-4 text-xl md:text-xl font-body transition-colors hover:text-accent">
+                  <a href="tel:+919205394233" className="group flex items-center gap-3 sm:gap-4 text-sm sm:text-xl md:text-xl font-body transition-colors hover:text-accent">
                     <span className="p-3 rounded-full bg-white/5 group-hover:bg-accent/10 transition-colors">
                       <Phone size={20} className="text-accent" />
                     </span>
@@ -98,7 +98,7 @@ export function Footer() {
             </div>
 
             {/* Location / Status */}
-            <div className="hidden lg:block space-y-8">
+            <div className="hidden sm:block space-y-8">
               <div>
                 <h4 className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">LOCATION</h4>
                 <p className="text-lg font-body text-white/60">

@@ -58,12 +58,12 @@ export function Hero() {
             <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
             <span className="text-xs font-mono font-bold tracking-widest uppercase">Available for work</span>
           </div>
-          <h2 className="hero-role text-xl md:text-3xl lg:text-4xl font-mono font-medium tracking-tight text-gray-700 mb-5 border-l-4 border-accent pl-4 py-1">
+          <h2 className="hero-role text-lg sm:text-xl md:text-3xl lg:text-4xl font-mono font-medium tracking-tight text-gray-700 mb-5 border-l-4 border-accent pl-3 sm:pl-4 py-1">
             Full Stack AI Developer
           </h2>
-          <h1 className="hero-name flex flex-col text-[12vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
+          <h1 className="hero-name flex flex-col text-[11vw] sm:text-[10vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
             Mohit <br />
-            <span className="text-accent italic font-bold drop-shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] ml-2 md:ml-50 mt-2">Aggarwal</span>
+            <span className="text-accent italic font-bold drop-shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] ml-1 sm:ml-2 md:ml-50 mt-2">Aggarwal</span>
           </h1>
 
 
@@ -83,12 +83,12 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hero-actions flex flex-wrap items-center gap-4">
-            <a href="#projects" className="group relative px-8 py-4 bg-accent text-dark font-display font-bold uppercase tracking-widest text-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+          <div className="hero-actions flex flex-wrap items-center gap-3 sm:gap-4">
+            <a href="#projects" className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-accent text-dark font-display font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
               <span className="relative z-10 transition-colors group-hover:text-white">View Work</span>
               <div className="absolute inset-0 bg-dark transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
             </a>
-            <a href="#contact" className="group px-8 py-4 bg-transparent text-dark font-display font-bold uppercase tracking-widest text-sm rounded-xl border border-dark/20 hover:border-dark hover:bg-dark/5 transition-colors">
+            <a href="#contact" className="group px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-dark font-display font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl border border-dark/20 hover:border-dark hover:bg-dark/5 transition-colors">
               Contact Me
             </a>
           </div>

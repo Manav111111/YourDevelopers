@@ -70,10 +70,12 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="text-3xl font-display font-medium text-dark hover:text-accent transition-colors"
               style={{
+                transitionProperty: "transform, opacity",
+                transitionDuration: "0.5s",
+                transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
                 transitionDelay: mobileMenuOpen ? `${0.1 * (i + 1)}s` : "0s",
                 transform: mobileMenuOpen ? "translateY(0)" : "translateY(20px)",
                 opacity: mobileMenuOpen ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)"
               }}
             >
               {link.name}
@@ -84,10 +86,12 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="mt-8 bg-accent text-dark font-display font-bold uppercase tracking-wider px-10 py-4 text-xl"
             style={{
+              transitionProperty: "transform, opacity",
+              transitionDuration: "0.5s",
+              transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
               transitionDelay: mobileMenuOpen ? `${0.1 * (navLinks.length + 1)}s` : "0s",
               transform: mobileMenuOpen ? "translateY(0)" : "translateY(20px)",
               opacity: mobileMenuOpen ? 1 : 0,
-              transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)"
             }}
           >
             Hire Me

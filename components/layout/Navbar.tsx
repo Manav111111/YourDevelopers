@@ -21,7 +21,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-3.5 flex items-center justify-between">
         
         {/* Logo */}
-        <Link href="/" className="group text-2xl font-display font-bold text-dark flex items-center relative z-50">
+        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group text-xl md:text-2xl font-display font-bold text-dark flex items-center relative z-50">
           Mohit Aggarwal<span className="text-accent group-hover:scale-125 transition-transform">.</span>
         </Link>
 
@@ -58,17 +58,17 @@ export function Navbar() {
 
       {/* Mobile Nav Overlay */}
       <div 
-        className={`fixed inset-0 bg-cream z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out origin-top ${
-          mobileMenuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+        className={`fixed inset-0 bg-cream z-40 flex flex-col items-center justify-center transition-all duration-300 ease-out ${
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none delay-500"
         }`}
       >
-        <nav className="flex flex-col items-center gap-8">
+        <nav className="flex flex-col items-center gap-4 mt-75 bg-cream mx-auto w-full  ">
           {navLinks.map((link, i) => (
             <Link 
               key={link.name} 
               href={link.href} 
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display font-medium text-dark hover:text-accent transition-colors"
+              className="text-lg font-display font-medium text-dark hover:text-accent transition-colors"
               style={{
                 transitionProperty: "transform, opacity",
                 transitionDuration: "0.5s",
@@ -84,7 +84,7 @@ export function Navbar() {
           <a 
             href="#contact" 
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-8 bg-accent text-dark font-display font-bold uppercase tracking-wider px-10 py-4 text-xl"
+            className="mb-4 bg-accent text-dark font-display  font-bold uppercase tracking-wider px-8 py-2 text-md sm:text-xl rounded-lg shadow-md"
             style={{
               transitionProperty: "transform, opacity",
               transitionDuration: "0.5s",
@@ -94,7 +94,7 @@ export function Navbar() {
               opacity: mobileMenuOpen ? 1 : 0,
             }}
           >
-            Hire Me
+            Connect With Me
           </a>
         </nav>
       </div>

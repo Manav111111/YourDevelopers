@@ -39,12 +39,12 @@ export function Skills() {
 
 
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center gap-6 mb-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center gap-6 mb-40">
         <h2 className="text-3xl font-display font-bold uppercase tracking-widest text-dark">Capabilities</h2>
         <div className="grow h-px bg-dark/10"></div>
       </div>
       {/* Background Marquee */}
-      <div className="absolute top-20 sm:top-28 left-0 w-[120vw] -ml-[10vw] mb-20 -rotate-3 bg-accent py-4 sm:py-6 overflow-hidden shadow-xl z-0 pointer-events-none">
+      <div className="absolute top-30 sm:top-28 left-0 w-[120vw] -ml-[10vw] mb-20 -rotate-3 bg-accent py-4 sm:py-6 overflow-hidden shadow-xl z-0 pointer-events-none">
         <div className="marquee-inner flex whitespace-nowrap w-[200%]">
           {/* Repeating text block */}
           {Array(8).fill(

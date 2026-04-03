@@ -32,30 +32,11 @@ export function Projects() {
     <section id="projects" ref={containerRef} className="py-16 sm:py-24 md:py-12 bg-cream text-dark ">
       <div className="max-w-7xl mx-auto px-6 md:px-12 projects-container">
 
-        <div className="flex items-center gap-6  projects-header">
+        <div className="flex items-center gap-6  mb-10 sm:mb-16 projects-header">
           <h2 className="text-3xl font-display font-bold uppercase tracking-widest">Selected Works</h2>
           <div className="grow h-px bg-dark/10"></div>
         </div>
 
-        <div className="flex gap-2 sm:gap-3 mb-10 sm:mb-16 overflow-x-auto pb-2 -mx-2 px-2 scrollbar-hide projects-header">
-          {[
-            { id: "all", label: "All Projects" },
-            { id: "ai-ml", label: "AI/ML" },
-            { id: "app-dev", label: "Mobile Apps" },
-            { id: "web-dev", label: "Web Scale" }
-          ].map(btn => (
-            <button
-              key={btn.id}
-              onClick={() => setFilter(btn.id as any)}
-              className={`shrink-0 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-all duration-300 ${filter === btn.id
-                ? "bg-accent text-dark shadow-[0_8px_16px_rgba(255,137,1,0.3)]"
-                : "bg-dark/5 text-dark/60 hover:bg-dark/10 hover:text-dark"
-                }`}
-            >
-              {btn.label}
-            </button>
-          ))}
-        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {filteredProjects.map((project, i) => (

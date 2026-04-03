@@ -69,18 +69,10 @@ export function Journey() {
       <div className="max-w-6xl mx-auto px-6 md:px-12 xl:px-4 relative z-10 w-full">
         
         {/* Section heading */}
-        <div className="text-center mb-20 md:mb-32">
-          <p className="text-[#ff8901] font-mono text-xs md:text-sm tracking-[0.2em] font-semibold mb-4 uppercase">
-            Professional Evolution
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight">
-            The Journey
-          </h2>
-          <p className="mt-6 text-dark/50 max-w-2xl mx-auto font-sans leading-relaxed text-sm md:text-base">
-            A chronological mapping of technical pivots, architectural milestones, and leadership growth across building digital experiences.
-          </p>
+        <div className="flex items-center gap-6 mb-10 projects-header">
+          <h2 className="text-3xl font-display font-bold uppercase tracking-widest">The Journey</h2>
+          <div className="grow h-px bg-dark/10"></div>
         </div>
-
         {/* Vertical timeline track */}
         <div className="timeline-track relative w-full pt-4 pb-10">
 

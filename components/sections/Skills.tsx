@@ -14,7 +14,7 @@ export function Skills() {
       xPercent: -50,
       ease: "none",
       scrollTrigger: {
-        trigger: ".skills-section",
+        trigger: containerRef.current,
         start: "top bottom",
         end: "bottom top",
         scrub: 1,

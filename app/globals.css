@@ -61,7 +61,7 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Prevent horizontal overflow */
+/* Prevent horizontal overflow without breaking position: sticky */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }

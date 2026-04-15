@@ -104,9 +104,10 @@ export const projects: Project[] = [
     domain: "app-dev",
     badge: "Mobile App",
     tech: ["React Native", "Firebase" , "Play Store", "Android Studio"],
-    image: "/projects/project-2.jpg",
-    liveUrl: "",
+    image: "/projects_ss/koc.jpeg",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.trueknoc.myapp",
     githubUrl: "https://github.com/Mohit776/Knoc",
+
     featured: false,
   },
   {
@@ -151,8 +152,8 @@ export const projects: Project[] = [
     description: "No-code editor for fast campaign pages.",
     domain: "web-dev",
     badge: "Web App",
-    tech: ["React", "Express" ,  "NodeJS", "MongoDB"],
-    image: "/projects/project-6.jpg",
+    tech: ["React", "Express" ,  "NodeJS", "MongoDB","Razorpay"],
+    image: "/projects_ss/wooden2.png",
     liveUrl: "https://the-wooden-stories.vercel.app",
     githubUrl: "https://github.com/Mohit776/The-Wooden-Stories",
     featured: false,

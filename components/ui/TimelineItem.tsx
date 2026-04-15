@@ -35,7 +35,6 @@ const typeConfig = {
 export function TimelineItem({ item, index }: TimelineItemProps) {
   const config = typeConfig[item.type] ?? typeConfig.internship;
   const Icon = config.icon;
-  const isEven = index % 2 === 0;
 
   return (
     /* Outer row — pure layout, no visual chrome */
@@ -43,17 +42,16 @@ export function TimelineItem({ item, index }: TimelineItemProps) {
       className={[
         "timeline-item",
         "group relative flex items-start w-full",
-        "mb-16 last:mb-0",
-        // On desktop alternate left / right
-        isEven ? "md:flex-row" : "md:flex-row-reverse",
+        "sticky transition-all duration-500 ease-in-out origin-top",
       ].join(" ")}
+      style={{
+        top: `calc(10rem + ${index * 0.75}rem)`,
+        animationDelay: `${index * 100}ms`
+      }}
     >
-      {/* ── Left / Right half-spacer (desktop only) ── */}
-      <div className="hidden md:block md:w-1/2 shrink-0" />
-
       {/* ── Center dot (absolutely on the vertical spine) ── */}
       <div
-        className="absolute left-4.5 md:left-1/2 top-8
+        className="absolute left-6 md:left-10 top-8
                    flex items-center justify-center
                    -translate-x-1/2 z-20"
       >
@@ -68,24 +66,21 @@ export function TimelineItem({ item, index }: TimelineItemProps) {
         />
       </div>
 
-      {/* ── Card container — sits in the correct half ── */}
+      {/* ── Card container ── */}
       <div
         className={[
-          "w-full pl-10 md:pl-0",
-          "md:w-1/2",
-          isEven ? "md:pl-12 lg:pl-16" : "md:pr-12 lg:pr-16",
-          "flex",
-          isEven ? "md:justify-start" : "md:justify-end",
+          "w-full pl-14 md:pl-24 pr-4 md:pr-0",
+          "flex justify-center",
         ].join(" ")}
       >
         {/* Card */}
         <div
           data-timeline-card
           className={[
-            "relative w-full max-w-[480px]",
+            "relative w-full",
             "bg-white/80 backdrop-blur-md",
             "border border-dark/6 rounded-2xl",
-            "p-6 sm:p-7",
+            "p-6 sm:p-7 sm:px-8",
             "shadow-sm hover:shadow-lg",
             "group-hover:border-[#ff8901]/25",
             "hover:-translate-y-1",

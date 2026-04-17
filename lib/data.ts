@@ -3,6 +3,7 @@ export type Project = {
   title: string;
   description: string;
   domain: "ai-ml" | "app-dev" | "web-dev";
+  mockupType?: "laptop" | "mobile";
   badge: string;
   tech: string[];
   image: string;
@@ -85,18 +86,7 @@ export type JourneyItem = {
 
 
 export const projects: Project[] = [
-  {
-    id: 1,
-    title: "Code Veda",
-    description: "Code Veda is an AI-powered platform that helps students and professionals learn coding more effectively. It provides personalized learning paths, real-time feedback, and a comprehensive library of coding resources.",
-    domain: "web-dev",
-    badge: "Web App",
-    tech: ["React", "Express" ,  "NodeJS", "MongoDB"],
-    image: "/projects/project-1.jpg",
-    liveUrl: "https://code-veda-mu.vercel.app/",
-    githubUrl: "https://github.com/Mohit776/Code-Veda",
-    featured: true,
-  },
+   
   {
     id: 2,
     title: "TrueKnoc",
@@ -114,10 +104,10 @@ export const projects: Project[] = [
     id: 3,
     title: "HomeQuickes",
     description: "A specialized e-commerce platform for sustainable goods.",
-    domain: "web-dev",
-    badge: "Web App",
+    domain: "app-dev",
+    badge: "Mobile App",
     tech: ["React Native", "NodeJS" , "Express", "MongoDB", "Android Studio"],
-    image: "/projects/project-3.jpg",
+    image: "/projects_ss/quickHomies.jpeg",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/Mohit776/Quickhomies-1",
     featured: false,
@@ -127,9 +117,10 @@ export const projects: Project[] = [
     title: "Quant Agent",
     description: "Real-time Twitter sentiment visualizer.",
     domain: "ai-ml",
+    mockupType: "laptop",
     badge: "Machine Learning",
-    tech: ["LangChain", "OpenAI", "Hugging Face"],
-    image: "/projects/project-4.jpg",
+    tech: ["LangChain", "OpenAI", "Hugging Face","Next.js", "FastAPI"],
+    image: "/projects_ss/quant.png",
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/Mohit776/DualModeResearchAgent",
     featured: false,

@@ -82,12 +82,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Image Placeholder Area */}
       <div className="relative w-full md:w-2/5 lg:w-1/3  flex items-center justify-center p-6 border-b md:border-b-0 md:border-l border-dark/10 min-h-[220px] sm:min-h-[280px] md:min-h-auto order-1 md:order-2 overflow-hidden">
-        <div className={`relative z-10 w-full h-full min-h-[160px] rounded-xl overflow-hidden flex flex-col items-center justify-center group-hover:scale-[1.02] transition-all duration-500 shadow-inner ${project.domain === 'app-dev' || project.domain === 'web-dev' ? 'bg-transparent border-none shadow-none' : 'bg-dark/10 border border-dark/5 gap-3'}`}>
-          {project.domain === 'app-dev' ? (
+        <div className={`relative z-10 w-full h-full min-h-[160px] rounded-xl overflow-hidden flex flex-col items-center justify-center group-hover:scale-[1.02] transition-all duration-500 shadow-inner ${(project.domain === 'app-dev' || project.domain === 'web-dev' || project.domain === 'ai-ml') ? 'bg-transparent border-none shadow-none' : 'bg-dark/10 border border-dark/5 gap-3'}`}>
+          {project.mockupType === 'mobile' || (project.domain === 'app-dev' && project.mockupType !== 'laptop') ? (
             <div className="relative inline-flex h-full max-h-[240px] sm:max-h-[300px]">
               {project.image && !project.image.includes('project-') && (
                 <div 
-                  className="absolute z-0 bg-cover bg-top rounded-2xl md:rounded-3xl max-md:top-[5%] max-md:bottom-[2%] max-md:left-[10%] max-md:right-[10%] md:top-[4%] md:bottom-[1%] md:left-[11%] md:right-[8%]"
+                  className="absolute z-0 bg-cover bg-top rounded-2xl md:rounded-3xl max-md:top-[5%] max-md:bottom-[2%] max-md:left-[10%] max-md:right-[10%] md:top-[5%] md:bottom-[5%] md:left-[11%] md:right-[8%]"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
               )}
@@ -97,7 +97,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 className="relative z-10 w-auto h-full object-contain drop-shadow-md transition-transform duration-500" 
               />
             </div>
-          ) : project.domain === 'web-dev' ? (
+          ) : project.mockupType === 'laptop' || project.domain === 'web-dev' || project.domain === 'ai-ml' ? (
             <div className="relative inline-flex w-full mt-4 group-hover:scale-105 transition-transform duration-500">
               {project.image && !project.image.includes('project-') && (
                 <div 

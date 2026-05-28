@@ -37,47 +37,20 @@ export function TimelineItem({ item, index }: TimelineItemProps) {
   const Icon = config.icon;
 
   return (
-    /* Outer row — pure layout, no visual chrome */
+    /* Grid card — full width inside the 2-col grid */
     <div
       className={[
         "timeline-item",
-        "group relative flex items-start w-full",
-        "sticky transition-all duration-500 ease-in-out origin-top",
+        "group relative flex flex-col",
       ].join(" ")}
-      style={{
-        top: `calc(10rem + ${index * 0.75}rem)`,
-        animationDelay: `${index * 100}ms`
-      }}
     >
-      {/* ── Center dot (absolutely on the vertical spine) ── */}
-      <div
-        className="absolute left-6 md:left-10 top-8
-                   flex items-center justify-center
-                   -translate-x-1/2 z-20"
-      >
-        <div
-          className={[
-            "w-3.5 h-3.5 rounded-full border-[3px]",
-            config.dot,
-            config.glowDot,
-            "bg-[#fdfafa]",
-            "group-hover:scale-125 transition-transform duration-300",
-          ].join(" ")}
-        />
-      </div>
-
       {/* ── Card container ── */}
-      <div
-        className={[
-          "w-full pl-14 md:pl-24 pr-4 md:pr-0",
-          "flex justify-center",
-        ].join(" ")}
-      >
+      <div className="w-full">
         {/* Card */}
         <div
           data-timeline-card
           className={[
-            "relative w-full",
+            "relative w-full h-full",
             "bg-white/80 backdrop-blur-md",
             "border border-dark/6 rounded-2xl",
             "p-6 sm:p-7 sm:px-8",

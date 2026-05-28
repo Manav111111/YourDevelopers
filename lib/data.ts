@@ -121,7 +121,7 @@ export const projects: Project[] = [
     badge: "Machine Learning",
     tech: ["LangChain", "OpenAI", "Hugging Face","Next.js", "FastAPI"],
     image: "/projects_ss/quant.png",
-    liveUrl: "https://example.com",
+    liveUrl: "https://dual-mode-research-agent.vercel.app/",
     githubUrl: "https://github.com/Mohit776/DualModeResearchAgent",
     featured: false,
   },

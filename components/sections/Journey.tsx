@@ -1,123 +1,74 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { journeyItems } from "@/lib/data";
 import { TimelineItem } from "@/components/ui/TimelineItem";
 
 export function Journey() {
-  const containerRef = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    let ctx = gsap.context(() => {
-      // Create ScrollTrigger pinning and animation for glowing line
-      gsap.fromTo(
-        ".timeline-line",
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          transformOrigin: "top center",
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".timeline-track",
-            start: "top 70%",
-            end: "bottom 80%",
-            scrub: true,
-          },
-        }
-      );
-
-      // Staggered card reveal
-      const items = gsap.utils.toArray<HTMLElement>(".timeline-item");
-      items.forEach((item, index) => {
-        // The inner card
-        const card = item.querySelector('[data-timeline-card]');
-        if (card) {
-          gsap.fromTo(
-            card,
-            { 
-              y: 60, 
-              opacity: 0,
-              x: window.innerWidth >= 768 ? 40 : 0, 
-            },
-            {
-              y: 0,
-              x: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "expo.out",
-              scrollTrigger: {
-                trigger: item,
-                start: "top 85%",
-              },
-            }
-          );
-        }
-
-        if (index === items.length - 1) {
-          const scrollDistance = 400;
-          gsap.to(".journey-header", {
-            y: -scrollDistance,
-            opacity: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: item,
-              start: `top ${160 + index * 32 + scrollDistance}px`, 
-              end: `top ${160 + index * 32}px`, 
-              scrub: true,
-            }
-          });
-          return;
-        }
-
-        gsap.to(item, {
-          scale: 1,
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: items[index + 1],
-            start: "top bottom",
-            end: `top ${160 + (index + 1) * 32}px`,
-            scrub: true,
-          }
-        });
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, { scope: containerRef });
+  // Pair items into rows of 2
+  const pairs: (typeof journeyItems)[] = [];
+  for (let i = 0; i < journeyItems.length; i += 2) {
+    pairs.push(journeyItems.slice(i, i + 2));
+  }
 
   return (
     <section
       id="journey"
-      ref={containerRef}
-      className="py-24 md:py-32 bg-cream text-dark relative"
+      className="relative bg-cream text-dark py-16 md:py-24"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 xl:px-4 relative z-10 w-full">
-        
-        {/* Section heading */}
-        <div className="sticky top-16 md:top-16 z-20 bg-cream py-6 sm:py-8 mb-6 sm:mb-10 flex items-center gap-6 journey-header">
-          <h2 className="text-3xl font-display font-bold uppercase tracking-widest">The Journey</h2>
-          <div className="grow h-px bg-dark/10"></div>
-        </div>
-        {/* Vertical timeline track */}
-        <div className="timeline-track mx-auto max-w-2xl relative pt-4 pb-10">
+      <div className="w-full max-w-5xl mx-auto px-6 md:px-12">
 
-          {/* Spine */}
-          <div className="absolute left-6 md:left-10 top-0 bottom-0 w-[2px] -translate-x-1/2 z-0">
-            <div className="absolute inset-0 bg-dark/5 rounded-full" />
-            <div className="timeline-line absolute top-0 w-full h-full bg-linear-to-b from-[#ff8901] via-[#ff8901]/60 to-transparent shadow-[0_0_10px_rgba(255,137,1,0.5)] rounded-full origin-top" />
+        {/* Section heading */}
+        <div className="flex items-center gap-6 mb-14">
+          <h2 className="text-3xl font-display font-bold uppercase tracking-widest shrink-0">
+            The Journey
+          </h2>
+          <div className="grow h-px bg-dark/10" />
+        </div>
+
+        {/* Timeline */}
+        <div className="relative">
+
+          {/* Vertical center spine */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] pointer-events-none z-0">
+            {/* track */}
+            <div className="absolute inset-0 bg-dark/8 rounded-full" />
+            {/* glow fill */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#ff8901] via-[#ff8901]/50 to-transparent rounded-full shadow-[0_0_10px_rgba(255,137,1,0.4)]" />
           </div>
 
-          {/* Items */}
-          <div className="relative z-10 w-full flex flex-col gap-16 sm:gap-32 md:gap-40 pb-24">
-            {journeyItems.map((item, i) => (
-              <TimelineItem key={item.id} item={item} index={i} />
+          {/* Rows */}
+          <div className="flex flex-col gap-10">
+            {pairs.map((pair, rowIdx) => (
+              <div key={rowIdx} className="relative grid grid-cols-2 gap-0">
+
+                {/* Center dot for this row */}
+                <div className="absolute left-1/2 top-8 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded-full border-[3px] border-[#ff8901] bg-cream shadow-[0_0_12px_rgba(255,137,1,0.6)] transition-transform duration-300 hover:scale-125" />
+                </div>
+
+                {/* Left card */}
+                <div className="pr-8 md:pr-12 flex justify-end">
+                  {pair[0] && (
+                    <div className="w-full max-w-sm">
+                      <TimelineItem item={pair[0]} index={rowIdx * 2} />
+                    </div>
+                  )}
+                </div>
+
+                {/* Right card */}
+                <div className="pl-8 md:pl-12 flex justify-start">
+                  {pair[1] && (
+                    <div className="w-full max-w-sm">
+                      <TimelineItem item={pair[1]} index={rowIdx * 2 + 1} />
+                    </div>
+                  )}
+                </div>
+
+              </div>
             ))}
           </div>
-          
-        </div>
 
+        </div>
       </div>
     </section>
   );

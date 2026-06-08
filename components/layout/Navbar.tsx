@@ -11,7 +11,13 @@ export function Navbar() {
     { name: "ABOUT", href: "#about" },
     { name: "SKILLS", href: "#skills" },
     { name: "PROJECTS", href: "#projects" },
-    { name: "JOURNEY", href: "#journey" }
+    { name: "JOURNEY", href: "#journey" },
+    { 
+      name: "RESUME", 
+      onClick: () => {
+        window.dispatchEvent(new Event("open-resume"));
+      } 
+    }
   ];
 
   return (
@@ -28,13 +34,23 @@ export function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href} 
-              className="text-sm font-mono font-medium tracking-widest text-gray-600 hover:text-dark transition-colors"
-            >
-              {link.name}
-            </Link>
+            link.onClick ? (
+              <button 
+                key={link.name} 
+                onClick={link.onClick} 
+                className="text-sm font-mono font-medium tracking-widest text-gray-600 hover:text-dark transition-colors cursor-pointer bg-transparent border-none p-0 outline-none"
+              >
+                {link.name}
+              </button>
+            ) : (
+              <Link 
+                key={link.name} 
+                href={link.href!} 
+                className="text-sm font-mono font-medium tracking-widest text-gray-600 hover:text-dark transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -64,22 +80,43 @@ export function Navbar() {
       >
         <nav className="flex flex-col items-center gap-4 mt-75 bg-cream mx-auto w-full  ">
           {navLinks.map((link, i) => (
-            <Link 
-              key={link.name} 
-              href={link.href} 
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-display font-medium text-dark hover:text-accent transition-colors"
-              style={{
-                transitionProperty: "transform, opacity",
-                transitionDuration: "0.5s",
-                transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-                transitionDelay: mobileMenuOpen ? `${0.1 * (i + 1)}s` : "0s",
-                transform: mobileMenuOpen ? "translateY(0)" : "translateY(20px)",
-                opacity: mobileMenuOpen ? 1 : 0,
-              }}
-            >
-              {link.name}
-            </Link>
+            link.onClick ? (
+              <button 
+                key={link.name} 
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  link.onClick!();
+                }}
+                className="text-lg font-display font-medium text-dark hover:text-accent transition-colors cursor-pointer bg-transparent border-none p-0 outline-none"
+                style={{
+                  transitionProperty: "transform, opacity",
+                  transitionDuration: "0.5s",
+                  transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+                  transitionDelay: mobileMenuOpen ? `${0.1 * (i + 1)}s` : "0s",
+                  transform: mobileMenuOpen ? "translateY(0)" : "translateY(20px)",
+                  opacity: mobileMenuOpen ? 1 : 0,
+                }}
+              >
+                {link.name}
+              </button>
+            ) : (
+              <Link 
+                key={link.name} 
+                href={link.href!} 
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg font-display font-medium text-dark hover:text-accent transition-colors"
+                style={{
+                  transitionProperty: "transform, opacity",
+                  transitionDuration: "0.5s",
+                  transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+                  transitionDelay: mobileMenuOpen ? `${0.1 * (i + 1)}s` : "0s",
+                  transform: mobileMenuOpen ? "translateY(0)" : "translateY(20px)",
+                  opacity: mobileMenuOpen ? 1 : 0,
+                }}
+              >
+                {link.name}
+              </Link>
+            )
           ))}
           <a 
             href="#contact" 

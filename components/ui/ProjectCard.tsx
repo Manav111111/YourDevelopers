@@ -87,7 +87,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="relative inline-flex h-full max-h-[240px] sm:max-h-[300px]">
               {project.image && !project.image.includes('project-') && (
                 <div 
-                  className="absolute z-0 bg-cover bg-top rounded-2xl md:rounded-3xl max-md:top-[5%] max-md:bottom-[2%] max-md:left-[10%] max-md:right-[10%] md:top-[5%] md:bottom-[5%] md:left-[11%] md:right-[8%]"
+                  className="absolute z-0 bg-cover bg-top rounded-[32px] md:rounded-3xl max-md:top-[14%] max-md:bottom-[2%] max-md:left-[10%] max-md:right-[9%] md:top-[5%] md:bottom-[5%] md:left-[11%] md:right-[8%]"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
               )}
@@ -101,7 +101,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="relative inline-flex w-full mt-4 group-hover:scale-105 transition-transform duration-500">
               {project.image && !project.image.includes('project-') && (
                 <div 
-                  className="absolute z-0 bg-cover bg-top rounded-t-sm rounded-b-none max-md:top-[8%] max-md:bottom-[18%] max-md:left-[12%] max-md:right-[12%] md:top-[12%] md:bottom-[20%] md:left-[10%] md:right-[10%]"
+                  className="absolute z-0 bg-cover bg-top rounded-t-sm rounded-b-none max-md:top-[12%] max-md:bottom-[18%] max-md:left-[10%] max-md:right-[10%] md:top-[12%] md:bottom-[20%] md:left-[10%] md:right-[10%]"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
               )}

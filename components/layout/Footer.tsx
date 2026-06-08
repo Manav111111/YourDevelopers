@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, FileText, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, FileText, ArrowUpRight, Download } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -52,13 +52,21 @@ export function Footer() {
 
               <div>
                 <h4 className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">RESOURCES</h4>
-                <a 
-                  href="/resume.pdf" 
-                  target="_blank"
-                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white text-dark font-mono text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 shadow-lg"
-                >
-                  <FileText size={16} /> Download Resume
-                </a>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button 
+                    onClick={() => window.dispatchEvent(new Event("open-resume"))}
+                    className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-white text-dark font-mono text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
+                  >
+                    <FileText size={16} /> Show Resume
+                  </button>
+                  <a 
+                    href="/Mohit_AI.pdf" 
+                    download="Mohit_Aggarwal_Resume.pdf"
+                    className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-transparent border border-white/20 text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-dark hover:border-white transition-all duration-300 cursor-pointer"
+                  >
+                    <Download size={16} /> Download
+                  </a>
+                </div>
               </div>
             </div>
 

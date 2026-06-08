@@ -116,7 +116,13 @@ export function Hero() {
               <span className="relative z-10 transition-colors group-hover:text-white">View Work</span>
               <div className="absolute inset-0 bg-dark transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0"></div>
             </a>
-            <a href="#contact" className="group px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-dark font-display font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl border border-dark/20 hover:border-dark hover:bg-dark/5 transition-colors">
+            <button 
+              onClick={() => window.dispatchEvent(new Event("open-resume"))}
+              className="group px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-dark font-display font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl border border-dark/20 hover:border-dark hover:bg-dark/5 transition-colors cursor-pointer"
+            >
+              Show Resume
+            </button>
+            <a href="#contact" className="group px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-dark/60 font-display font-bold uppercase tracking-widest text-xs sm:text-sm rounded-xl hover:text-dark hover:bg-dark/5 transition-colors">
               Contact Me
             </a>
           </div>

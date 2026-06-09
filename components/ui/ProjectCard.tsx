@@ -41,8 +41,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="flex justify-between items-start mb-6">
-          <Badge>{project.badge}</Badge>
-          <div className="font-mono text-xs tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 uppercase">
+          <div className="flex flex-wrap gap-2 items-center">
+            <Badge>{project.badge}</Badge>
+            {project.tech.includes("Play Store") && (
+              <Badge className="bg-green-500/10 text-green-600 border-green-500/20 flex gap-1.5 items-center">
+                <img src="/google-play-store-logo-svgrepo-com.svg" alt="Play Store" className="w-3 h-3 object-contain" />
+                Live on Play Store
+              </Badge>
+            )}
+          </div>
+          <div className="font-mono text-xs tracking-widest text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 uppercase mt-1">
             &lt; View /&gt;
           </div>
         </div>
@@ -87,7 +95,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="relative inline-flex h-full max-h-[240px] sm:max-h-[300px]">
               {project.image && !project.image.includes('project-') && (
                 <div 
-                  className="absolute z-0 bg-cover bg-top rounded-[32px] md:rounded-3xl max-md:top-[14%] max-md:bottom-[2%] max-md:left-[10%] max-md:right-[9%] md:top-[5%] md:bottom-[5%] md:left-[11%] md:right-[8%]"
+                  className="absolute z-0 bg-cover bg-top rounded-[32px] md:rounded-3xl max-md:top-[14%] max-md:bottom-[2%] max-md:left-[12%] max-md:right-[8%] md:top-[5%] md:bottom-[5%] md:left-[11%] md:right-[8%]"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
               )}
@@ -101,7 +109,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="relative inline-flex w-full mt-4 group-hover:scale-105 transition-transform duration-500">
               {project.image && !project.image.includes('project-') && (
                 <div 
-                  className="absolute z-0 bg-cover bg-top rounded-t-sm rounded-b-none max-md:top-[12%] max-md:bottom-[18%] max-md:left-[10%] max-md:right-[10%] md:top-[12%] md:bottom-[20%] md:left-[10%] md:right-[10%]"
+                  className="absolute z-0 bg-cover bg-top rounded-t-sm rounded-b-none max-md:top-[12%] max-md:bottom-[18%] max-md:left-[10%] max-md:right-[9%] md:top-[12%] md:bottom-[20%] md:left-[10%] md:right-[9%]"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
               )}

@@ -69,7 +69,7 @@ export function Hero() {
             <span className="text-xs font-mono font-bold tracking-widest uppercase">Available for work</span>
           </div>
           <h2 className="hero-role self-start text-left text-lg sm:text-xl md:text-3xl lg:text-4xl font-mono font-medium tracking-tight text-gray-700 mb-5 border-l-4 border-accent pl-3 sm:pl-4 py-1">
-            Full Stack AI Developer
+            AI Engineer
           </h2>
           <h1 className="hero-name self-start text-left flex flex-col text-[11vw] sm:text-[10vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
             Mohit <br />

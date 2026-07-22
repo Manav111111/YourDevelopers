@@ -9,6 +9,13 @@ interface TimelineItemProps {
 }
 
 const typeConfig = {
+  experience: {
+    icon: Briefcase,
+    label: "Experience",
+    color: "bg-[#ff8901]/10 text-[#ff8901] border-[#ff8901]/30",
+    dot: "border-[#ff8901]",
+    glowDot: "shadow-[0_0_10px_rgba(255,137,1,0.6)]",
+  },
   internship: {
     icon: Briefcase,
     label: "Internship",

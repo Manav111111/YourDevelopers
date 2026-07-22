@@ -3,6 +3,7 @@ import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/layout/LenisProvider";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -150,6 +151,7 @@ export default function RootLayout({
         <LenisProvider>
           {children}
         </LenisProvider>
+        <Analytics />
       </body>
     </html>
   );

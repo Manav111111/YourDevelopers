@@ -20,6 +20,11 @@ export const projectTechLogos: Record<string, string> = {
 
   // AI / ML
   "LangChain": "https://cdn.simpleicons.org/langchain/000000",
+  "LangGraph": "https://cdn.simpleicons.org/langchain/000000",
+  "FastMCP": "https://cdn.simpleicons.org/fastapi/009688",
+  "Groq": "/openai-svgrepo-com.svg",
+  "Qdrant": "https://cdn.simpleicons.org/qdrant/DC2626",
+  "Gemini": "https://cdn.simpleicons.org/googlegemini/8E75B2",
   "BERT": "/hugging-face-svgrepo-com.svg",
   "TensorFlow": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
   "PyTorch": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
@@ -73,7 +78,7 @@ export const projectTechLogos: Record<string, string> = {
 
 export type JourneyItem = {
   id: number;
-  type: "internship" | "achievement" | "education";
+  type: "internship" | "achievement" | "education" | "experience";
   date: string;
   org: string;
   role: string;
@@ -87,7 +92,44 @@ export type JourneyItem = {
 
 
 export const projects: Project[] = [
-
+  {
+    id: 1,
+    title: "DevOps Agent",
+    description: "Built a self-healing DevOps agent using LangGraph and FastMCP for autonomous dockerized service remediation, multi-stage pipeline for automated root-cause analysis, Human-in-Loop risk governance, chaos engineering, and Pydantic Logfire distributed tracing.",
+    domain: "ai-ml",
+    mockupType: "laptop",
+    badge: "Autonomous AI Agent",
+    tech: ["LangGraph", "FastMCP", "Docker", "GPT-OSS", "Pydantic Logfire", "Chaos Engineering"],
+    image: "/projects_ss/quant.png",
+    liveUrl: "https://github.com/Mohit776",
+    githubUrl: "https://github.com/Mohit776/DevOps-Agent",
+    featured: true,
+  },
+  {
+    id: 4,
+    title: "Quant Agent",
+    description: "Architected an enterprise-grade financial RAG system using LangGraph agentic AI workflows and routing, integrated reranking models & Qdrant vector semantic search across dense 10-K filings, and mitigated LLM hallucinations via reflection loops.",
+    domain: "ai-ml",
+    mockupType: "laptop",
+    badge: "AI-Powered Equity Research Agent",
+    tech: ["LangGraph", "Groq", "Qdrant", "Gemini", "RAG", "FastAPI"],
+    image: "/projects_ss/quant.png",
+    liveUrl: "https://dual-mode-research-agent.vercel.app/",
+    githubUrl: "https://github.com/Mohit776/DualModeResearchAgent",
+    featured: false,
+  },
+    {
+    id: 6,
+    title: "Advize",
+    description: "A high-impact web application used by 1000+ active users that seamlessly connects brands and creators to streamline influencer collaborations, campaign management, and partnerships.",
+    domain: "web-dev",
+    badge: "Web App",
+    tech: ["NextJS", "Firebase", "NodeJS", "Razorpay"],
+    image: "/projects_ss/advize.png",
+    liveUrl: "https://www.advize.in/",
+    githubUrl: "https://github.com/Mohit776/",
+    featured: false,
+  },
   {
     id: 2,
     title: "TrueKnoc",
@@ -112,44 +154,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Mohit776/Quickhomies-1",
     featured: false,
   },
-  {
-    id: 4,
-    title: "Quant Agent",
-    description: "An advanced AI powered financial analytics platform designed for detailed stock analysis, deep peer comparisons, and comprehensive risk assessment to empower smarter investment decision making.",
-    domain: "ai-ml",
-    mockupType: "laptop",
-    badge: "AI Agent",
-    tech: ["LangChain", "OpenAI", "Hugging Face", "Next.js", "FastAPI"],
-    image: "/projects_ss/quant.png",
-    liveUrl: "https://dual-mode-research-agent.vercel.app/",
-    githubUrl: "https://github.com/Mohit776/DualModeResearchAgent",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "WoodenStories",
-    description: "A fully responsive ecommerce web application designed to sell custom handcrafted wooden products, featuring seamless user authentication, secure payment gateway integration, and interactive product catalogs.",
-    domain: "web-dev",
-    badge: "Web App",
-    tech: ["React", "Express", "NodeJS", "MongoDB", "Razorpay"],
-    image: "/projects_ss/wooden2.png",
-    liveUrl: "https://the-wooden-stories.vercel.app",
-    githubUrl: "https://github.com/Mohit776/The-Wooden-Stories",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Soul Chef AI",
-    description: "An advanced AI powered culinary assistant designed to revolutionize your cooking experience through intelligent recipe generation, personalized meal planning, and AI-driven dietary recommendations.",
-    domain: "ai-ml",
-    mockupType: "mobile",
-    badge: "AI Powered Mobile App",
-    tech: ["React Native", "Firebase", "OpenAI", "Google Colab"],
-    image: "/projects/project-5.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/Mohit776/SoulChef-AI",
-    featured: false,
-  },
 
 ];
 
@@ -160,6 +164,24 @@ export const projects: Project[] = [
 export const journeyItems: JourneyItem[] = [
   {
     id: 1,
+    type: "experience",
+    date: "Jan 2026 – Present",
+    org: "Advize Technology",
+    role: "Co-Founder & CTO",
+    description: "Leading technical strategy, system architecture, and scalable software development across web and mobile ecosystems.",
+    tags: ["Leadership", "Next.js", "React Native", "Node.js", "MongoDB"],
+  },
+  {
+    id: 2,
+    type: "experience",
+    date: "Dec 2025 – Present",
+    org: "Self-Employed",
+    role: "Freelance Developer",
+    description: "Shipped more than 10+ projects including mobile apps, full-stack websites, and intelligent AI agents.",
+    tags: ["AI Agents", "Next.js", "React Native", "FastAPI", "Full Stack"],
+  },
+  {
+    id: 3,
     type: "internship",
     date: "Oct 2025 – Jan 2026",
     org: "Lakshmi Information Technology Private Limited",
@@ -168,25 +190,16 @@ export const journeyItems: JourneyItem[] = [
     tags: ["Android Development", "React Native", "React", "Node.js", "Express.js"],
   },
   {
-    id: 2,
-    type: "achievement",
-    date: "",
-    org: "National Level Hackathons",
-    role: "Winner & Runner Up",
-    description: "8 Times National Hackathon",
-    tags: ["AI/ML", "Web Development", "App Development"],
-  },
-  {
-    id: 3,
-    type: "internship",
-    date: "May 2023 – Aug 2023",
-    org: "The famous Halwai Private Limited",
-    role: "Android Developer Intern",
-    description: "Developed REST APIs and React frontend for internal dashboard.",
-    tags: ["Android", "React Native", "Firebase"],
-  },
-  {
     id: 4,
+    type: "internship",
+    date: "March – May",
+    org: "Kavya Lavanya Lekhwar's Pvt Ltd",
+    role: "Android Developer Intern",
+    description: "Developed and optimized Android application components, integrating core features and improving UI performance.",
+    tags: ["Android", "React Native", "Firebase", "REST APIs"],
+  },
+  {
+    id: 6,
     type: "achievement",
     date: "Summer 2026",
     org: "Social Summer of Code Season 5",
@@ -194,7 +207,15 @@ export const journeyItems: JourneyItem[] = [
     description: "Guided and mentored contributors on open-source projects, reviewed pull requests, and helped developers resolve technical issues.",
     tags: ["Mentorship", "Open Source", "Git"],
   },
-
+  {
+    id: 7,
+    type: "achievement",
+    date: "",
+    org: "National Level Hackathons",
+    role: "Winner & Runner Up",
+    description: "8 Times National Hackathon",
+    tags: ["AI/ML", "Web Development", "App Development"],
+  },
 ];
 
 // ====================================================

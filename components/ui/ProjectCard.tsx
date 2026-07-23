@@ -45,7 +45,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <Badge>{project.badge}</Badge>
             {project.tech.includes("Play Store") && (
               <Badge className="bg-green-500/10 text-green-600 border-green-500/20 flex gap-1.5 items-center">
-                <img src="/google-play-store-logo-svgrepo-com.svg" alt="Play Store" className="w-3 h-3 object-contain" />
+                <img src="/logos/google-play-store-logo-svgrepo-com.svg" alt="Play Store" className="w-3 h-3 object-contain" />
                 Live on Play Store
               </Badge>
             )}

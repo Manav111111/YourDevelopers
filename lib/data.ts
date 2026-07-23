@@ -22,14 +22,14 @@ export const projectTechLogos: Record<string, string> = {
   "LangChain": "https://cdn.simpleicons.org/langchain/000000",
   "LangGraph": "https://cdn.simpleicons.org/langchain/000000",
   "FastMCP": "https://cdn.simpleicons.org/fastapi/009688",
-  "Groq": "/openai-svgrepo-com.svg",
+  "Groq": "/logos/openai-svgrepo-com.svg",
   "Qdrant": "https://cdn.simpleicons.org/qdrant/DC2626",
   "Gemini": "https://cdn.simpleicons.org/googlegemini/8E75B2",
-  "BERT": "/hugging-face-svgrepo-com.svg",
+  "BERT": "/logos/hugging-face-svgrepo-com.svg",
   "TensorFlow": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
   "PyTorch": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-  "OpenAI": "/openai-svgrepo-com.svg",
-  "Hugging Face": "/hugging-face-svgrepo-com.svg",
+  "OpenAI": "/logos/openai-svgrepo-com.svg",
+  "Hugging Face": "/logos/hugging-face-svgrepo-com.svg",
   "ML Kit": "https://www.gstatic.com/devrel-devsite/prod/vb794fa47da5b73ba8b76d3bace2e1aba14ad59bb8da3e9f40e5e696f4fdadee2/firebase/images/favicon.png",
   "Google Colab": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecolab/googlecolab-original.svg",
 
@@ -54,7 +54,7 @@ export const projectTechLogos: Record<string, string> = {
   "Expo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/expo/expo-original.svg",
   "Android": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
   "Android Studio": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
-  "Play Store": "/google-play-store-logo-svgrepo-com.svg",
+  "Play Store": "/logos/google-play-store-logo-svgrepo-com.svg",
 
   // Databases / Backend-as-a-Service
   "Firebase": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
@@ -73,7 +73,7 @@ export const projectTechLogos: Record<string, string> = {
   "Vercel": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
   "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   "GitHub": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-  "Google Maps": " /google-maps-svgrepo-com.svg",
+  "Google Maps": "/logos/google-maps-svgrepo-com.svg",
 };
 
 export type JourneyItem = {
@@ -233,8 +233,8 @@ export const skills = {
     { name: "LangChain", icon: null },
     { name: "RAG Systems", icon: null },
     { name: "Jupyter", icon: "jupyter/jupyter-original.svg" },
-    { name: "Hugging Face", icon: "/hugging-face-svgrepo-com.svg" },
-    { name: "OpenAI ", icon: "/openai-svgrepo-com.svg" },
+    { name: "Hugging Face", icon: "/logos/hugging-face-svgrepo-com.svg" },
+    { name: "OpenAI ", icon: "/logos/openai-svgrepo-com.svg" },
     { name: "Google Colab", icon: "googlecolab/googlecolab-original.svg" }
 
   ],
@@ -245,7 +245,7 @@ export const skills = {
     { name: "Supabase", icon: "supabase/supabase-original.svg" },
     { name: "REST APIs", icon: null },
     { name: "Android Studio", icon: "androidstudio/androidstudio-original.svg" },
-    { name: "Play Store", icon: "/google-play-store-logo-svgrepo-com.svg" },
+    { name: "Play Store", icon: "/logos/google-play-store-logo-svgrepo-com.svg" },
     { name: "App Store", icon: "apple/apple-original.svg" }
   ],
   webDev: [

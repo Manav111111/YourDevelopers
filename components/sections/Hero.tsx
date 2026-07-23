@@ -74,20 +74,20 @@ export function Hero() {
           </h1>
 
           {/* MOBILE Image Section */}
-          <div className="lg:hidden w-full max-w-[280px] sm:max-w-xs relative mb-6 mt-2     ">
+          <div className="lg:hidden w-full max-w-[280px] sm:max-w-xs relative mb-6 mt-2">
 
-            <div className="hero-image-wrap relative aspect-4/5 w-full rounded-3xl overflow-hidden z-10 group">
+            <div className="hero-image-wrap relative aspect-4/5 w-full rounded-3xl overflow-hidden z-10 group shadow-xl border border-dark/10">
               <Image
                 src="/profile.png"
                 alt="Mohit Aggarwal"
                 width={600}
                 height={800}
-                className="object-cover aspect-4/5 transition-all duration-600"
+                className="object-cover object-[50%_-75px] aspect-4/5 transition-all duration-600"
                 priority
                 unoptimized
               />
             </div>
-            <div className="w-full h-10 bg-accent rounded-lg flex justify-center items-center mt-[-8px] relative z-20">
+            <div className="w-full h-10 bg-accent rounded-lg flex justify-center items-center mt-[-8px] relative z-20 shadow-md">
               <p className="hero-quote text-[10px] sm:text-[12px] font-mono font-bold uppercase tracking-widest text-dark/80 px-4 text-center italic">
                 "The best way to predict the future is to invent it."
               </p>
@@ -127,30 +127,35 @@ export function Hero() {
         </div>
 
         {/* DESKTOP Image Section */}
-        <div className="hidden lg:block flex-1 w-full max-w-[280px] sm:max-w-xs lg:max-w-sm relative mt-4 lg:mt-0 pointer-events-auto">
+        <div className="hidden lg:block flex-1 w-full max-w-[240px] sm:max-w-[280px] lg:max-w-[350px] relative mt-4 lg:mt-0 pointer-events-auto">
 
-          <div className="hero-image-wrap relative aspect-4/5 w-full rounded-3xl overflow-hidden z-10 group">
-            {/* Using a professional Unsplash portrait placeholder. Can be replaced with personal photo later. */}
+          <div className="hero-image-wrap relative aspect-4/5 w-full rounded-3xl overflow-hidden z-10 group shadow-2xl border border-dark/10">
+            {/* Back Image: profile.png — shifted up 75px, height extended to fill box */}
             <Image
               src="/profile.png"
               alt="Mohit Aggarwal"
-              width={600}
-              height={800}
-              className="object-cover  aspect-4/5  transition-all duration-600 "
+              width={500}
+              height={625}
+              className="object-cover object-top absolute top-[-75px] left-0 w-full h-[calc(100%+75px)] z-0 grayscale group-hover:grayscale-0 transition-all duration-700"
               priority
               unoptimized
             />
-
-            {/* <div className="absolute inset-0 bg-linear-to-t from-dark/60 via-transparent to-transparent pointer-events-none opacity-80"></div> */}
+            {/* Front Image: profile-bg.png — same crop */}
+            <Image
+              src="/profile-bg.png"
+              alt="Mohit Aggarwal Background"
+              width={500}
+              height={625}
+              className="object-cover object-top absolute top-[-75px] left-0 w-full h-[calc(100%+75px)] z-10 transition-all duration-700"
+              priority
+              unoptimized
+            />
           </div>
-          <div className="w-full h-12 bg-accent rounded-lg flex justify-center items-center">
+          <div className="w-full h-12 bg-accent rounded-xl flex justify-center items-center mt-[-10px] relative z-20 shadow-md">
             <p className="hero-quote text-[13px] font-mono font-bold uppercase tracking-widest text-dark/80 px-4 text-center italic">
               "The best way to predict the future is to invent it."
             </p>
           </div>
-
-
-
         </div>
 
       </div>

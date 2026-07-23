@@ -56,19 +56,11 @@ export function Journey() {
       <div className="w-full max-w-6xl mx-auto px-6 md:px-12 relative z-10">
 
         {/* Section Heading & Subtitle */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#ff8901] uppercase mb-3">
-              <Code2 size={14} />
-              <span>Career Journey & Track Record</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-display font-extrabold uppercase tracking-tight text-dark">
-              Experience <span className="text-[#ff8901]">&amp;</span> Impact
-            </h2>
-          </div>
-          <p className="text-gray-600 max-w-md text-sm leading-relaxed">
-            Building high-throughput applications, leading technical architecture, and delivering 10+ real-world products across mobile, web, and AI platforms.
-          </p>
+      
+
+         <div className="flex items-center gap-6 mb-8">
+          <h2 className="text-3xl font-display font-bold uppercase tracking-widest"> Experience & <span className="text-accent">Impact</span></h2>
+          <div className="grow h-px bg-dark/10"></div>
         </div>
 
         {/* Impact Highlights Bar */}

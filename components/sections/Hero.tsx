@@ -49,13 +49,19 @@ export function Hero() {
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex items-center pt-24 pb-12 bg-cream text-dark overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 z-0 opacity-80">
-
-      </div>
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 opacity-60 mix-blend-multiply"
+      >
+        <source src="/Create_an_elegant_seamless_.mp4" type="video/mp4" />
+      </video>
 
       {/* Additional subtle gradient overlay for depth */}
-      <div className="absolute inset-0 bg-linear-to-b from-transparent via-cream/50 to-cream z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-cream/20 via-cream/50 to-cream z-0 pointer-events-none"></div>
 
       <div className="w-full max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 pointer-events-none">
 

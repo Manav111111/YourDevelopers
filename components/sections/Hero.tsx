@@ -49,13 +49,14 @@ export function Hero() {
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex items-center pt-24 pb-12 bg-cream text-dark overflow-hidden">
-      {/* Background Video */}
+      {/* Background Video (Optimized for mobile performance & text readability) */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 opacity-60 mix-blend-multiply"
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-40 sm:opacity-50 md:opacity-60 mix-blend-multiply"
       >
         <source src="/Create_an_elegant_seamless_.mp4" type="video/mp4" />
       </video>
@@ -67,10 +68,10 @@ export function Hero() {
 
         {/* Text Content */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left pt-4 lg:pt-0 pointer-events-auto">
-          <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-dark/10 bg-white/50 backdrop-blur-md mb-8 shadow-xs">
+          {/* <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-dark/10 bg-white/50 backdrop-blur-md mb-4 shadow-xs">
             <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
             <span className="text-xs font-mono font-bold tracking-widest uppercase">Available for work</span>
-          </div>
+          </div> */}
           <h2 className="hero-role self-start text-left text-lg sm:text-xl md:text-3xl lg:text-4xl font-mono font-medium tracking-tight text-gray-700 mb-5 border-l-4 border-accent pl-3 sm:pl-4 py-1">
             AI Engineer
           </h2>
@@ -80,20 +81,20 @@ export function Hero() {
           </h1>
 
           {/* MOBILE Image Section */}
-          <div className="lg:hidden w-full max-w-[280px] sm:max-w-xs relative mb-6 mt-2">
+          <div className="lg:hidden w-full max-w-[260px] sm:max-w-xs relative mb-6 mt-2">
 
-            <div className="hero-image-wrap relative aspect-4/5 w-full rounded-3xl overflow-hidden z-10 group shadow-xl border border-dark/10">
+            <div className="hero-image-wrap relative  aspect-4/5 w-full rounded-t-3xl overflow-hidden z-10 group shadow-xl border border-dark/10">
               <Image
                 src="/profile.png"
                 alt="Mohit Aggarwal"
                 width={600}
                 height={800}
-                className="object-cover object-[50%_-75px] aspect-4/5 transition-all duration-600"
+                className="object-cover top-[-75px] h-[calc(100%+75px)] object-top absolute aspect-4/5 transition-all duration-600"
                 priority
                 unoptimized
               />
             </div>
-            <div className="w-full h-10 bg-accent rounded-lg flex justify-center items-center mt-[-8px] relative z-20 shadow-md">
+            <div className="w-full h-10 bg-accent rounded-b-3xl flex justify-center items-center mt-[-8px] relative z-20 shadow-md">
               <p className="hero-quote text-[10px] sm:text-[12px] font-mono font-bold uppercase tracking-widest text-dark/80 px-4 text-center italic">
                 "The best way to predict the future is to invent it."
               </p>
@@ -135,7 +136,7 @@ export function Hero() {
         {/* DESKTOP Image Section */}
         <div className="hidden lg:block flex-1 w-full max-w-[240px] sm:max-w-[280px] lg:max-w-[350px] relative mt-4 lg:mt-0 pointer-events-auto">
 
-          <div className="hero-image-wrap relative aspect-4/5 w-full rounded-3xl overflow-hidden z-10 group shadow-2xl border border-dark/10">
+          <div className="hero-image-wrap relative aspect-4/5 w-full rounded-t-3xl overflow-hidden z-10 group shadow-2xl border border-dark/10">
             {/* Back Image: profile.png — shifted up 75px, height extended to fill box */}
             <Image
               src="/profile.png"
@@ -157,7 +158,7 @@ export function Hero() {
               unoptimized
             />
           </div>
-          <div className="w-full h-12 bg-accent rounded-xl flex justify-center items-center mt-[-10px] relative z-20 shadow-md">
+          <div className="w-full h-12 bg-accent rounded-b-3xl flex justify-center items-center mt-[-10px] relative z-20 shadow-md">
             <p className="hero-quote text-[13px] font-mono font-bold uppercase tracking-widest text-dark/80 px-4 text-center italic">
               "The best way to predict the future is to invent it."
             </p>

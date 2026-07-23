@@ -67,7 +67,7 @@ export function About() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover object-top sm:object-center opacity-100"
               />
-        
+
             </div>
 
             {/* Decorative Element */}

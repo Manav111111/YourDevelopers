@@ -89,8 +89,9 @@ export function Journey() {
         </div>
 
         {/* Filter Navigation */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-4 border-b border-dark/10">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-dark/10">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide -mx-1 px-1">
+            <div className="flex items-center gap-2 flex-nowrap">
             {(
               [
                 { id: "all", label: "All Items", count: journeyItems.length },
@@ -116,7 +117,7 @@ export function Journey() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id as FilterType)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                  className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                     isActive
                       ? "bg-dark text-white shadow-md shadow-dark/20 scale-105"
                       : "bg-white/80 text-dark/70 hover:bg-dark/5 border border-dark/10"
@@ -133,9 +134,10 @@ export function Journey() {
                 </button>
               );
             })}
+            </div>
           </div>
 
-          <div className="text-xs font-mono text-dark/40 hidden md:block">
+          <div className="text-xs font-mono text-dark/40 hidden md:block shrink-0">
             Click any card to expand details
           </div>
         </div>
@@ -238,15 +240,15 @@ export function Journey() {
         </div>
 
         {/* Bottom CTA / Note */}
-        <div className="mt-14 text-center">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/70 backdrop-blur-md border border-dark/10 shadow-sm text-xs font-mono text-dark/70">
-            <span className="w-2 h-2 rounded-full bg-[#ff8901] animate-ping" />
-            <span>Looking for custom software development, mobile app architecture, or technical leadership?</span>
+        <div className="mt-10 sm:mt-14 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-3 px-5 sm:px-6 py-3 rounded-2xl bg-white/70 backdrop-blur-md border border-dark/10 shadow-sm text-xs font-mono text-dark/70 max-w-sm sm:max-w-none">
+            <span className="w-2 h-2 rounded-full bg-[#ff8901] animate-ping shrink-0" />
+            <span className="text-center sm:text-left">Looking for custom software development, mobile app architecture, or technical leadership?</span>
             <a
               href="#contact"
-              className="font-bold text-[#ff8901] hover:underline flex items-center gap-0.5 ml-1"
+              className="font-bold text-[#ff8901] hover:underline flex items-center gap-0.5 shrink-0"
             >
-              Let's connect <ArrowUpRight size={12} />
+              Let&apos;s connect <ArrowUpRight size={12} />
             </a>
           </div>
         </div>

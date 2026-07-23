@@ -57,7 +57,7 @@ export function Skills() {
         </div>
       </div>
 
-      <div className="pb-12 max-w-7xl mx-auto px-6 md:px-12 relative z-20 mt-[15vh] sm:mt-[20vh] md:mt-[30vh]">
+      <div className="pb-12 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-20 mt-[12vh] sm:mt-[18vh] md:mt-[28vh]">
 
         {/* Decorative Horizontal Accent Line */}
         <div className="w-full h-1 bg-linear-to-r from-accent via-dark/20 to-transparent rounded-full mb-12 shadow-xs"></div>

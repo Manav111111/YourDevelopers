@@ -35,7 +35,7 @@ export function Skills() {
   }, { scope: containerRef });
 
   return (
-    <section id="skills" ref={containerRef} className="skills-section py-10 md:py-10  bg-cream text-dark overflow-hidden  relative z-10">
+    <section id="skills" ref={containerRef} className="skills-section py-10 md:py-10 text-dark overflow-hidden relative z-10">
 
 
 
@@ -60,12 +60,11 @@ export function Skills() {
       <div className="pb-12 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-20 mt-[12vh] sm:mt-[18vh] md:mt-[28vh]">
 
         {/* Decorative Horizontal Accent Line */}
-        <div className="w-full h-1 bg-linear-to-r from-accent via-dark/20 to-transparent rounded-full mb-12 shadow-xs"></div>
-
+       
         <div className="skills-grid grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
 
           {/* AI/ML */}
-          <div className="skill-category bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl flex flex-col justify-between">
+          <div className="skill-category bg-white/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-mono font-bold text-accent uppercase tracking-widest">
@@ -92,7 +91,7 @@ export function Skills() {
           </div>
 
           {/* Mobile App Development */}
-          <div className="skill-category bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl flex flex-col justify-between">
+          <div className="skill-category bg-white/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-mono font-bold text-accent uppercase tracking-widest">
@@ -119,7 +118,7 @@ export function Skills() {
           </div>
 
           {/* Web Development */}
-          <div className="skill-category bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl flex flex-col justify-between">
+          <div className="skill-category bg-white/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-mono font-bold text-accent uppercase tracking-widest">
@@ -148,7 +147,7 @@ export function Skills() {
         </div>
 
         {/* Full-width Horizontal Tools & Ecosystem Bar */}
-        <div className="skill-category bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl mt-8 md:mt-12">
+        <div className="skill-category bg-white/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-dark/5 shadow-xl mt-8 md:mt-12">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-dark/5 pb-4">
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-6 bg-accent rounded-full"></div>

@@ -39,7 +39,7 @@ export function About() {
   }, { scope: containerRef });
 
   return (
-    <section id="about" ref={containerRef} className="py-24 md:py-0 md:min-h-[110vh] flex items-center bg-cream text-dark">
+    <section id="about" ref={containerRef} className="py-24 md:py-0 md:min-h-[110vh] flex items-center text-dark">
       <div className="max-w-7xl mx-auto px-6 md:px-12 about-container">
 
         <div className="flex items-center gap-6 mb-8">
@@ -77,8 +77,8 @@ export function About() {
           </div>
 
           {/* Left: Text Content */}
-          <div className="lg:col-span-7 about-content flex flex-col gap-5">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium leading-tight">
+          <div className="lg:col-span-7 about-content flex flex-col gap-5 backblur-[2px]">
+            <h3 className="text-3xl sm:text-4xl  md:text-5xl font-display font-medium leading-tight">
               Bridging the gap between <span className="font-bold text-accent">intelligence</span> <br className="hidden md:block" />and <span className="font-bold text-accent">interaction</span>.
             </h3>
 

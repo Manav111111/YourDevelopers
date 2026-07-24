@@ -27,11 +27,11 @@ const SITE_URL = "https://www.mohitcodes.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Mohit Aggarwal | AI Engineer & Full Stack Developer",
+    default: "Mohit Aggarwal | AI Engineer ",
     template: "%s | Mohit Aggarwal",
   },
   description:
-    "Mohit Aggarwal is an AI Engineer and Full Stack Developer specializing in intelligent web and mobile applications, LLMs, and scalable backend systems. Explore projects, skills, and experience.",
+    "Mohit Aggarwal is an AI Engineer specializing in intelligent web and mobile applications, LLMs, and scalable backend systems. Explore projects, skills, and experience.",
   keywords: [
     "Mohit Aggarwal",
     "Mohit Aggarwal AI Engineer",

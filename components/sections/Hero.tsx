@@ -48,23 +48,10 @@ export function Hero() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center pt-24 pb-12 bg-cream text-dark overflow-hidden">
-      {/* Background Video (Optimized for mobile performance & text readability) */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-40 sm:opacity-50 md:opacity-60 mix-blend-multiply"
-      >
-        <source src="/Create_an_elegant_seamless_.mp4" type="video/mp4" />
-      </video>
-
-      {/* Additional subtle gradient overlay for depth */}
-      <div className="absolute inset-0 bg-linear-to-b from-cream/20 via-cream/50 to-cream z-0 pointer-events-none"></div>
+    <section ref={containerRef} className="relative min-h-screen flex items-center pt-24 pb-12 text-dark overflow-hidden">
 
       <div className="w-full max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 pointer-events-none">
+
 
         {/* Text Content */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left pt-4 lg:pt-0 pointer-events-auto">
@@ -89,7 +76,7 @@ export function Hero() {
                 alt="Mohit Aggarwal"
                 width={600}
                 height={800}
-                className="object-cover top-[-75px] h-[calc(100%+75px)] object-top absolute aspect-4/5 transition-all duration-600"
+                className="object-cover top-[-75px] bottom-[-75px] h-[calc(100%+150px)] object-top absolute aspect-4/5 transition-all duration-600"
                 priority
                 unoptimized
               />
@@ -143,7 +130,7 @@ export function Hero() {
               alt="Mohit Aggarwal"
               width={500}
               height={625}
-              className="object-cover object-top absolute top-[-75px] left-0 w-full h-[calc(100%+75px)] z-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+              className="object-cover object-top absolute top-[-75px] bottom-[-75px] left-0 w-full h-[calc(100%+150px)] z-0 grayscale group-hover:grayscale-0 transition-all duration-700"
               priority
               unoptimized
             />
@@ -153,7 +140,7 @@ export function Hero() {
               alt="Mohit Aggarwal Background"
               width={500}
               height={625}
-              className="object-cover object-top absolute top-[-75px] left-0 w-full h-[calc(100%+75px)] z-10 transition-all duration-700"
+              className="object-cover object-top absolute top-[-75px] bottom-[-75px] left-0 w-full h-[calc(100%+150px)] z-10 transition-all duration-700"
               priority
               unoptimized
             />

@@ -47,7 +47,7 @@ export function Journey() {
   return (
     <section
       id="journey"
-      className="relative bg-cream text-dark py-20 md:py-28 overflow-hidden"
+      className="relative text-dark py-20 md:py-28 overflow-hidden"
     >
       {/* Background Subtle Accent Gradients */}
       <div className="absolute top-10 right-10 w-96 h-96 bg-[#ff8901]/5 rounded-full blur-3xl pointer-events-none" />

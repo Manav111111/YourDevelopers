@@ -88,10 +88,10 @@ export function Projects() {
   }, { scope: containerRef });
 
   return (
-    <section id="projects" ref={containerRef} className="py-16 sm:py-24 md:py-12 bg-cream text-dark ">
+    <section id="projects" ref={containerRef} className="py-16 sm:py-24 md:py-12 text-dark">
       <div className="max-w-7xl mx-auto px-6 md:px-12 projects-container pb-24">
 
-        <div className="sticky top-16 md:top-16 z-20 bg-cream py-6 sm:py-8 mb-6 sm:mb-10 flex items-center gap-6 projects-header">
+        <div className="sticky top-16 md:top-16 z-20  backdrop-blur-md py-6 sm:py-8 mb-6 sm:mb-10 flex items-center gap-6 projects-header">
           <h2 className="text-3xl font-display font-bold uppercase tracking-widest">Selected <span className="text-accent">Works</span></h2>
           <div className="grow h-px bg-dark/10"></div>
         </div>

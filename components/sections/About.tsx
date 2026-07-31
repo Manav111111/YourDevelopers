@@ -4,112 +4,173 @@ import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Cpu, Rocket, ShieldCheck, Handshake, TrendingUp, Award, Calendar, Headphones } from "lucide-react";
 
 export function About() {
   const containerRef = useRef<HTMLElement>(null);
-  const counterRef = useRef<HTMLSpanElement>(null);
 
   useGSAP(() => {
-    // Reveal animation
-    gsap.from(".about-content > *", {
-      y: 50,
+    gsap.from(".why-content > *", {
+      y: 40,
       opacity: 0,
       duration: 1,
       stagger: 0.1,
       ease: "power3.out",
       scrollTrigger: {
-        trigger: ".about-container",
-        start: "top 70%",
+        trigger: ".why-container",
+        start: "top 75%",
       }
     });
-
-    // Stat counter animation
-    if (counterRef.current) {
-      gsap.to(counterRef.current, {
-        innerHTML: 15,
-        duration: 2,
-        ease: "power1.out",
-        snap: { innerHTML: 1 },
-        scrollTrigger: {
-          trigger: ".about-stats",
-          start: "top 80%",
-        }
-      });
-    }
   }, { scope: containerRef });
 
   return (
-    <section id="about" ref={containerRef} className="py-24 md:py-0 md:min-h-[110vh] flex items-center text-dark">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 about-container">
+    <section id="about" ref={containerRef} className="py-24 relative text-dark overflow-hidden bg-transparent">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 why-container">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Office / Workspace Graphic Image */}
+          <div className="lg:col-span-6 relative why-content h-[420px] sm:h-[480px] lg:h-[540px] w-full rounded-3xl overflow-hidden shadow-2xl border border-dark/10 bg-white group">
+            <Image
+              src="/why-choose-us.png"
+              alt="Why Choose Us Workspace"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              priority
+            />
+            {/* Subtle Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark/40 via-transparent to-transparent pointer-events-none" />
+          </div>
 
-        <div className="flex items-center gap-6 mb-8">
-          <h2 className="text-3xl font-display font-bold uppercase tracking-widest">About</h2>
-          <div className="grow h-px bg-dark/10"></div>
-        </div>
+          {/* Right Column: Text & Features Grid */}
+          <div className="lg:col-span-6 why-content flex flex-col justify-center">
+            
+            {/* Tag / Category */}
+            <div className="flex items-center gap-2 text-accent font-mono font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+              <span className="h-0.5 w-6 bg-accent"></span>
+              <span>WHY CHOOSE US</span>
+            </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-[1.15] tracking-tight text-dark mb-6">
+              Building <span className="text-accent">Technology</span> <br />
+              That Drives <br />
+              <span className="text-accent">Business Growth.</span>
+            </h2>
 
+            {/* Paragraphs */}
+            <div className="space-y-3 text-dark/75 text-base md:text-md font-body leading-relaxed mb-8">
+              <p>
+                We partner with startups and growing businesses to design, develop, and launch AI-powered products that solve real business problems.
+              </p>
+              <p>
+                From strategy and UX to engineering and deployment, our team builds scalable software that delivers measurable results.
+              </p>
+            </div>
 
-          {/* Right: Abstract/Portrait */}
-          <div className="lg:col-span-5 relative about-content h-[50vh] sm:h-[55vh] lg:h-[70vh] w-full rounded-3xl group shadow-xl">
-            {/* Clipped background layers */}
-            <div className="absolute inset-0 rounded-3xl bg-white overflow-hidden">
-              <div className="absolute inset-0 sm:-right-90 -top-60 -right-70 md:-top-65 sm:-top-65 flex items-center justify-center border border-dark/5">
-                <span className="text-dark/20 font-display font-black text-6xl sm:text-8xl -rotate-90 scale-50 uppercase tracking-tighter">Code</span>
+            {/* 2x2 Feature Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              {/* Feature 1 */}
+              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <Cpu size={24} />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">AI-First Development</h4>
+                  <p className="text-xs text-dark/65 font-body leading-normal">Every solution is built with modern AI capabilities from day one.</p>
+                </div>
               </div>
 
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-100"></div>
-              <div className="absolute inset-0 bg-linear-to-t from-dark/35 via-dark/10 to-transparent"></div>
-              <Image
-                src="/final.png"
-                alt="Portrait"
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-top sm:object-center opacity-100"
-              />
+              {/* Feature 2 */}
+              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <Rocket size={24} />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Fast MVP Delivery</h4>
+                  <p className="text-xs text-dark/65 font-body leading-normal">Launch products quickly without sacrificing quality.</p>
+                </div>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <ShieldCheck size={24} />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Enterprise Quality</h4>
+                  <p className="text-xs text-dark/65 font-body leading-normal">Scalable architecture built for long-term growth.</p>
+                </div>
+              </div>
+
+              {/* Feature 4 */}
+              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <Handshake size={24} />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Long-Term Partnership</h4>
+                  <p className="text-xs text-dark/65 font-body leading-normal">We stay after launch with maintenance, optimization, and continuous improvements.</p>
+                </div>
+              </div>
 
             </div>
 
-            {/* Decorative Element */}
-            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-4 sm:p-6 bg-white/80 backdrop-blur-xl border border-dark/10 rounded-2xl transform translate-y-4 opacity-100 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 z-10 shadow-sm">
-              <p className="font-mono text-xs sm:text-sm text-dark uppercase tracking-wider">&quot;Design is how it works.&quot;</p>
+          </div>
+
+        </div>
+
+        {/* Bottom Banner Stats Row */}
+        <div className="mt-16 w-full p-6 sm:p-8 rounded-3xl bg-white/70 backdrop-blur-md border border-dark/10 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-dark/10">
+          
+          {/* Stat 1 */}
+          <div className="flex items-center gap-4 pt-2 md:pt-0 md:px-4">
+            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <TrendingUp size={24} />
+            </div>
+            <div>
+              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">50+</div>
+              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Projects Delivered</div>
             </div>
           </div>
 
-          {/* Left: Text Content */}
-          <div className="lg:col-span-7 about-content flex flex-col gap-5 backblur-[2px]">
-            <h3 className="text-3xl sm:text-4xl  md:text-5xl font-display font-medium leading-tight">
-              Bridging the gap between <span className="font-bold text-accent">intelligence</span> <br className="hidden md:block" />and <span className="font-bold text-accent">interaction</span>.
-            </h3>
-
-            <p className="text-lg md:text-md font-body leading-relaxed text-dark/80">
-              I am a multidisciplinary engineer who writes clean code and builds scalable systems. With a strong foundation in Artificial Intelligence and Machine Learning, I create products that are not just highly functional, but also visually striking and intuitive.
-            </p>
-
-            <p className="text-lg md:text-md font-body leading-relaxed text-dark/80">
-              Whether it's training a robust ML model, developing a cross-platform mobile application, or crafting a buttery-smooth web experience, I bring a product-first mindset to every line of code.
-            </p>
-
-            {/* Stats */}
-            <div className="about-stats pt-4 flex flex-wrap gap-8 sm:gap-12 border-t border-dark/10 mt-4">
-              <div>
-                <div className="flex items-baseline gap-1 font-display font-black text-4xl sm:text-5xl md:text-6xl text-dark">
-                  <span ref={counterRef}>0</span><span className="text-accent">+</span>
-                </div>
-                <div className="font-mono text-xs sm:text-sm font-bold tracking-widest uppercase mt-3 sm:mt-4 text-dark/60">Projects Delivered</div>
-              </div>
-              <div className="sm:pl-12 sm:border-l border-dark/10">
-                <div className="flex items-baseline gap-1 font-display font-black text-4xl sm:text-5xl md:text-6xl text-dark">
-                  <span>3</span>
-                </div>
-                <div className="font-mono text-xs sm:text-sm font-bold tracking-widest uppercase mt-3 sm:mt-4 text-dark/60">Core Domains</div>
-              </div>
+          {/* Stat 2 */}
+          <div className="flex items-center gap-4 pt-4 md:pt-0 md:px-4">
+            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <Award size={24} />
+            </div>
+            <div>
+              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">98%</div>
+              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Client Satisfaction</div>
             </div>
           </div>
 
+          {/* Stat 3 */}
+          <div className="flex items-center gap-4 pt-4 md:pt-0 md:px-4">
+            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <Calendar size={24} />
+            </div>
+            <div>
+              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">7 Days</div>
+              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Average MVP Kickoff</div>
+            </div>
+          </div>
 
+          {/* Stat 4 */}
+          <div className="flex items-center gap-4 pt-4 md:pt-0 md:px-4">
+            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <Headphones size={24} />
+            </div>
+            <div>
+              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">24/7</div>
+              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Technical Support</div>
+            </div>
+          </div>
 
         </div>
+
       </div>
     </section>
   );

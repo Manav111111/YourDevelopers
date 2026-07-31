@@ -7,17 +7,12 @@ import { Menu, X } from "lucide-react";
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { name: "ABOUT", href: "#about" },
-    { name: "SKILLS", href: "#skills" },
-    { name: "PROJECTS", href: "#projects" },
-    { name: "JOURNEY", href: "#journey" },
-    { 
-      name: "RESUME", 
-      onClick: () => {
-        window.dispatchEvent(new Event("open-resume"));
-      } 
-    }
+  const navLinks: { name: string; href: string; onClick?: () => void }[] = [
+    { name: "SERVICES", href: "#skills" },
+    { name: "WHY US", href: "#about" },
+    { name: "CASE STUDIES", href: "#projects" },
+    { name: "PRICING", href: "#pricing" },
+    { name: "CONTACT", href: "#contact" }
   ];
 
   return (
@@ -34,32 +29,22 @@ export function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            link.onClick ? (
-              <button 
-                key={link.name} 
-                onClick={link.onClick} 
-                className="text-sm font-mono font-medium tracking-widest text-gray-600 hover:text-dark transition-colors cursor-pointer bg-transparent border-none p-0 outline-none"
-              >
-                {link.name}
-              </button>
-            ) : (
-              <Link 
-                key={link.name} 
-                href={link.href!} 
-                className="text-sm font-mono font-medium tracking-widest text-gray-600 hover:text-dark transition-colors"
-              >
-                {link.name}
-              </Link>
-            )
+            <Link 
+              key={link.name} 
+              href={link.href} 
+              className="text-xs font-mono font-bold tracking-widest text-dark/70 hover:text-dark transition-colors"
+            >
+              {link.name}
+            </Link>
           ))}
         </nav>
 
         {/* Desktop CTA */}
         <a 
           href="#contact" 
-          className="hidden md:inline-flex items-center text-sm  tracking-widest text-gray-700 rounded-lg hover:text-dark transition-colors justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-colors"
+          className="hidden md:inline-flex items-center gap-2 text-xs tracking-widest rounded-xl justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-all shadow-md hover:shadow-lg"
         >
-          Connect With Me
+          Book Free Call →
         </a>
 
         {/* Mobile Menu Toggle */}

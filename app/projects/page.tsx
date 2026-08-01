@@ -164,14 +164,25 @@ export default function ProjectsPage() {
                     </div>
                   </div>
 
-                  {/* Read Case Study Link */}
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="inline-flex items-center justify-between w-full pt-4 border-t border-dark/10 text-accent font-mono font-bold text-xs uppercase tracking-wider group-hover:text-dark transition-colors"
-                  >
-                    <span>Read Case Study</span>
-                    <ArrowUpRight size={16} />
-                  </Link>
+                  {/* Action Links */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-dark/10">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-1.5 text-accent font-mono font-bold text-xs uppercase tracking-wider group-hover:text-dark transition-colors"
+                    >
+                      <span>Read Case Study</span>
+                      <ArrowUpRight size={15} />
+                    </Link>
+                    <a
+                      href={project.playStoreLink || project.demoLink || "#"}
+                      target={project.playStoreLink || project.demoLink ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-dark/70 hover:text-accent font-mono font-bold text-xs uppercase tracking-wider transition-colors"
+                    >
+                      <span>{project.category === "mobile" || project.playStoreLink ? "VIEW ON PLAYSTORE" : "LIVE DEMO"}</span>
+                      <ArrowUpRight size={15} />
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>

@@ -21,6 +21,7 @@ export type Project = {
   mobileImage?: string;
   tags: string[];
   demoLink?: string;
+  playStoreLink?: string;
   githubLink?: string;
   caseStudyLink?: string;
   featuredCardImage?: string;
@@ -52,119 +53,100 @@ export const pricingCategories = [
 
 export const investmentPlans: InvestmentPlan[] = [
   {
-    id: "starter",
+    id: "website-dev",
     featured: false,
     darkCard: false,
     type: "one-time",
-    title: "Starter",
-    subtitle: "Perfect for Startups",
-    price: "$999+",
+    title: "Website Development",
+    subtitle: "Business Websites & Landing Pages",
+    price: "₹5,000+",
     priceSubtext: "STARTS AT",
-    timeline: "2 Weeks",
-    buttonText: "Get Started",
+    timeline: "1–2 Weeks",
+    buttonText: "Get Website",
     buttonLink: "#contact",
     icon: "rocket",
     features: [
-      "Landing Pages",
-      "Business Websites",
+      "Business Website",
+      "Landing Page",
       "Responsive Design",
-      "Basic CMS",
-      "SEO Setup",
-      "Deployment"
+      "SEO Friendly",
+      "Admin Panel (Optional)",
+      "Deployment",
+      "Contact Forms",
+      "Fast Performance"
     ]
   },
   {
-    id: "growth",
+    id: "mobile-dev",
     featured: true,
     darkCard: false,
     type: "one-time",
-    title: "Growth",
-    subtitle: "AI SaaS MVP",
-    price: "$7,500+",
+    title: "Mobile App Development",
+    subtitle: "Android & iOS Applications",
+    price: "₹10,000+",
     priceSubtext: "STARTS AT",
     badge: "MOST POPULAR",
-    timeline: "6-8 Weeks",
-    buttonText: "Book Consultation",
+    timeline: "2–4 Weeks",
+    buttonText: "Build My App",
     buttonLink: "#contact",
     icon: "trending",
     features: [
-      "AI SaaS MVP",
+      "Android App",
+      "React Native",
+      "Firebase Integration",
       "Authentication",
-      "Dashboard",
-      "Payments Integration",
-      "Database & Backend",
-      "Admin Panel",
-      "Deployment",
-      "AI Integration"
+      "Admin Dashboard",
+      "Push Notifications",
+      "API Integration",
+      "Play Store Ready"
     ]
   },
   {
-    id: "professional",
+    id: "ai-chatbot",
     featured: false,
     darkCard: false,
     type: "one-time",
-    title: "Professional",
-    subtitle: "Custom AI Products",
-    price: "$15,000+",
+    title: "AI Chatbot Integration",
+    subtitle: "Website & Business Automation",
+    price: "₹10,000+",
     priceSubtext: "STARTS AT",
-    timeline: "8-12 Weeks",
-    buttonText: "Let's Talk",
+    timeline: "1–3 Weeks",
+    buttonText: "Integrate AI",
     buttonLink: "#contact",
     icon: "brain",
     features: [
-      "AI Agents Development",
-      "Custom LLM Development",
-      "RAG Systems",
-      "Automation Workflows",
-      "Mobile Apps",
-      "Advanced Analytics",
-      "Cloud Infrastructure",
-      "CI/CD Pipeline"
+      "AI Chatbot",
+      "Lead Generation",
+      "Website Integration",
+      "FAQ Automation",
+      "WhatsApp Integration",
+      "CRM Integration",
+      "Knowledge Base",
+      "Analytics"
     ]
   },
   {
-    id: "enterprise",
+    id: "ai-agents",
     featured: false,
     darkCard: true,
     type: "one-time",
-    title: "Enterprise",
-    subtitle: "For Large Organizations",
-    price: "Let's Talk",
-    priceSubtext: "CUSTOM QUOTE",
-    buttonText: "Contact Sales",
+    title: "AI Agents",
+    subtitle: "Intelligent Business Automation",
+    price: "₹15,000+",
+    priceSubtext: "STARTS AT",
+    timeline: "3–6 Weeks",
+    buttonText: "Let's Discuss",
     buttonLink: "#contact",
     icon: "building",
     features: [
-      "Dedicated Development Team",
-      "AI Strategy & Consulting",
-      "Enterprise Architecture",
-      "Unlimited Scalability",
-      "24/7 Priority Support",
-      "Maintenance & Updates",
-      "SLA & Security",
-      "Training & Knowledge Transfer"
-    ]
-  },
-  {
-    id: "sub-starter",
-    featured: false,
-    darkCard: false,
-    type: "subscription",
-    title: "Dedicated Developer",
-    subtitle: "Full-Time Development",
-    price: "$3,500",
-    priceSubtext: "PER MONTH",
-    timeline: "Ongoing",
-    buttonText: "Hire Developer",
-    buttonLink: "#contact",
-    icon: "user",
-    features: [
-      "Dedicated Full-Stack/AI Engineer",
-      "160 Hours / Month",
-      "Direct Slack/Teams Communication",
-      "Daily Standups & Demos",
-      "Source Code Ownership",
-      "Pause or Cancel Anytime"
+      "Custom AI Agents",
+      "Workflow Automation",
+      "Multi-Agent Systems",
+      "RAG Integration",
+      "MCP Integration",
+      "API Automation",
+      "Database Integration",
+      "Ongoing Support"
     ]
   },
   {
@@ -232,176 +214,14 @@ export type JourneyItem = {
 // =========================================================
 
 export const projects: Project[] = [
-  {
-    id: "ai-customer-support",
-    slug: "ai-customer-support-platform",
-    featured: true,
-    title: "AI Customer Support Platform",
-    category: "ai",
-    industry: "SaaS & Enterprise",
-    shortDescription: "Autonomous AI customer support agent integrated into omnichannel support workflows to answer 85% of customer queries instantly.",
-    challenge: "Support team was overwhelmed handling over 5,000 monthly customer inquiries, leading to delayed response times and high operational overhead.",
-    solution: "Developed a specialized RAG-powered AI customer service agent capable of understanding complex user inquiries, resolving tickets autonomously, and escalating edge cases seamlessly.",
-    process: [
-      "Discovery & Data Structuring: Scraped knowledge bases, FAQs, and ticket logs",
-      "Model & RAG Architecture: Implemented hybrid vector search with Qdrant and LLM intent routing",
-      "Integration & Automation: Connected support channels via Webhooks, Slack, and Zendesk APIs",
-      "Continuous Evaluation: Deployed reflection loops to eliminate hallucinations"
-    ],
-    techStack: ["LangGraph", "FastAPI", "Qdrant", "Next.js", "TypeScript", "Tailwind"],
-    results: [
-      { title: "Tickets Automated", value: "85%" },
-      { title: "Support Cost Reduced", value: "65%" },
-      { title: "Faster Response Time", value: "3x" },
-      { title: "Development Timeline", value: "2 Months" }
-    ],
-    timeline: "2 Months (Development & Deployment)",
-    coverImage: "/case-study-hero.png",
-    tags: ["AI Agent", "RAG", "LangGraph", "FastAPI", "SaaS"],
-    demoLink: "https://dual-mode-research-agent.vercel.app/",
-    githubLink: "https://github.com/Mohit776",
-    highlightMetric: { title: "Tickets Automated", value: "85%" },
-    testimonial: {
-      quote: "The AI agent transformed our customer support operations overnight, saving hundreds of hours weekly.",
-      author: "Alex Morgan",
-      role: "VP of Operations, SaaS Scaleup"
-    }
-  },
-  {
-    id: "medical-report-analysis",
-    slug: "healthcare-ai-medical-report-analysis",
-    featured: true,
-    title: "Medical Report Analysis",
-    category: "ai",
-    industry: "Healthcare",
-    shortDescription: "AI-powered analysis system that helps doctors detect radiological anomalies and generate diagnostic insights faster.",
-    challenge: "Radiologists faced diagnostic backlogs reviewing thousands of complex medical imaging reports daily.",
-    solution: "Engineered a vision-language AI model that flags critical anomalies in medical scans and drafts diagnostic summaries automatically.",
-    process: [
-      "Dataset Annotation & Safety Validation",
-      "Vision Transformer Model Fine-tuning",
-      "HIPAA-Compliant Cloud Infrastructure Setup",
-      "Clinical Interface Integration"
-    ],
-    techStack: ["Python", "PyTorch", "TensorFlow", "FastAPI", "React", "Docker"],
-    results: [
-      { title: "Faster Diagnosis", value: "40%" },
-      { title: "Diagnostic Accuracy", value: "99.2%" },
-      { title: "Processing Speed", value: "< 2 Sec" }
-    ],
-    timeline: "3 Months",
-    coverImage: "/why-choose-us.png",
-    tags: ["Healthcare", "Vision AI", "PyTorch", "FastAPI"],
-    highlightMetric: { title: "Faster Diagnosis", value: "40%" }
-  },
-  {
-    id: "resume-screening-platform",
-    slug: "ai-recruitment-resume-screening",
-    featured: true,
-    title: "Resume Screening Platform",
-    category: "ai",
-    industry: "HR Tech",
-    shortDescription: "Automated candidate ranking and resume screening platform using semantic embeddings to accelerate talent acquisition.",
-    challenge: "Recruiters spent over 30 hours per role manually parsing non-standard resume formats.",
-    solution: "Built an AI-driven parser and scoring engine that matches candidates based on semantic skill alignment rather than keyword matching.",
-    process: [
-      "Document Parsing & Extraction Engine",
-      "Semantic Vector Matching Engine",
-      "Recruiter Dashboard & Ranking Analytics",
-      "Automated Interview Scheduling Integration"
-    ],
-    techStack: ["LangChain", "OpenAI", "Next.js", "Node.js", "PostgreSQL"],
-    results: [
-      { title: "Time Saved", value: "75%" },
-      { title: "Qualified Candidates Placed", value: "2.4x" },
-      { title: "Screening Latency", value: "< 1 Sec" }
-    ],
-    timeline: "6 Weeks",
-    coverImage: "/services-graphic.png",
-    tags: ["HR Tech", "Semantic Search", "LLM", "Next.js"],
-    highlightMetric: { title: "Time Saved", value: "75%" }
-  },
-  {
-    id: "inventory-intelligence",
-    slug: "ecommerce-automation-inventory-intelligence",
-    featured: true,
-    title: "Inventory Intelligence",
-    category: "automation",
-    industry: "E-commerce",
-    shortDescription: "Predictive inventory forecasting and automated reordering engine for high-volume e-commerce brands.",
-    challenge: "Frequent stockouts and overstocking tied up working capital across multiple warehouses.",
-    solution: "Deployed time-series ML models to forecast SKU-level demand and trigger automated purchase orders based on lead times.",
-    process: [
-      "Multi-channel ERP & Shopify Data Pipeline Setup",
-      "Time-Series Forecasting Model Training",
-      "Automated Reordering Logic & Vendor Workflows",
-      "Real-time Inventory Dashboard"
-    ],
-    techStack: ["Python", "FastAPI", "React", "PostgreSQL", "AWS"],
-    results: [
-      { title: "Revenue Growth", value: "30%" },
-      { title: "Stockout Reduction", value: "85%" },
-      { title: "Capital Efficiency", value: "+45%" }
-    ],
-    timeline: "2 Months",
-    coverImage: "/services-graphic.png",
-    tags: ["E-commerce", "Forecasting", "Automation", "AWS"],
-    highlightMetric: { title: "Revenue Growth", value: "30%" }
-  },
-  {
-    id: "devops-agent",
-    slug: "devops-autonomous-agent",
-    featured: false,
-    title: "Autonomous DevOps Agent",
-    category: "automation",
-    industry: "Developer Tools",
-    shortDescription: "Self-healing AI agent for autonomous containerized service remediation and root-cause analysis.",
-    challenge: "Microservice outages required manual engineer intervention during off-hours.",
-    solution: "Constructed an autonomous agent using LangGraph and FastMCP to detect log anomalies, execute diagnostic commands, and apply patches automatically.",
-    process: [
-      "Logfire Distributed Tracing Integration",
-      "LangGraph State Graph & Diagnostic Tools Definition",
-      "Human-in-the-Loop Approval Safeguards",
-      "Chaos Testing & Failure Recovery Verification"
-    ],
-    techStack: ["LangGraph", "FastMCP", "Docker", "Python", "Pydantic"],
-    results: [
-      { title: "MTTR Reduction", value: "90%" },
-      { title: "Automated Fixes", value: "80%" }
-    ],
-    timeline: "1 Month",
-    coverImage: "/projects_ss/quant.png",
-    tags: ["DevOps", "AI Agent", "Docker", "LangGraph"]
-  },
-  {
-    id: "quant-agent",
-    slug: "quant-financial-research-agent",
-    featured: false,
-    title: "Quant Financial Research Agent",
-    category: "ai",
-    industry: "Fintech",
-    shortDescription: "Enterprise financial RAG system analyzing SEC 10-K filings with reflection loops.",
-    challenge: "Financial analysts spent days reading 200-page SEC filings to compute valuation metrics.",
-    solution: "Architected a dual-mode research agent that extracts structured financial metrics, calculates ratios, and cross-references source citations.",
-    process: [
-      "10-K PDF Chunking & Qdrant Ingestion",
-      "Reflective RAG & Verification Agent Construction",
-      "Financial Formula Calculation Engine",
-      "Web Interface Deployment"
-    ],
-    techStack: ["LangGraph", "Groq", "Qdrant", "Gemini", "FastAPI"],
-    results: [
-      { title: "Analysis Speedup", value: "10x" },
-      { title: "Citation Accuracy", value: "100%" }
-    ],
-    timeline: "6 Weeks",
-    coverImage: "/projects_ss/quant.png",
-    tags: ["Fintech", "RAG", "Groq", "Qdrant"]
-  },
+
+
+
+
   {
     id: "advize-platform",
     slug: "advize-creator-marketing-platform",
-    featured: false,
+    featured: true,
     title: "Advize Creator Marketing Platform",
     category: "web",
     industry: "Influencer Marketing",
@@ -447,7 +267,292 @@ export const projects: Project[] = [
     timeline: "2 Months",
     coverImage: "/projects_ss/koc.jpeg",
     tags: ["Mobile", "React Native", "Firebase", "Android"]
-  }
+  },
+  {
+    id: "thf-partner",
+    slug: "thf-partner-chef-app",
+    featured: false,
+    title: "THF Partner",
+    category: "mobile",
+    industry: "Food & Hospitality",
+    shortDescription: "Mobile partner application built for professional chefs to manage orders, deliveries, and daily business operations efficiently.",
+    challenge: "Restaurant partners and chefs relied on manual workflows to manage incoming orders, track deliveries, and coordinate with customers, leading to operational delays and reduced efficiency.",
+    solution: "Developed a cross-platform partner application that enables chefs to receive and manage orders in real time, navigate deliveries with Google Maps, receive instant notifications, and streamline restaurant operations through an intuitive mobile interface.",
+    process: [
+      "Partner Dashboard & Order Management",
+      "Real-time Firebase Backend Integration",
+      "Google Maps & Navigation Integration",
+      "Play Store Deployment & Performance Optimization"
+    ],
+    techStack: [
+      "React Native",
+      "Firebase",
+      "Google Maps",
+      "Android Studio",
+      "Play Store"
+    ],
+    results: [
+      { title: "Restaurant Partners", value: "100+" },
+      { title: "Order Processing", value: "Real-time" }
+    ],
+    timeline: "2 Months",
+    coverImage: "/projects_ss/tfh.png",
+    tags: [
+      "Mobile App",
+      "React Native",
+      "Firebase",
+      "FoodTech",
+      "Google Maps"
+    ]
+  }, {
+    id: "guide-my-route",
+    slug: "guide-my-route-travel-platform",
+    featured: false,
+    title: "Guide My Route",
+    category: "mobile",
+    industry: "Travel & Tourism",
+    shortDescription: "A smart travel platform enabling tourists to discover local guides, book hotels, rent vehicles, and plan seamless trips from a single mobile application.",
+    challenge: "Travelers often rely on multiple platforms for booking hotels, finding local guides, renting vehicles, and planning itineraries, resulting in a fragmented travel experience.",
+    solution: "Developed a cross-platform mobile application that centralizes travel planning by allowing users to book verified local guides, reserve hotels, rent vehicles, discover tourist attractions, and manage their complete travel itinerary through a single intuitive interface.",
+    process: [
+      "Travel Planning & Booking Flow Design",
+      "Firebase Authentication & Real-time Database Integration",
+      "Google Maps & Location Services Integration",
+      "Hotel, Guide & Vehicle Booking System Development"
+    ],
+    techStack: [
+      "React Native",
+      "Firebase",
+      "Google Maps",
+      "Android Studio",
+      "Node.js"
+    ],
+    results: [
+      { title: "Booking Categories", value: "4+" },
+      { title: "Real-time Services", value: "100%" }
+    ],
+    timeline: "2 Months",
+    coverImage: "/projects_ss/guide-my-route.jpg",
+    tags: [
+      "Travel",
+      "Tourism",
+      "React Native",
+      "Firebase",
+      "Google Maps",
+      "Booking"
+    ]
+  }, {
+    id: "guide-my-route-partner",
+    slug: "guide-my-route-hotel-partner-console",
+    featured: false,
+    title: "Guide My Route Partner Console",
+    category: "mobile",
+    industry: "Travel & Hospitality",
+    shortDescription: "A hotel partner application enabling property owners to manage bookings, rooms, earnings, and daily hotel operations through a centralized mobile dashboard.",
+    challenge: "Hotel owners lacked a unified platform to manage reservations, room availability, booking requests, and earnings, leading to inefficient day-to-day operations and delayed responses to customers.",
+    solution: "Built a dedicated partner application for Guide My Route that allows hotel owners to manage bookings, update room inventory, monitor earnings, confirm reservations, and oversee hotel operations in real time through an intuitive mobile dashboard.",
+    process: [
+      "Hotel Partner Authentication & Dashboard",
+      "Room & Inventory Management System",
+      "Booking Confirmation & Reservation Tracking",
+      "Firebase Backend & Real-time Data Synchronization"
+    ],
+    techStack: [
+      "React Native",
+      "Firebase",
+      "Node.js",
+      "Android Studio",
+      "Google Maps"
+    ],
+    results: [
+      { title: "Booking Management", value: "100%" },
+      { title: "Real-time Dashboard", value: "Live" }
+    ],
+    timeline: "2 Months",
+    coverImage: "/projects_ss/gmr-partner.jpg",
+    tags: [
+      "Travel",
+      "Hospitality",
+      "React Native",
+      "Firebase",
+      "Hotel Management",
+      "Partner App"
+    ]
+  }, {
+    id: "campus-ninja",
+    slug: "campus-ninja-student-platform",
+    featured: true,
+    title: "Campus Ninja",
+    category: "mobile",
+    industry: "EdTech",
+    shortDescription: "An all-in-one engineering student platform providing notes, PYQs, video lectures, marketplace services, skill development, and premium study resources through a single mobile application.",
+    challenge: "Engineering students often depend on multiple websites and apps to access notes, previous year papers, video lectures, projects, and study materials, resulting in a fragmented learning experience.",
+    solution: "Built a comprehensive student platform that centralizes academic resources, premium study materials, engineering products, video lectures, skill development content, and a marketplace with secure Razorpay payments, enabling students to access everything they need from one application.",
+    process: [
+      "UI/UX Design & Student Experience Optimization",
+      "Firebase Authentication & Real-time Backend Integration",
+      "Razorpay Payment Gateway Integration",
+      "Marketplace, Learning Resources & Content Management"
+    ],
+    techStack: [
+      "React Native",
+      "Firebase",
+      "Razorpay",
+      "Node.js",
+      "Supabase",
+      "Android Studio"
+    ],
+    results: [
+      { title: "Learning Modules", value: "10+" },
+      { title: "One-stop Student Platform", value: "100%" }
+    ],
+    timeline: "4 Months",
+    coverImage: "/projects_ss/campus-ninja.jpg",
+    tags: [
+      "EdTech",
+      "React Native",
+      "Firebase",
+      "Razorpay",
+      "Marketplace",
+      "Engineering",
+      "Student Platform"
+    ]
+  }, {
+    id: "ipu-counselling-hub",
+    slug: "ipu-counselling-hub-predictor",
+    featured: true,
+    title: "IPU Counselling Hub & Predictor",
+    category: "web",
+    industry: "EdTech",
+    shortDescription: "A comprehensive counselling platform helping GGSIPU aspirants explore colleges, analyze cutoffs, predict admissions, and receive personalized mentorship through intelligent counselling tools.",
+    challenge: "Students preparing for GGSIPU admissions struggled to access reliable cutoff data, compare colleges, predict admission chances, and make informed counselling decisions.",
+    solution: "Developed a centralized counselling platform featuring round-wise cutoff analysis, college comparison tools, intelligent admission prediction, mentor guidance, and premium counselling resources to simplify the admission process.",
+    process: [
+      "Cutoff Data Collection & Analytics",
+      "College Predictor Algorithm Development",
+      "Student Dashboard & Counselling Tools",
+      "Premium Resources & Mentor Integration"
+    ],
+    techStack: [
+      "Next.js",
+      "React",
+      "Firebase",
+      "Tailwind CSS",
+      "Node.js"
+    ],
+    results: [
+      { title: "Monthly Users", value: "1,000+" },
+      { title: "Students Helped", value: "100+" }
+    ],
+    timeline: "3 Months",
+    coverImage: "/projects_ss/counselling-hub.png",
+    tags: [
+      "EdTech",
+      "Next.js",
+      "College Predictor",
+      "Firebase",
+      "Counselling",
+      "Education"
+    ]
+  }, {
+    id: "course-marketplace",
+    slug: "course-marketplace-platform",
+    featured: true,
+    title: "Course Marketplace Platform",
+    category: "web",
+    industry: "EdTech",
+    shortDescription: "A full-stack online learning marketplace enabling instructors to sell courses with secure authentication, role-based dashboards, and seamless online payments.",
+    challenge: "Traditional course-selling platforms lacked customizable learning workflows, secure payments, and scalable instructor management for independent educators.",
+    solution: "Built a complete learning marketplace supporting course publishing, secure Google authentication, role-based dashboards, Razorpay payments, and an intuitive learning experience for students and instructors.",
+    process: [
+      "Course Marketplace Architecture",
+      "Firebase Authentication & User Roles",
+      "Razorpay Payment Gateway Integration",
+      "Admin Dashboard & Course Management"
+    ],
+    techStack: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Firebase Auth",
+      "Razorpay"
+    ],
+    results: [
+      { title: "Secure Payments", value: "100%" },
+      { title: "Role-based Access", value: "Multi-user" }
+    ],
+    timeline: "2 Months",
+    coverImage: "/projects_ss/course-marketplace.png",
+    tags: [
+      "EdTech",
+      "React",
+      "MongoDB",
+      "Razorpay",
+      "Firebase",
+      "Marketplace"
+    ]
+  }, {
+    id: "velocity-grocery",
+    slug: "velocity-grocery-mobile-app",
+    featured: false,
+    title: "Velocity Grocery",
+    category: "mobile",
+    industry: "E-Commerce",
+    shortDescription: "A modern grocery delivery application offering real-time product browsing, smart cart management, address selection, and a seamless mobile shopping experience.",
+    challenge: "Customers required a fast and intuitive grocery shopping experience with real-time inventory updates, location-based delivery, and an optimized checkout flow.",
+    solution: "Developed a React Native grocery application featuring product discovery, Firebase-powered real-time updates, location management, shopping cart, and streamlined ordering for everyday grocery purchases.",
+    process: [
+      "Mobile-first UI/UX Design",
+      "Firebase Real-time Backend Integration",
+      "Shopping Cart & Checkout Flow",
+      "Location & Address Management"
+    ],
+    techStack: [
+      "React Native",
+      "Firebase",
+      "Node.js",
+      "Google Maps",
+      "Android Studio"
+    ],
+    results: [
+      { title: "Real-time Updates", value: "100%" },
+      { title: "Mobile Optimized", value: "Cross-platform" }
+    ],
+    timeline: "2 Months",
+    coverImage: "/projects_ss/velocity.jpg",
+    tags: [
+      "E-Commerce",
+      "React Native",
+      "Firebase",
+      "Grocery",
+      "Delivery",
+      "Mobile App"
+    ]
+  }, {
+    id: "quant-agent",
+    slug: "quant-financial-research-agent",
+    featured: false,
+    title: "Quant Financial Research Agent",
+    category: "ai",
+    industry: "Fintech",
+    shortDescription: "Enterprise financial RAG system analyzing SEC 10-K filings with reflection loops.",
+    challenge: "Financial analysts spent days reading 200-page SEC filings to compute valuation metrics.",
+    solution: "Architected a dual-mode research agent that extracts structured financial metrics, calculates ratios, and cross-references source citations.",
+    process: [
+      "10-K PDF Chunking & Qdrant Ingestion",
+      "Reflective RAG & Verification Agent Construction",
+      "Financial Formula Calculation Engine",
+      "Web Interface Deployment"
+    ],
+    techStack: ["LangGraph", "Groq", "Qdrant", "Gemini", "FastAPI"],
+    results: [
+      { title: "Analysis Speedup", value: "10x" },
+      { title: "Citation Accuracy", value: "100%" }
+    ],
+    timeline: "6 Weeks",
+    coverImage: "/projects_ss/quant.png",
+    tags: ["Fintech", "RAG", "Groq", "Qdrant"]
+  },
 ];
 
 export const journeyItems: JourneyItem[] = [

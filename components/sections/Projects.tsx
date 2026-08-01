@@ -51,10 +51,11 @@ export function Projects() {
     });
   }, { scope: containerRef });
 
-  // Get featured projects dynamically from projects data
+  // Get main project dynamically from projects data (Advize or first featured)
   const featuredProjects = projects.filter(p => p.featured);
   const mainProject = featuredProjects[0] || projects[0];
-  const secondaryProjects = featuredProjects.slice(1, 4);
+  // Ensure minimum 3 secondary projects are shown below
+  const secondaryProjects = projects.filter(p => p.id !== mainProject.id).slice(0, 3);
 
   return (
     <section id="projects" ref={containerRef} className="py-24 text-dark overflow-hidden relative z-10 bg-transparent">
@@ -152,10 +153,12 @@ export function Projects() {
                     <ArrowUpRight size={16} />
                   </Link>
                   <a 
-                    href="#contact" 
+                    href={mainProject.playStoreLink || mainProject.demoLink || "#"} 
+                    target={mainProject.playStoreLink || mainProject.demoLink ? "_blank" : undefined}
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-6 py-3.5 bg-white text-dark font-display font-bold uppercase tracking-wider text-xs sm:text-sm rounded-xl border border-dark/15 shadow-xs hover:border-dark hover:bg-white transition-all"
                   >
-                    BOOK SIMILAR SOLUTION
+                    {mainProject.category === "mobile" || mainProject.playStoreLink ? "OPEN ON PLAYSTORE" : "VIEW LIVE DEMO"}
                     <ArrowUpRight size={16} className="text-dark/50" />
                   </a>
                 </div>
@@ -201,6 +204,9 @@ export function Projects() {
           {secondaryProjects.map((project, idx) => {
             const icons = [Stethoscope, Users, ShoppingBag];
             const IconComp = icons[idx % icons.length];
+            const externalLink = project.playStoreLink || project.demoLink;
+            const isMobileApp = project.category === "mobile" || !!project.playStoreLink;
+
             return (
               <div 
                 key={project.id} 
@@ -226,12 +232,23 @@ export function Projects() {
                     </div>
                   )}
                 </div>
-                <Link 
-                  href={`/projects/${project.slug}`} 
-                  className="inline-flex items-center gap-1.5 text-accent font-mono font-bold text-xs uppercase tracking-wider hover:gap-2.5 transition-all"
-                >
-                  READ CASE STUDY <ArrowRight size={14} />
-                </Link>
+
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-dark/5">
+                  <Link 
+                    href={`/projects/${project.slug}`} 
+                    className="inline-flex items-center gap-1.5 text-accent font-mono font-bold text-xs uppercase tracking-wider hover:gap-2.5 transition-all"
+                  >
+                    READ CASE STUDY <ArrowRight size={14} />
+                  </Link>
+                  <a 
+                    href={externalLink || "#"} 
+                    target={externalLink ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-dark/70 hover:text-accent font-mono font-bold text-xs uppercase tracking-wider transition-all"
+                  >
+                    {isMobileApp ? "PLAY STORE" : "LIVE DEMO"} <ArrowUpRight size={14} />
+                  </a>
+                </div>
               </div>
             );
           })}

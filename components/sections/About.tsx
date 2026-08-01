@@ -26,11 +26,11 @@ export function About() {
   return (
     <section id="about" ref={containerRef} className="py-24 relative text-dark overflow-hidden bg-transparent">
       <div className="max-w-7xl mx-auto px-6 md:px-12 why-container">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Column: Office / Workspace Graphic Image */}
-          <div className="lg:col-span-6 relative why-content h-[420px] sm:h-[480px] lg:h-[540px] w-full rounded-3xl overflow-hidden shadow-2xl border border-dark/10 bg-white group">
+          <div className="lg:col-span-6 relative why-content h-[420px] sm:h-[480px] lg:h-[540px] w-full rounded-3xl overflow-hidden group">
             <Image
               src="/why-choose-us.png"
               alt="Why Choose Us Workspace"
@@ -45,7 +45,7 @@ export function About() {
 
           {/* Right Column: Text & Features Grid */}
           <div className="lg:col-span-6 why-content flex flex-col justify-center">
-            
+
             {/* Tag / Category */}
             <div className="flex items-center gap-2 text-accent font-mono font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
               <span className="h-0.5 w-6 bg-accent"></span>
@@ -53,7 +53,7 @@ export function About() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black leading-[1.15] tracking-tight text-dark mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-display font-black leading-[1.15] tracking-tight text-dark mb-6">
               Building <span className="text-accent">Technology</span> <br />
               That Drives <br />
               <span className="text-accent">Business Growth.</span>
@@ -71,17 +71,8 @@ export function About() {
 
             {/* 2x2 Feature Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-              {/* Feature 1 */}
-              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
-                  <Cpu size={24} />
-                </div>
-                <div>
-                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">AI-First Development</h4>
-                  <p className="text-xs text-dark/65 font-body leading-normal">Every solution is built with modern AI capabilities from day one.</p>
-                </div>
-              </div>
+
+
 
               {/* Feature 2 */}
               <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
@@ -94,16 +85,7 @@ export function About() {
                 </div>
               </div>
 
-              {/* Feature 3 */}
-              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
-                  <ShieldCheck size={24} />
-                </div>
-                <div>
-                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Enterprise Quality</h4>
-                  <p className="text-xs text-dark/65 font-body leading-normal">Scalable architecture built for long-term growth.</p>
-                </div>
-              </div>
+
 
               {/* Feature 4 */}
               <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
@@ -124,7 +106,7 @@ export function About() {
 
         {/* Bottom Banner Stats Row */}
         <div className="mt-16 w-full p-6 sm:p-8 rounded-3xl bg-white/70 backdrop-blur-md border border-dark/10 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-dark/10">
-          
+
           {/* Stat 1 */}
           <div className="flex items-center gap-4 pt-2 md:pt-0 md:px-4">
             <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">

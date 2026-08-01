@@ -90,48 +90,29 @@ export function InvestmentPlans() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
-        {/* Upper Header Row & Category Toggle */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-          
-          {/* Header Title & Copy */}
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-accent font-mono font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+        {/* Upper Header Row */}
+        <div className="mb-12">
+          <div className="max-w-4xl">
+            <div className="flex flex-wrap items-center gap-2.5 text-accent font-mono font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
               <span className="h-4 w-1 bg-accent"></span>
               <span>INVESTMENT PLANS</span>
+              <span className="px-3 py-1 rounded-full bg-accent/15 text-accent text-xs font-mono font-bold normal-case tracking-normal border border-accent/20">
+                🎁 A small demo for your website/app is FREE!
+              </span>
             </div>
 
-            <h3 className="text-4xl sm:text-5xl md:text-6xl font-display font-black leading-[1.1] tracking-tight text-dark mb-4">
-              Flexible Engagement Models <br />
-              For Every Stage of <span className="text-accent">Growth.</span>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-black leading-tight tracking-tight text-dark mb-4">
+              Simple Pricing For Every <span className="text-accent">Digital Solution.</span>
             </h3>
 
             <p className="text-dark/75 text-base md:text-lg font-body leading-relaxed font-medium">
-              Whether you're validating an idea, launching an AI-powered SaaS, or scaling an enterprise platform, we offer engagement models tailored to your business goals.
+              We build modern websites, mobile applications, AI chatbots, and intelligent AI agents tailored to your business goals. Choose the service that best fits your requirements.
             </p>
           </div>
-
-          {/* Toggle Switch Container */}
-          <div className="p-1.5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/15 shadow-sm inline-flex items-center gap-1 shrink-0 self-start lg:self-auto">
-            {pricingCategories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  activeCategory === cat.id
-                    ? "bg-white text-dark shadow-md border border-dark/10"
-                    : "text-dark/60 hover:text-dark bg-transparent"
-                }`}
-              >
-                {cat.id === "one-time" ? <Briefcase size={16} className="text-accent" /> : <Repeat size={16} className="text-accent" />}
-                <span>{cat.label}</span>
-              </button>
-            ))}
-          </div>
-
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="pricing-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch mb-16">
+        <div className="pricing-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 items-stretch mb-16">
           {filteredPlans.map((plan) => {
             const isDark = plan.darkCard;
             const isFeatured = plan.featured;
@@ -139,76 +120,76 @@ export function InvestmentPlans() {
             return (
               <div
                 key={plan.id}
-                className={`pricing-card p-7 sm:p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between relative group ${
+                className={`pricing-card p-5 sm:p-6 rounded-2xl transition-all duration-300 flex flex-col justify-between relative group ${
                   isDark
                     ? "bg-[#191918] text-white border border-white/10 shadow-2xl"
                     : isFeatured
-                    ? "bg-white border-2 border-accent shadow-2xl shadow-accent/15 lg:-translate-y-2 z-20"
-                    : "bg-white border border-dark/10 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                    ? "bg-white border-2 border-accent shadow-2xl shadow-accent/15 z-20"
+                    : "bg-white border border-dark/10 shadow-lg hover:shadow-xl hover:-translate-y-1"
                 }`}
               >
                 {/* Most Popular Badge */}
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-dark font-mono text-[10px] font-black uppercase tracking-widest shadow-md">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-accent text-dark font-mono text-[9px] font-black uppercase tracking-widest shadow-md">
                     {plan.badge || "MOST POPULAR"}
                   </div>
                 )}
 
                 <div>
                   {/* Top Header: Icon + Title */}
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h4 className={`text-2xl font-display font-bold mb-1 ${isDark ? "text-white" : "text-dark"}`}>
+                      <h4 className={`text-xl font-display font-bold mb-0.5 ${isDark ? "text-white" : "text-dark"}`}>
                         {plan.title}
                       </h4>
-                      <p className={`text-xs font-body font-medium ${isDark ? "text-white/60" : "text-dark/60"}`}>
+                      <p className={`text-[11px] font-body font-medium ${isDark ? "text-white/60" : "text-dark/60"}`}>
                         {plan.subtitle}
                       </p>
                     </div>
-                    <div className={`p-3.5 rounded-2xl ${isDark ? "bg-white/10" : "bg-accent/10"}`}>
+                    <div className={`p-2.5 rounded-xl ${isDark ? "bg-white/10" : "bg-accent/10"}`}>
                       {getIcon(plan.icon, !!isDark)}
                     </div>
                   </div>
 
                   {/* Price */}
-                  <div className="mb-8 pb-6 border-b border-dark/10 border-white/10">
-                    <span className={`text-[10px] font-mono font-bold uppercase tracking-widest block mb-1 ${isDark ? "text-accent" : "text-accent"}`}>
+                  <div className="mb-5 pb-4 border-b border-dark/10 border-white/10">
+                    <span className={`text-[9px] font-mono font-bold uppercase tracking-widest block mb-0.5 ${isDark ? "text-accent" : "text-accent"}`}>
                       {plan.priceSubtext || "STARTS AT"}
                     </span>
-                    <div className={`text-3xl sm:text-4xl font-display font-black tracking-tight ${isDark ? "text-white" : "text-dark"}`}>
+                    <div className={`text-2xl sm:text-3xl font-display font-black tracking-tight ${isDark ? "text-white" : "text-dark"}`}>
                       {plan.price}
                     </div>
                   </div>
 
-                  {/* Features List */}
-                  <div className="space-y-3 mb-8">
+                  {/* Features List (2-column layout to cut card height in half) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-2 mb-6">
                     {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs font-mono font-medium">
-                        <span className={`flex items-center justify-center w-4 h-4 rounded-full shrink-0 mt-0.5 ${
+                      <div key={idx} className="flex items-start gap-1.5 text-[10px] sm:text-[11px] font-mono font-medium">
+                        <span className={`flex items-center justify-center w-3.5 h-3.5 rounded-full shrink-0 mt-0.5 ${
                           isDark ? "bg-accent/20 text-accent" : "bg-accent/15 text-accent"
                         }`}>
-                          <Check size={10} strokeWidth={3} />
+                          <Check size={8} strokeWidth={3} />
                         </span>
-                        <span className={isDark ? "text-white/80" : "text-dark/80"}>{feature}</span>
+                        <span className={`leading-tight ${isDark ? "text-white/80" : "text-dark/80"}`}>{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Footer Timeline & Button */}
-                <div className="pt-4 border-t border-dark/5 border-white/10">
+                <div className="pt-3 border-t border-dark/5 border-white/10">
                   {plan.timeline && (
-                    <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold mb-4 ${
+                    <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold mb-3 ${
                       isDark ? "bg-white/10 text-white/70" : "bg-dark/5 text-dark/70"
                     }`}>
-                      <Clock size={12} className="text-accent" />
+                      <Clock size={10} className="text-accent" />
                       <span>{plan.timeline}</span>
                     </div>
                   )}
 
                   <a
                     href={plan.buttonLink}
-                    className={`flex items-center justify-center gap-2 w-full py-4 rounded-xl font-display font-bold uppercase text-xs tracking-wider transition-all shadow-md ${
+                    className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-display font-bold uppercase text-[11px] tracking-wider transition-all shadow-md ${
                       isDark
                         ? "bg-accent text-dark hover:bg-white hover:text-dark"
                         : isFeatured
@@ -217,7 +198,7 @@ export function InvestmentPlans() {
                     }`}
                   >
                     <span>{plan.buttonText}</span>
-                    <ArrowUpRight size={16} />
+                    <ArrowUpRight size={14} />
                   </a>
                 </div>
 

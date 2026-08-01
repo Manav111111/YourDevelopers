@@ -97,14 +97,24 @@ export default async function ProjectDetailPage({
 
             {/* Quick Action Links */}
             <div className="flex flex-wrap items-center gap-4">
-              {project.demoLink && (
+              {project.category === "mobile" || project.playStoreLink ? (
                 <a
-                  href={project.demoLink}
-                  target="_blank"
+                  href={project.playStoreLink || project.demoLink || "#"}
+                  target={project.playStoreLink || project.demoLink ? "_blank" : undefined}
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-6 py-3 bg-accent text-dark font-display font-bold uppercase text-xs tracking-wider rounded-xl shadow-md hover:bg-white transition-all"
                 >
-                  <span>Live Project</span>
+                  <span>View on PlayStore</span>
+                  <ExternalLink size={15} />
+                </a>
+              ) : (
+                <a
+                  href={project.demoLink || "#"}
+                  target={project.demoLink ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-accent text-dark font-display font-bold uppercase text-xs tracking-wider rounded-xl shadow-md hover:bg-white transition-all"
+                >
+                  <span>Live Demo</span>
                   <ExternalLink size={15} />
                 </a>
               )}

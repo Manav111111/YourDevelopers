@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, FileText, ArrowUpRight, Download } from "lucide-react";
+import { Mail, Phone, ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -31,42 +31,21 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-24">
 
             {/* Contact Details */}
-            <div className="space-y-8">
-              <div>
-                <h4 className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">CONTACT DIRECT</h4>
-                <div className="space-y-4">
-                  <a href="mailto:mohitaggarwal551@gmail.com" className="group flex items-center gap-3 sm:gap-4 text-sm sm:text-xl md:text-xl font-body transition-colors hover:text-accent break-all sm:break-normal">
-                    <span className="p-3 rounded-full bg-white/5 group-hover:bg-accent/10 transition-colors">
-                      <Mail size={20} className="text-accent" />
-                    </span>
-                    mohitaggarwal551@gmail.com
-                  </a>
-                  <a href="tel:+919205394233" className="group flex items-center gap-3 sm:gap-4 text-sm sm:text-xl md:text-xl font-body transition-colors hover:text-accent">
-                    <span className="p-3 rounded-full bg-white/5 group-hover:bg-accent/10 transition-colors">
-                      <Phone size={20} className="text-accent" />
-                    </span>
-                    +91 9205394233
-                  </a>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">RESOURCES</h4>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <button
-                    onClick={() => window.dispatchEvent(new Event("open-resume"))}
-                    className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-white text-dark font-mono text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 shadow-lg cursor-pointer"
-                  >
-                    <FileText size={16} /> Show Resume
-                  </button>
-                  <a
-                    href="/Mohit_AI.pdf"
-                    download="Mohit_Aggarwal_Resume.pdf"
-                    className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full bg-transparent border border-white/20 text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-dark hover:border-white transition-all duration-300 cursor-pointer"
-                  >
-                    <Download size={16} /> Download
-                  </a>
-                </div>
+            <div>
+              <h4 className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">CONTACT DIRECT</h4>
+              <div className="space-y-4">
+                <a href="mailto:yourdevelopers@gmail.com" className="group flex items-center gap-3 sm:gap-4 text-sm sm:text-xl md:text-xl font-body transition-colors hover:text-accent break-all sm:break-normal">
+                  <span className="p-3 rounded-full bg-white/5 group-hover:bg-accent/10 transition-colors">
+                    <Mail size={20} className="text-accent" />
+                  </span>
+                  yourdevelopers0@gmail.com
+                </a>
+                <a href="tel:9205394233,7827465966" className="group flex items-center gap-3 sm:gap-4 text-sm sm:text-xl md:text-xl font-body transition-colors hover:text-accent">
+                  <span className="p-3 rounded-full bg-white/5 group-hover:bg-accent/10 transition-colors">
+                    <Phone size={20} className="text-accent" />
+                  </span>
+                  9205394233,7827465966
+                </a>
               </div>
             </div>
 
@@ -105,22 +84,13 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Location / Status */}
+            {/* Location */}
             <div className="hidden sm:block space-y-8">
               <div>
                 <h4 className="font-mono text-[10px] uppercase tracking-widest text-white/30 mb-4 font-bold">LOCATION</h4>
                 <p className="text-lg font-body text-white/60">
                   New Delhi, India <br />
                   Working Globally
-                </p>
-              </div>
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="font-mono text-[10px] uppercase tracking-widest font-bold">Current Status</span>
-                </div>
-                <p className="text-sm text-white/50 leading-relaxed font-body">
-                  Available for collaborations and new opportunities.
                 </p>
               </div>
             </div>
@@ -130,7 +100,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-6 border-t border-white/5">
           <p className="text-white/30 font-mono text-[10px] uppercase tracking-[0.2em]">
-            © {currentYear} • DESIGNED & BUILT BY Mohit Aggarwal
+            © {currentYear} • DESIGNED & BUILT BY YourDevelopers
           </p>
           <div className="flex items-center gap-6">
             <span className="font-mono text-[10px] uppercase tracking-widest text-white/20">

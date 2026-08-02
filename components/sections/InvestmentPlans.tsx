@@ -117,7 +117,7 @@ export function InvestmentPlans() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="pricing-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-5 items-stretch mb-16">
+        <div className="pricing-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch mb-16">
           {filteredPlans.map((plan) => {
             const isDark = plan.darkCard;
             const isFeatured = plan.featured;
@@ -125,7 +125,7 @@ export function InvestmentPlans() {
             return (
               <div
                 key={plan.id}
-                className={`pricing-card p-5 sm:p-6 rounded-2xl transition-all duration-300 flex flex-col justify-between relative group ${
+                className={`pricing-card p-6 sm:p-7 rounded-3xl transition-all duration-300 flex flex-col justify-between relative group ${
                   isDark
                     ? "bg-[#191918] text-white border border-white/10 shadow-2xl"
                     : isFeatured
@@ -135,7 +135,7 @@ export function InvestmentPlans() {
               >
                 {/* Most Popular Badge */}
                 {isFeatured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-accent text-dark font-mono text-[9px] font-black uppercase tracking-widest shadow-md">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-accent text-dark font-mono text-[9px] font-black uppercase tracking-widest shadow-md">
                     {plan.badge || "MOST POPULAR"}
                   </div>
                 )}
@@ -144,14 +144,14 @@ export function InvestmentPlans() {
                   {/* Top Header: Icon + Title */}
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h4 className={`text-xl font-display font-bold mb-0.5 ${isDark ? "text-white" : "text-dark"}`}>
+                      <h4 className={`text-xl font-display font-bold mb-0.5 leading-snug ${isDark ? "text-white" : "text-dark"}`}>
                         {plan.title}
                       </h4>
-                      <p className={`text-[11px] font-body font-medium ${isDark ? "text-white/60" : "text-dark/60"}`}>
+                      <p className={`text-xs font-body font-medium ${isDark ? "text-white/60" : "text-dark/60"}`}>
                         {plan.subtitle}
                       </p>
                     </div>
-                    <div className={`p-2.5 rounded-xl ${isDark ? "bg-white/10" : "bg-accent/10"}`}>
+                    <div className={`p-2.5 rounded-xl shrink-0 ${isDark ? "bg-white/10" : "bg-accent/10"}`}>
                       {getIcon(plan.icon, !!isDark)}
                     </div>
                   </div>
@@ -166,16 +166,16 @@ export function InvestmentPlans() {
                     </div>
                   </div>
 
-                  {/* Features List (2-column layout to cut card height in half) */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-2 mb-6">
+                  {/* Features List */}
+                  <div className="space-y-2.5 mb-6">
                     {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-1.5 text-[10px] sm:text-[11px] font-mono font-medium">
-                        <span className={`flex items-center justify-center w-3.5 h-3.5 rounded-full shrink-0 mt-0.5 ${
+                      <div key={idx} className="flex items-start gap-2 text-xs font-mono font-medium">
+                        <span className={`flex items-center justify-center w-4 h-4 rounded-full shrink-0 mt-0.5 ${
                           isDark ? "bg-accent/20 text-accent" : "bg-accent/15 text-accent"
                         }`}>
-                          <Check size={8} strokeWidth={3} />
+                          <Check size={9} strokeWidth={3} />
                         </span>
-                        <span className={`leading-tight ${isDark ? "text-white/80" : "text-dark/80"}`}>{feature}</span>
+                        <span className={`leading-snug ${isDark ? "text-white/85" : "text-dark/85"}`}>{feature}</span>
                       </div>
                     ))}
                   </div>

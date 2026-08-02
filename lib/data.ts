@@ -127,51 +127,27 @@ export const investmentPlans: InvestmentPlan[] = [
     ]
   },
   {
-    id: "ai-chatbot",
-    featured: false,
-    darkCard: false,
-    type: "one-time",
-    title: "AI Chatbot Integration",
-    subtitle: "Website & Business Automation",
-    price: "₹10,000+",
-    priceSubtext: "STARTS AT",
-    timeline: "1–3 Weeks",
-    buttonText: "Integrate AI",
-    buttonLink: "#contact",
-    icon: "brain",
-    features: [
-      "AI Chatbot",
-      "Lead Generation",
-      "Website Integration",
-      "FAQ Automation",
-      "WhatsApp Integration",
-      "CRM Integration",
-      "Knowledge Base",
-      "Analytics"
-    ]
-  },
-  {
     id: "ai-agents",
     featured: false,
     darkCard: true,
     type: "one-time",
-    title: "AI Agents",
+    title: "AI Agents & Chatbots",
     subtitle: "Intelligent Business Automation",
     price: "₹15,000+",
     priceSubtext: "STARTS AT",
-    timeline: "3–6 Weeks",
+    timeline: "2–4 Weeks",
     buttonText: "Let's Discuss",
     buttonLink: "#contact",
-    icon: "building",
+    icon: "brain",
     features: [
       "Custom AI Agents",
+      "AI Chatbots Integration",
       "Workflow Automation",
-      "Multi-Agent Systems",
-      "RAG Integration",
-      "MCP Integration",
-      "API Automation",
+      "WhatsApp & CRM Sync",
+      "Multi-Agent & RAG Systems",
+      "Lead Gen & Knowledge Base",
       "Database Integration",
-      "Ongoing Support"
+      "Ongoing Maintenance"
     ]
   },
   {

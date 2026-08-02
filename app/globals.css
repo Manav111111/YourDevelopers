@@ -65,3 +65,79 @@ html.lenis, html.lenis body {
 html, body {
   overflow-x: clip;
 }
+
+/* ===== AI Robot Eye Blink Animation ===== */
+
+/* Visor grey sweep — semi-transparent layer that sweeps across the visor */
+.robot-visor-sweep {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(60, 60, 60, 0.40) 30%,
+    rgba(40, 40, 40, 0.45) 50%,
+    rgba(60, 60, 60, 0.40) 70%,
+    transparent 100%
+  );
+  mix-blend-mode: multiply;
+  filter: blur(2.5px);
+  opacity: 0;
+  transform: translateZ(0);
+  will-change: opacity;
+  animation: visorSweep 2s ease-in-out infinite;
+}
+
+/* Eye glow dimmer — reduces orange glow during blink */
+.robot-eye-dim {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(25, 25, 24, 0.75) 0%,
+    rgba(25, 25, 24, 0.50) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: translateZ(0);
+  will-change: opacity;
+  animation: eyeDim 2s ease-in-out infinite;
+}
+
+/* Visor sweep keyframes: fade in 150ms, hold 80ms, fade out 150ms ≈ 380ms total */
+@keyframes visorSweep {
+  0%, 75% {
+    opacity: 0;
+  }
+  /* Start blink at 75% of 2s = 1.5s mark */
+  77.5% {
+    /* fade in: 150ms / 2000ms = 7.5% */
+    opacity: 1;
+  }
+  81.5% {
+    /* hold: 80ms / 2000ms = 4% */
+    opacity: 1;
+  }
+  89% {
+    /* fade out: 150ms / 2000ms = 7.5% */
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Eye glow dim keyframes: synced with visor sweep, reduces glow by ~70% */
+@keyframes eyeDim {
+  0%, 75% {
+    opacity: 0;
+  }
+  77.5% {
+    opacity: 0.7;
+  }
+  81.5% {
+    opacity: 0.7;
+  }
+  89% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -19,13 +19,16 @@ import {
   Globe, 
   Briefcase, 
   Repeat,
-  Check
+  Check,
+  Sparkles
 } from "lucide-react";
 import { investmentPlans, pricingCategories, InvestmentPlan } from "@/lib/data";
+import { useConsultationModal } from "../modals/ConsultationModalContext";
 
 export function InvestmentPlans() {
-  const [activeCategory, setActiveCategory] = useState<string>("one-time");
   const containerRef = useRef<HTMLElement>(null);
+  const [activeCategory, setActiveCategory] = useState<"one-time" | "subscription">("one-time");
+  const { openModal } = useConsultationModal();
 
   useGSAP(() => {
     gsap.from(".pricing-card", {
@@ -49,6 +52,8 @@ export function InvestmentPlans() {
   const getIcon = (iconName: string, isDark: boolean) => {
     const size = 24;
     switch (iconName) {
+      case "sparkles":
+        return <Sparkles size={size} className="text-accent" />;
       case "rocket":
         return <Rocket size={size} className={isDark ? "text-accent" : "text-accent"} />;
       case "trending":
@@ -112,7 +117,7 @@ export function InvestmentPlans() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="pricing-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 items-stretch mb-16">
+        <div className="pricing-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-5 items-stretch mb-16">
           {filteredPlans.map((plan) => {
             const isDark = plan.darkCard;
             const isFeatured = plan.featured;
@@ -187,9 +192,9 @@ export function InvestmentPlans() {
                     </div>
                   )}
 
-                  <a
-                    href={plan.buttonLink}
-                    className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-display font-bold uppercase text-[11px] tracking-wider transition-all shadow-md ${
+                  <button
+                    onClick={() => openModal(plan.title)}
+                    className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-display font-bold uppercase text-[11px] tracking-wider transition-all shadow-md cursor-pointer ${
                       isDark
                         ? "bg-accent text-dark hover:bg-white hover:text-dark"
                         : isFeatured
@@ -199,7 +204,7 @@ export function InvestmentPlans() {
                   >
                     <span>{plan.buttonText}</span>
                     <ArrowUpRight size={14} />
-                  </a>
+                  </button>
                 </div>
 
               </div>
@@ -288,13 +293,13 @@ export function InvestmentPlans() {
             </div>
           </div>
 
-          <a
-            href="#contact"
-            className="flex items-center justify-center gap-2 px-8 py-4 bg-accent text-dark font-display font-bold uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-lg hover:bg-white hover:text-dark transition-all w-full md:w-auto shrink-0 relative z-10"
+          <button
+            onClick={() => openModal()}
+            className="flex items-center justify-center gap-2 px-8 py-4 bg-accent text-dark font-display font-bold uppercase tracking-wider text-xs sm:text-sm rounded-xl shadow-lg hover:bg-white hover:text-dark transition-all w-full md:w-auto shrink-0 relative z-10 cursor-pointer"
           >
             <span>Book Free Discovery Call</span>
             <ArrowRight size={18} />
-          </a>
+          </button>
 
           {/* Ambient Glow background */}
           <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-accent/15 rounded-full blur-3xl pointer-events-none" />

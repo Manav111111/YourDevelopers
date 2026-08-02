@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useConsultationModal } from "../modals/ConsultationModalContext";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openModal } = useConsultationModal();
 
   const navLinks: { name: string; href: string; onClick?: () => void }[] = [
     { name: "SERVICES", href: "#skills" },
@@ -22,8 +25,18 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-3.5 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group text-xl md:text-2xl font-display font-bold text-dark flex items-center relative z-50">
-          YourDevelopers<span className="text-accent group-hover:scale-125 transition-transform">.</span>
+        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group flex items-center gap-3 relative z-50">
+          <Image
+            src="/yourdevlogo.png"
+            alt="YourDevelopers Logo"
+            width={72}
+            height={72}
+            className="w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-xl object-contain group-hover:scale-105 transition-transform duration-250"
+            priority
+          />
+          <span className="text-xl md:text-2xl font-display font-bold text-dark group-hover:text-dark/85 transition-colors duration-250">
+            YourDevelopers<span className="text-accent group-hover:scale-125 inline-block transition-transform duration-250">.</span>
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -40,12 +53,12 @@ export function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center gap-2 text-xs tracking-widest rounded-xl justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-all shadow-md hover:shadow-lg"
+        <button
+          onClick={() => openModal()}
+          className="hidden md:inline-flex items-center gap-2 text-xs tracking-widest rounded-xl justify-center bg-accent text-dark font-display font-bold uppercase tracking-wider px-6 py-2.5 hover:bg-white transition-all shadow-md hover:shadow-lg cursor-pointer"
         >
           Book Free Call →
-        </a>
+        </button>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -102,10 +115,12 @@ export function Navbar() {
               </Link>
             )
           ))}
-          <a
-            href="#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="mb-4 bg-accent text-dark font-display  font-bold uppercase tracking-wider px-8 py-2 text-md sm:text-xl rounded-lg shadow-md"
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              openModal();
+            }}
+            className="mb-4 bg-accent text-dark font-display font-bold uppercase tracking-wider px-8 py-2 text-md sm:text-xl rounded-lg shadow-md cursor-pointer"
             style={{
               transitionProperty: "transform, opacity",
               transitionDuration: "0.5s",
@@ -115,8 +130,8 @@ export function Navbar() {
               opacity: mobileMenuOpen ? 1 : 0,
             }}
           >
-            Connect With Me
-          </a>
+            Book Free Call →
+          </button>
         </nav>
       </div>
     </header>

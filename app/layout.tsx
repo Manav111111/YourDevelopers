@@ -4,6 +4,9 @@ import "./globals.css";
 import { LenisProvider } from "@/components/layout/LenisProvider";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { ConsultationModalProvider } from "@/components/modals/ConsultationModalContext";
+import { ConsultationModal } from "@/components/modals/ConsultationModal";
+import { Toaster } from "sonner";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -148,9 +151,13 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col selection:bg-accent selection:text-dark">
-        <LenisProvider>
-          {children}
-        </LenisProvider>
+        <ConsultationModalProvider>
+          <LenisProvider>
+            {children}
+          </LenisProvider>
+          <ConsultationModal />
+          <Toaster position="top-right" theme="dark" richColors />
+        </ConsultationModalProvider>
         <Analytics />
       </body>
     </html>

@@ -53,6 +53,31 @@ export const pricingCategories = [
 
 export const investmentPlans: InvestmentPlan[] = [
   {
+    id: "free-demo",
+    featured: false,
+    darkCard: false,
+    type: "one-time",
+    title: "Free Demo",
+    subtitle: "Website & App Prototype",
+    price: "₹0",
+    priceSubtext: "100% FREE",
+    badge: "FREE DEMO",
+    timeline: "24–48 Hours",
+    buttonText: "Request Free Demo",
+    buttonLink: "#contact",
+    icon: "sparkles",
+    features: [
+      "Interactive UI Demo",
+      "Custom Prototype",
+      "No Upfront Cost",
+      "Quick 48h Turnaround",
+      "Architecture Review",
+      "Scope & Cost Estimate",
+      "Tech Consultation",
+      "100% Risk Free"
+    ]
+  },
+  {
     id: "website-dev",
     featured: false,
     darkCard: false,
@@ -241,7 +266,8 @@ export const projects: Project[] = [
     ],
     timeline: "3 Months",
     coverImage: "/projects_ss/advize.png",
-    tags: ["SaaS", "Next.js", "Razorpay", "Firebase"]
+    tags: ["SaaS", "Next.js", "Razorpay", "Firebase"],
+    demoLink: "https://www.advize.in/"
   },
   {
     id: "trueknoc-app",
@@ -266,7 +292,8 @@ export const projects: Project[] = [
     ],
     timeline: "2 Months",
     coverImage: "/projects_ss/koc.jpeg",
-    tags: ["Mobile", "React Native", "Firebase", "Android"]
+    tags: ["Mobile", "React Native", "Firebase", "Android"],
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.trueknoc.myapp"
   },
   {
     id: "thf-partner",
@@ -303,7 +330,8 @@ export const projects: Project[] = [
       "Firebase",
       "FoodTech",
       "Google Maps"
-    ]
+    ],
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.thfpartnerv1.next.myapp"
   }, {
     id: "guide-my-route",
     slug: "guide-my-route-travel-platform",
@@ -340,7 +368,8 @@ export const projects: Project[] = [
       "Firebase",
       "Google Maps",
       "Booking"
-    ]
+    ],
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.jatin551.guidemyroute"
   }, {
     id: "guide-my-route-partner",
     slug: "guide-my-route-hotel-partner-console",
@@ -377,7 +406,8 @@ export const projects: Project[] = [
       "Firebase",
       "Hotel Management",
       "Partner App"
-    ]
+    ],
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.jatin551.gmrpartner"
   }, {
     id: "campus-ninja",
     slug: "campus-ninja-student-platform",
@@ -416,7 +446,8 @@ export const projects: Project[] = [
       "Marketplace",
       "Engineering",
       "Student Platform"
-    ]
+    ],
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.thfpartnerv1.next.myapp"
   }, {
     id: "ipu-counselling-hub",
     slug: "ipu-counselling-hub-predictor",
@@ -453,7 +484,8 @@ export const projects: Project[] = [
       "Firebase",
       "Counselling",
       "Education"
-    ]
+    ],
+    demoLink: "https://councelling-delta.vercel.app/"
   }, {
     id: "course-marketplace",
     slug: "course-marketplace-platform",
@@ -490,7 +522,8 @@ export const projects: Project[] = [
       "Razorpay",
       "Firebase",
       "Marketplace"
-    ]
+    ],
+    demoLink: "https://lms-4-97qt.onrender.com/"
   }, {
     id: "velocity-grocery",
     slug: "velocity-grocery-mobile-app",
@@ -527,7 +560,8 @@ export const projects: Project[] = [
       "Grocery",
       "Delivery",
       "Mobile App"
-    ]
+    ],
+    demoLink: "https://drive.google.com/file/d/1bl7GVgoPACLKjtlEC4qps9QuAsV-1FBD/view"
   }, {
     id: "quant-agent",
     slug: "quant-financial-research-agent",
@@ -551,8 +585,9 @@ export const projects: Project[] = [
     ],
     timeline: "6 Weeks",
     coverImage: "/projects_ss/quant.png",
-    tags: ["Fintech", "RAG", "Groq", "Qdrant"]
-  },
+    tags: ["Fintech", "RAG", "Groq", "Qdrant"],
+    demoLink: "https://dual-mode-research-agent.vercel.app/"
+  }
 ];
 
 export const journeyItems: JourneyItem[] = [

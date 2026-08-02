@@ -13,9 +13,11 @@ import {
   Users
 } from "lucide-react";
 import { servicesData } from "@/lib/development";
+import { useConsultationModal } from "../modals/ConsultationModalContext";
 
 export function Skills() {
   const containerRef = useRef<HTMLElement>(null);
+  const { openModal } = useConsultationModal();
 
   useGSAP(() => {
     // Parallax scrolling for marquee
@@ -133,13 +135,13 @@ export function Skills() {
               </div>
 
               {/* Learn More Link */}
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-1.5 text-accent font-mono font-bold text-[10px] sm:text-xs uppercase tracking-wider hover:gap-2 transition-all pt-3 border-t border-dark/5"
+              <button
+                onClick={() => openModal(service.title)}
+                className="inline-flex items-center gap-1.5 text-accent font-mono font-bold text-[10px] sm:text-xs uppercase tracking-wider hover:gap-2 transition-all pt-3 border-t border-dark/5 cursor-pointer"
               >
                 <span>Learn More</span>
                 <ArrowRight size={12} />
-              </a>
+              </button>
             </div>
           ))}
         </div>

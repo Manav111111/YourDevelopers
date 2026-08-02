@@ -61,8 +61,43 @@ export function ConsultationModal() {
 
   const onSubmit = async (data: ConsultationFormValues) => {
     setIsSubmitting(true);
+
+    // 1. Build template parameters matching EmailJS template exact variables
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      phone: data.phone,
+      service: data.service,
+      message: data.description
+    };
+
+    const emailjsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_vy74q5u";
+    const emailjsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_5cpa6ar";
+    const emailjsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "_JnCuK-ftThxIjRU4";
+
+    console.log("🚀 [EmailJS] Sending email...", {
+      serviceID: emailjsServiceId,
+      templateID: emailjsTemplateId,
+      templateParams
+    });
+
     try {
-      // 1. Send via server API route & store
+      // 2. Trigger EmailJS delivery
+      if (emailjsServiceId && emailjsTemplateId && emailjsPublicKey) {
+        try {
+          const emailjsRes = await emailjs.send(
+            emailjsServiceId,
+            emailjsTemplateId,
+            templateParams,
+            emailjsPublicKey
+          );
+          console.log("✅ [EmailJS] Email sent successfully!", emailjsRes);
+        } catch (emailjsErr) {
+          console.error("❌ [EmailJS Error]:", emailjsErr);
+        }
+      }
+
+      // 3. Save lead to local store via API route
       const response = await fetch("/api/consultation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -70,30 +105,6 @@ export function ConsultationModal() {
       });
 
       const result = await response.json();
-
-      // 2. Optional: Send directly via EmailJS if configured in .env
-      const emailjsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const emailjsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const emailjsPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (emailjsServiceId && emailjsTemplateId && emailjsPublicKey) {
-        try {
-          await emailjs.send(
-            emailjsServiceId,
-            emailjsTemplateId,
-            {
-              from_name: data.name,
-              from_email: data.email,
-              phone: data.phone,
-              service: data.service,
-              message: data.description
-            },
-            emailjsPublicKey
-          );
-        } catch (emailjsErr) {
-          console.warn("EmailJS delivery note:", emailjsErr);
-        }
-      }
 
       if (result.success) {
         setSubmittedData(data);

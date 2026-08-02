@@ -25,139 +25,213 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://www.mohitcodes.dev";
+const SITE_URL = "https://yourdevelopers.vercel.app/"; // Change after buying domain
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+
   title: {
-    default: "Mohit Aggarwal | AI Engineer ",
-    template: "%s | Mohit Aggarwal",
+    default: "YourDevelopers | AI Development Agency",
+    template: "%s | YourDevelopers",
   },
+
   description:
-    "Mohit Aggarwal is an AI Engineer specializing in intelligent web and mobile applications, LLMs, and scalable backend systems. Explore projects, skills, and experience.",
+    "YourDevelopers builds AI-powered websites, mobile applications, SaaS products, AI chatbots, AI agents and intelligent automation solutions for startups and businesses.",
+
   keywords: [
-    "Mohit Aggarwal",
-    "Mohit Aggarwal AI Engineer",
-    "Mohit Aggarwal Developer",
-    "Mohit Aggarwal Portfolio",
-    "AI Engineer",
-    "Full Stack Developer",
-    "React Native Developer",
-    "Next.js Developer",
-    "LangChain",
+    "YourDevelopers",
+    "AI Development Agency",
+    "Website Development",
+    "Web Development Company",
+    "Mobile App Development",
+    "AI Chatbot Development",
+    "AI Agent Development",
+    "SaaS Development",
+    "Automation Solutions",
+    "React Development",
+    "Next.js Development",
+    "Node.js Development",
+    "MERN Stack",
+    "Custom Software Development",
+    "Startup MVP Development",
+    "Business Automation",
+    "Full Stack Development",
+    "Artificial Intelligence",
+    "LLM Integration",
     "OpenAI Integration",
-    "Machine Learning Engineer",
-    "Web Developer India",
-    "Mobile App Developer",
+    "LangChain Development",
+    "India Software Agency"
   ],
-  authors: [{ name: "Mohit Aggarwal", url: SITE_URL }],
-  creator: "Mohit Aggarwal",
-  publisher: "Mohit Aggarwal",
+
+  authors: [
+    {
+      name: "YourDevelopers",
+      url: SITE_URL,
+    },
+  ],
+
+  creator: "YourDevelopers",
+  publisher: "YourDevelopers",
+
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
+
   alternates: {
     canonical: SITE_URL,
   },
+
+  category: "Technology",
+
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "Mohit Aggarwal Portfolio",
-    title: "Mohit Aggarwal | AI Engineer & Full Stack Developer",
+    siteName: "YourDevelopers",
+
+    title: "YourDevelopers | AI Development Agency",
+
     description:
-      "Mohit Aggarwal is an AI Engineer and Full Stack Developer specializing in intelligent web and mobile applications, LLMs, and scalable backend systems.",
+      "We design and build AI-powered websites, mobile apps, SaaS platforms, AI chatbots and intelligent automation solutions that help startups launch faster and businesses scale smarter.",
+
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mohit Aggarwal — AI Engineer & Full Stack Developer",
+        alt: "YourDevelopers AI Development Agency",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Mohit Aggarwal | AI Engineer & Full Stack Developer",
+
+    title: "YourDevelopers | AI Development Agency",
+
     description:
-      "Mohit Aggarwal — AI Engineer building intelligent web & mobile apps, LLMs, and scalable backends.",
+      "AI Websites • Mobile Apps • SaaS • AI Chatbots • AI Agents • Automation",
+
     images: ["/og-image.png"],
-    creator: "@MohitAggarwal",
+
+    creator: "@yourdevelopers",
   },
+
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      {
+        url: "/favicon.ico",
+      },
+      {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+    ],
+
     shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
-  verification: {
-    google: "jAWuhnx6s53HmWU2lPvozIXRtN_saYKFe42xkO-qg_c",
+
+    apple: "/apple-touch-icon.png",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Mohit Aggarwal",
-  url: "https://www.mohitcodes.dev",
-  image: "https://www.mohitcodes.dev/1775243053202.png",
-  jobTitle: "AI Engineer & Full Stack Developer",
+  "@type": "Organization",
+
+  name: "YourDevelopers",
+
+  url: SITE_URL,
+
+  logo: `${SITE_URL}/favicon.png`,
+
+  image: `${SITE_URL}/og-image.png`,
+
   description:
-    "Mohit Aggarwal is an AI Engineer and Full Stack Developer specializing in intelligent web and mobile applications, LLMs, and scalable backend systems.",
+    "YourDevelopers is an AI development agency building AI-powered websites, mobile applications, SaaS products, AI chatbots, AI agents and business automation solutions.",
+
+  email: "yourdevelopers0@gmail.com",
+
   sameAs: [
-    "https://github.com/Mohit776",
-    "https://linkedin.com/in/mohitaggarwal",
-    "https://www.mohitcodes.dev",
+    "https://github.com/yourdevelopers",
+    "https://linkedin.com/company/yourdevelopers",
+    "https://instagram.com/yourdevelopers",
+    "https://x.com/yourdevelopers"
   ],
+
+  foundingLocation: {
+    "@type": "Place",
+    name: "India"
+  },
+
   knowsAbout: [
     "Artificial Intelligence",
-    "Machine Learning",
-    "Full Stack Development",
-    "React Native",
+    "AI Agents",
+    "AI Chatbots",
+    "Web Development",
+    "Mobile App Development",
+    "SaaS Development",
     "Next.js",
-    "LangChain",
-    "OpenAI",
-    "Python",
+    "React",
+    "Node.js",
     "TypeScript",
+    "Python",
+    "OpenAI",
+    "LangChain",
+    "Automation",
+    "LLMs",
+    "Cloud Deployment"
   ],
-  alumniOf: {
-    "@type": "Organization",
-    name: "Lakshmi Information Technology Private Limited",
-  },
+
+  areaServed: "Worldwide",
+
+  slogan: "Building AI Products That Scale Businesses."
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         <Script
-          id="person-jsonld"
+          id="organization-jsonld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
         />
       </head>
-      <body className="min-h-full flex flex-col selection:bg-accent selection:text-dark">
+
+      <body className="min-h-screen flex flex-col selection:bg-orange-500 selection:text-white">
         <ConsultationModalProvider>
           <LenisProvider>
             {children}
           </LenisProvider>
+
           <ConsultationModal />
-          <Toaster position="top-right" theme="dark" richColors />
+
+          <Toaster
+            richColors
+            theme="dark"
+            position="top-right"
+          />
         </ConsultationModalProvider>
+
         <Analytics />
       </body>
     </html>

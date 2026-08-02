@@ -22,19 +22,19 @@ export function Navbar() {
     <header
       className="navbar-container fixed top-0 left-0   right-0 z-50 transition-all duration-300 bg-cream/95 backdrop-blur-md border-b border-dark/5  translate-y-0 opacity-100 pointer-events-auto"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-3.5 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-3 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group flex items-center gap-3 relative z-50">
+        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group flex items-center gap-2.5 relative z-50">
           <Image
             src="/yourdevlogo.png"
             alt="YourDevelopers Logo"
-            width={72}
-            height={72}
-            className="w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-xl object-contain group-hover:scale-105 transition-transform duration-250"
+            width={40}
+            height={40}
+            className="w-[34px] h-[34px] md:w-[38px] md:h-[38px] rounded-lg object-contain group-hover:scale-105 transition-transform duration-250"
             priority
           />
-          <span className="text-xl md:text-2xl font-display font-bold text-dark group-hover:text-dark/85 transition-colors duration-250">
+          <span className="text-lg md:text-xl font-display font-bold text-dark group-hover:text-dark/85 transition-colors duration-250 tracking-tight">
             YourDevelopers<span className="text-accent group-hover:scale-125 inline-block transition-transform duration-250">.</span>
           </span>
         </Link>

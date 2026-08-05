@@ -94,7 +94,16 @@ export function About() {
             {/* 2x2 Feature Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-
+              {/* Feature 1 */}
+              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <Cpu size={24} />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">AI-First Architecture</h4>
+                  <p className="text-xs text-dark/65 font-body leading-normal">Smart automation & intelligent systems built for scale.</p>
+                </div>
+              </div>
 
               {/* Feature 2 */}
               <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
@@ -107,7 +116,16 @@ export function About() {
                 </div>
               </div>
 
-
+              {/* Feature 3 */}
+              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <ShieldCheck size={24} />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Enterprise Security</h4>
+                  <p className="text-xs text-dark/65 font-body leading-normal">Robust code standards, 100% NDA & complete IP ownership.</p>
+                </div>
+              </div>
 
               {/* Feature 4 */}
               <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
@@ -127,49 +145,53 @@ export function About() {
         </div>
 
         {/* Bottom Banner Stats Row */}
-        <div className="why-stat-grid mt-16 w-full p-6 sm:p-8 rounded-3xl bg-white/70 backdrop-blur-md border border-dark/10 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-dark/10">
+        <div className="why-stat-grid mt-12 sm:mt-16 w-full p-4 sm:p-8 rounded-3xl bg-white/80 backdrop-blur-md border border-dark/10 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
 
           {/* Stat 1 */}
-          <div className="why-stat-card flex items-center gap-4 pt-2 md:pt-0 md:px-4">
-            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
-              <TrendingUp size={24} />
+          <div className="why-stat-card flex flex-col sm:flex-row items-center text-center sm:text-left gap-2.5 sm:gap-4 p-3.5 sm:p-0 rounded-2xl bg-white/60 sm:bg-transparent border sm:border-0 border-dark/5">
+            <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <TrendingUp size={20} className="sm:hidden" />
+              <TrendingUp size={24} className="hidden sm:block" />
             </div>
             <div>
-              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">50+</div>
-              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Projects Delivered</div>
+              <div className="font-display font-black text-xl sm:text-3xl text-dark leading-none">50+</div>
+              <div className="text-[11px] sm:text-sm font-body font-semibold text-dark/70 mt-1">Projects Delivered</div>
             </div>
           </div>
 
           {/* Stat 2 */}
-          <div className="why-stat-card flex items-center gap-4 pt-4 md:pt-0 md:px-4">
-            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
-              <Award size={24} />
+          <div className="why-stat-card flex flex-col sm:flex-row items-center text-center sm:text-left gap-2.5 sm:gap-4 p-3.5 sm:p-0 rounded-2xl bg-white/60 sm:bg-transparent border sm:border-0 border-dark/5">
+            <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <Award size={20} className="sm:hidden" />
+              <Award size={24} className="hidden sm:block" />
             </div>
             <div>
-              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">98%</div>
-              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Client Satisfaction</div>
+              <div className="font-display font-black text-xl sm:text-3xl text-dark leading-none">98%</div>
+              <div className="text-[11px] sm:text-sm font-body font-semibold text-dark/70 mt-1">Client Satisfaction</div>
             </div>
           </div>
 
           {/* Stat 3 */}
-          <div className="why-stat-card flex items-center gap-4 pt-4 md:pt-0 md:px-4">
-            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
-              <Calendar size={24} />
+          <div className="why-stat-card flex flex-col sm:flex-row items-center text-center sm:text-left gap-2.5 sm:gap-4 p-3.5 sm:p-0 rounded-2xl bg-white/60 sm:bg-transparent border sm:border-0 border-dark/5">
+            <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <Calendar size={20} className="sm:hidden" />
+              <Calendar size={24} className="hidden sm:block" />
             </div>
             <div>
-              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">7 Days</div>
-              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Average MVP Kickoff</div>
+              <div className="font-display font-black text-xl sm:text-3xl text-dark leading-none">7 Days</div>
+              <div className="text-[11px] sm:text-sm font-body font-semibold text-dark/70 mt-1">Average MVP Kickoff</div>
             </div>
           </div>
 
           {/* Stat 4 */}
-          <div className="why-stat-card flex items-center gap-4 pt-4 md:pt-0 md:px-4">
-            <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
-              <Headphones size={24} />
+          <div className="why-stat-card flex flex-col sm:flex-row items-center text-center sm:text-left gap-2.5 sm:gap-4 p-3.5 sm:p-0 rounded-2xl bg-white/60 sm:bg-transparent border sm:border-0 border-dark/5">
+            <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
+              <Headphones size={20} className="sm:hidden" />
+              <Headphones size={24} className="hidden sm:block" />
             </div>
             <div>
-              <div className="font-display font-black text-2xl sm:text-3xl text-dark leading-none">24/7</div>
-              <div className="text-xs sm:text-sm font-body font-semibold text-dark/70 mt-1">Technical Support</div>
+              <div className="font-display font-black text-xl sm:text-3xl text-dark leading-none">24/7</div>
+              <div className="text-[11px] sm:text-sm font-body font-semibold text-dark/70 mt-1">Technical Support</div>
             </div>
           </div>
 

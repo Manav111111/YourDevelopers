@@ -100,13 +100,13 @@ export function Hero() {
         {/* Left Content Column */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left pt-2">
 
-          <h2 className="hero-badge hero-role self-start text-left text-sm sm:text-base md:text-lg lg:text-xl font-mono font-semibold tracking-wide text-dark/90 mb-5 border-l-4 border-accent pl-3 sm:pl-4 py-1">
+          <h2 className="hero-badge hero-role self-center lg:self-start text-center lg:text-left text-sm sm:text-base md:text-lg lg:text-xl font-mono font-semibold tracking-wide text-dark/90 mb-5 border-l-4 border-accent pl-3 sm:pl-4 py-1">
             Next-Gen AI & Full-Stack Development Studio
           </h2>
           {/* Headline */}
-          <h1 className="hero-name self-start text-left flex flex-col text-[11vw] sm:text-[10vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
+          <h1 className="hero-name self-center lg:self-start text-center lg:text-left flex flex-col text-[12vw] sm:text-[10vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
             YOUR <br />
-            <span className="text-accent italic font-bold drop-shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] ml-20 sm:ml-2 md:ml-50 mt-2">DEVELOPERS</span>
+            <span className="text-accent italic font-bold drop-shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] ml-0 sm:ml-2 md:ml-50 mt-2">DEVELOPERS</span>
           </h1>
 
           {/* Agency Description */}
@@ -181,7 +181,7 @@ export function Hero() {
         </div>
 
         {/* Right Side: Plain Favicon Image with Quote below */}
-        <div className=" flex flex-col items-center justify-center shrink-0 pointer-events-none -translate-y-8 lg:-translate-y-20">
+        <div className="hero-favicon-wrapper flex flex-col items-center justify-center shrink-0 pointer-events-none translate-y-0 lg:-translate-y-20 mt-6 lg:mt-0">
           <Image
             src="/main.png"
             alt="YourDevelopers Logo"

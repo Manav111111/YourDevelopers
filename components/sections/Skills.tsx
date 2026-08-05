@@ -61,7 +61,7 @@ export function Skills() {
 
 
       {/* Background Marquee Horizontal Bar (Kept EXACTLY as original) */}
-      <div className="absolute top-30 sm:top-28 left-0 w-[120vw] -ml-[10vw] mb-20 -rotate-3 bg-accent py-4 sm:py-6 overflow-hidden shadow-xl z-0 pointer-events-none">
+      <div className="absolute top-3 sm:top-28 left-0 w-[120vw] -ml-[10vw] mb-20 -rotate-3 bg-accent py-4 sm:py-6 overflow-hidden shadow-xl z-0 pointer-events-none">
         <div className="marquee-inner flex whitespace-nowrap w-[200%]">
           {Array(8).fill(
             <span className="text-2xl sm:text-3xl md:text-5xl font-display font-black uppercase tracking-widest text-[#111] px-6 sm:px-10">
@@ -107,35 +107,36 @@ export function Skills() {
           </div>
         </div>
 
-        {/* 3x2 Service Cards Grid (PRIMARY FOCUS) */}
-        <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-16">
+        {/* 2-Column Mobile & 3-Column Desktop Service Cards Grid */}
+        <div className="services-grid grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 lg:gap-6 mb-16">
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="service-card p-5 sm:p-6 rounded-2xl bg-white border border-dark/10 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              className="service-card p-3.5 sm:p-5 lg:p-6 rounded-2xl bg-white border border-dark/10 shadow-lg hover:shadow-2xl hover:border-accent/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Header Icon */}
-                <div className="p-3 rounded-xl bg-accent/10 text-accent w-fit mb-4 group-hover:bg-accent group-hover:text-dark transition-colors duration-300 shadow-sm">
-                  <service.icon size={24} />
+                <div className="p-2 sm:p-3 rounded-xl bg-accent/10 text-accent w-fit mb-2.5 sm:mb-4 group-hover:bg-accent group-hover:text-dark transition-colors duration-300 shadow-sm">
+                  <service.icon size={20} className="sm:hidden" />
+                  <service.icon size={24} className="hidden sm:block" />
                 </div>
 
                 {/* Title & Description */}
-                <h4 className="text-lg sm:text-xl font-display font-bold text-dark mb-2 group-hover:text-accent transition-colors">
+                <h4 className="text-sm sm:text-lg lg:text-xl font-display font-bold text-dark mb-1.5 sm:mb-2 group-hover:text-accent transition-colors leading-snug">
                   {service.title}
                 </h4>
-                <p className="text-xs sm:text-sm font-body text-dark/70 leading-relaxed mb-5">
+                <p className="text-[10px] sm:text-xs md:text-sm font-body text-dark/70 leading-relaxed mb-3 sm:mb-5 line-clamp-3 sm:line-clamp-none">
                   {service.description}
                 </p>
 
                 {/* Bullet Highlights */}
-                <div className="space-y-1.5 mb-6 border-t border-dark/5 pt-4">
+                <div className="space-y-1 sm:space-y-1.5 mb-4 sm:mb-6 border-t border-dark/5 pt-2.5 sm:pt-4">
                   {service.bullets.map((bullet, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-[11px] sm:text-xs font-mono font-medium text-dark/80">
+                    <div key={idx} className="flex items-center gap-1.5 text-[9px] sm:text-xs font-mono font-medium text-dark/80">
                       <span className="flex items-center justify-center w-3 h-3 rounded-full bg-accent/15 text-accent shrink-0">
                         <Check size={8} strokeWidth={2} />
                       </span>
-                      <span>{bullet}</span>
+                      <span className="truncate sm:whitespace-normal">{bullet}</span>
                     </div>
                   ))}
                 </div>
@@ -144,10 +145,10 @@ export function Skills() {
               {/* Learn More Link */}
               <button
                 onClick={() => openModal(service.title)}
-                className="inline-flex items-center gap-1.5 text-accent font-mono font-bold text-[10px] sm:text-xs uppercase tracking-wider hover:gap-2 transition-all pt-3 border-t border-dark/5 cursor-pointer"
+                className="inline-flex items-center gap-1 sm:gap-1.5 text-accent font-mono font-bold text-[9px] sm:text-xs uppercase tracking-wider hover:gap-2 transition-all pt-2.5 sm:pt-3 border-t border-dark/5 cursor-pointer"
               >
                 <span>Learn More</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={11} />
               </button>
             </div>
           ))}

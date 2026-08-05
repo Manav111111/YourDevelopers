@@ -16,16 +16,43 @@ export function About() {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    gsap.from(".why-content", {
-      y: 45,
+    gsap.from(".why-graphic", {
+      x: -40,
       opacity: 0,
-      duration: 1.1,
-      stagger: 0.15,
+      duration: 1.2,
       ease: "expo.out",
       clearProps: "opacity,transform",
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 85%",
+        toggleActions: "play none none none",
+      }
+    });
+
+    gsap.from(".why-content", {
+      y: 40,
+      opacity: 0,
+      duration: 1.1,
+      stagger: 0.12,
+      ease: "expo.out",
+      clearProps: "opacity,transform",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      }
+    });
+
+    gsap.from(".why-feature-card", {
+      y: 30,
+      opacity: 0,
+      duration: 0.9,
+      stagger: 0.1,
+      ease: "expo.out",
+      clearProps: "opacity,transform",
+      scrollTrigger: {
+        trigger: ".why-feature-grid",
+        start: "top 88%",
         toggleActions: "play none none none",
       }
     });
@@ -49,10 +76,10 @@ export function About() {
     <section id="about" ref={containerRef} className="py-24 relative text-dark overflow-hidden bg-transparent">
       <div className="max-w-7xl mx-auto px-6 md:px-12 why-container">
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
           {/* Left Column: Office / Workspace Graphic Image */}
-          <div className="lg:col-span-6 relative why-content h-[420px] sm:h-[480px] lg:h-[540px] w-full rounded-3xl overflow-hidden group">
+          <div className="lg:col-span-6 relative why-graphic h-[420px] sm:h-[480px] lg:h-[520px] w-full rounded-3xl overflow-hidden group shadow-xl border border-dark/10">
             <Image
               src="/why-choose-us.png"
               alt="Why Choose Us Workspace"
@@ -66,75 +93,70 @@ export function About() {
           </div>
 
           {/* Right Column: Text & Features Grid */}
-          <div className="lg:col-span-6 why-content flex flex-col justify-center">
+          <div className="lg:col-span-6 flex flex-col justify-center">
 
             {/* Tag / Category */}
-            <div className="flex items-center gap-2 text-accent font-mono font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-3">
+            <div className="why-content flex items-center gap-2 text-accent font-mono font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-2">
               <span className="h-0.5 w-6 bg-accent"></span>
               <span>WHY CHOOSE US</span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-display font-black leading-[1.15] tracking-tight text-dark mb-6">
-              Building <span className="text-accent">Technology</span> <br />
-              That Drives <br />
-              <span className="text-accent">Business Growth.</span>
+            <h2 className="why-content text-2xl sm:text-3xl lg:text-4xl font-display font-black leading-tight tracking-tight text-dark mb-3">
+              Building <span className="text-accent">Technology</span> That Drives <span className="text-accent">Business Growth.</span>
             </h2>
 
             {/* Paragraphs */}
-            <div className="space-y-3 text-dark/75 text-base md:text-md font-body leading-relaxed mb-8">
+            <div className="why-content space-y-2 text-dark/75 text-xs sm:text-sm font-body leading-relaxed mb-5">
               <p>
-                We partner with startups and growing businesses to design, develop, and launch AI-powered products that solve real business problems.
-              </p>
-              <p>
-                From strategy and UX to engineering and deployment, our team builds scalable software that delivers measurable results.
+                We partner with startups and businesses to design, develop, and launch AI-powered products that solve real business problems and deliver measurable growth.
               </p>
             </div>
 
             {/* 2x2 Feature Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="why-feature-grid grid grid-cols-1 sm:grid-cols-2 gap-3.5">
 
               {/* Feature 1 */}
-              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
-                  <Cpu size={24} />
+              <div className="why-feature-card p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div className="p-2.5 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <Cpu size={20} />
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">AI-First Architecture</h4>
-                  <p className="text-xs text-dark/65 font-body leading-normal">Smart automation & intelligent systems built for scale.</p>
+                  <h4 className="font-display font-bold text-dark text-xs sm:text-sm mb-0.5">AI-First Architecture</h4>
+                  <p className="text-[11px] sm:text-xs text-dark/65 font-body leading-snug">Smart automation & intelligent systems built for scale.</p>
                 </div>
               </div>
 
               {/* Feature 2 */}
-              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
-                  <Rocket size={24} />
+              <div className="why-feature-card p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div className="p-2.5 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <Rocket size={20} />
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Fast MVP Delivery</h4>
-                  <p className="text-xs text-dark/65 font-body leading-normal">Launch products quickly without sacrificing quality.</p>
+                  <h4 className="font-display font-bold text-dark text-xs sm:text-sm mb-0.5">Fast MVP Delivery</h4>
+                  <p className="text-[11px] sm:text-xs text-dark/65 font-body leading-snug">Launch products quickly without sacrificing quality.</p>
                 </div>
               </div>
 
               {/* Feature 3 */}
-              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
-                  <ShieldCheck size={24} />
+              <div className="why-feature-card p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div className="p-2.5 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <ShieldCheck size={20} />
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Enterprise Security</h4>
-                  <p className="text-xs text-dark/65 font-body leading-normal">Robust code standards, 100% NDA & complete IP ownership.</p>
+                  <h4 className="font-display font-bold text-dark text-xs sm:text-sm mb-0.5">Enterprise Security</h4>
+                  <p className="text-[11px] sm:text-xs text-dark/65 font-body leading-snug">Robust code standards, 100% NDA & complete IP ownership.</p>
                 </div>
               </div>
 
               {/* Feature 4 */}
-              <div className="p-5 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-accent/10 text-accent shrink-0">
-                  <Handshake size={24} />
+              <div className="why-feature-card p-3.5 sm:p-4 rounded-2xl bg-white/80 backdrop-blur-md border border-dark/5 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-3">
+                <div className="p-2.5 rounded-xl bg-accent/10 text-accent shrink-0">
+                  <Handshake size={20} />
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-dark text-sm sm:text-base mb-1">Long-Term Partnership</h4>
-                  <p className="text-xs text-dark/65 font-body leading-normal">We stay after launch with maintenance, optimization, and continuous improvements.</p>
+                  <h4 className="font-display font-bold text-dark text-xs sm:text-sm mb-0.5">Long-Term Partnership</h4>
+                  <p className="text-[11px] sm:text-xs text-dark/65 font-body leading-snug">Post-launch maintenance, optimization & improvements.</p>
                 </div>
               </div>
 

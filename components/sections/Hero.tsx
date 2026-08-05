@@ -104,7 +104,7 @@ export function Hero() {
             Next-Gen AI & Full-Stack Development Studio
           </h2>
           {/* Headline */}
-          <h1 className="hero-name self-center lg:self-start text-center lg:text-left flex flex-col text-[12vw] sm:text-[10vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
+          <h1 className="hero-title hero-name self-center lg:self-start text-center lg:text-left flex flex-col text-[12vw] sm:text-[10vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
             YOUR <br />
             <span className="text-accent italic font-bold drop-shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] ml-0 sm:ml-2 md:ml-50 mt-2">DEVELOPERS</span>
           </h1>

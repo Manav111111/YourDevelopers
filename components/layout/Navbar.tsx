@@ -27,7 +27,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group flex items-center gap-3 relative z-50">
           <Image
-            src="/yourdevlogo.png"
+            src="/yourdevlogo-Photoroom.png"
             alt="YourDevelopers Logo"
             width={52}
             height={52}

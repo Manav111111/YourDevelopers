@@ -183,8 +183,8 @@ export function Hero() {
         {/* Right Side: Plain Favicon Image with Quote below */}
         <div className=" flex flex-col items-center justify-center shrink-0 pointer-events-none -translate-y-8 lg:-translate-y-20">
           <Image
-            src="/favicon.ico"
-            alt="Favicon"
+            src="/main.png"
+            alt="YourDevelopers Logo"
             width={400}
             height={400}
             className="hero-favicon-grayscale w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[460px] lg:h-[460px] object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-105"

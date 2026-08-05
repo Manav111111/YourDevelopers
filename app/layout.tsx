@@ -129,17 +129,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.ico",
-      },
-      {
-        url: "/favicon.png",
+        url: "/yourdevlogo-Photoroom.png",
         type: "image/png",
       },
     ],
 
-    shortcut: "/favicon.ico",
+    shortcut: "/yourdevlogo.png",
 
-    apple: "/apple-touch-icon.png",
+    apple: "/yourdevlogo.png",
   },
 };
 

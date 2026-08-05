@@ -2,7 +2,13 @@
 
 import { useState, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 import { 
   Rocket, 
   TrendingUp, 
@@ -35,12 +41,13 @@ export function InvestmentPlans() {
       y: 40,
       opacity: 0,
       duration: 0.8,
-      stagger: 0.15,
-      ease: "power3.out",
+      stagger: 0.1,
+      ease: "power2.out",
       clearProps: "opacity,transform",
       scrollTrigger: {
-        trigger: ".pricing-grid",
+        trigger: containerRef.current,
         start: "top 80%",
+        toggleActions: "play none none none",
       }
     });
   }, { scope: containerRef, dependencies: [activeCategory] });

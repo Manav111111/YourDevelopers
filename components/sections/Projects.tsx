@@ -4,7 +4,13 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 import { 
   ArrowUpRight, 
   ArrowRight, 
@@ -24,29 +30,31 @@ export function Projects() {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    gsap.from(".case-study-header > *", {
-      y: 40,
+    gsap.from(".case-study-header", {
+      y: 45,
       opacity: 0,
-      duration: 1,
-      stagger: 0.1,
-      ease: "power3.out",
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "expo.out",
       clearProps: "opacity,transform",
       scrollTrigger: {
-        trigger: ".case-studies-container",
-        start: "top 75%",
+        trigger: containerRef.current,
+        start: "top 85%",
+        toggleActions: "play none none none",
       }
     });
 
     gsap.from(".case-study-card", {
       y: 40,
       opacity: 0,
-      duration: 0.8,
+      duration: 1.1,
       stagger: 0.15,
-      ease: "power3.out",
+      ease: "expo.out",
       clearProps: "opacity,transform",
       scrollTrigger: {
         trigger: ".case-studies-grid",
-        start: "top 80%",
+        start: "top 85%",
+        toggleActions: "play none none none",
       }
     });
   }, { scope: containerRef });

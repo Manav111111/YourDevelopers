@@ -3,22 +3,44 @@
 import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 import { Cpu, Rocket, ShieldCheck, Handshake, TrendingUp, Award, Calendar, Headphones } from "lucide-react";
 
 export function About() {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    gsap.from(".why-content > *", {
-      y: 40,
+    gsap.from(".why-content", {
+      y: 45,
+      opacity: 0,
+      duration: 1.1,
+      stagger: 0.15,
+      ease: "expo.out",
+      clearProps: "opacity,transform",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      }
+    });
+
+    gsap.from(".why-stat-card", {
+      y: 35,
       opacity: 0,
       duration: 1,
-      stagger: 0.1,
-      ease: "power3.out",
+      stagger: 0.12,
+      ease: "expo.out",
+      clearProps: "opacity,transform",
       scrollTrigger: {
-        trigger: ".why-container",
-        start: "top 75%",
+        trigger: ".why-stat-grid",
+        start: "top 90%",
+        toggleActions: "play none none none",
       }
     });
   }, { scope: containerRef });
@@ -105,10 +127,10 @@ export function About() {
         </div>
 
         {/* Bottom Banner Stats Row */}
-        <div className="mt-16 w-full p-6 sm:p-8 rounded-3xl bg-white/70 backdrop-blur-md border border-dark/10 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-dark/10">
+        <div className="why-stat-grid mt-16 w-full p-6 sm:p-8 rounded-3xl bg-white/70 backdrop-blur-md border border-dark/10 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-dark/10">
 
           {/* Stat 1 */}
-          <div className="flex items-center gap-4 pt-2 md:pt-0 md:px-4">
+          <div className="why-stat-card flex items-center gap-4 pt-2 md:pt-0 md:px-4">
             <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
               <TrendingUp size={24} />
             </div>
@@ -119,7 +141,7 @@ export function About() {
           </div>
 
           {/* Stat 2 */}
-          <div className="flex items-center gap-4 pt-4 md:pt-0 md:px-4">
+          <div className="why-stat-card flex items-center gap-4 pt-4 md:pt-0 md:px-4">
             <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
               <Award size={24} />
             </div>
@@ -130,7 +152,7 @@ export function About() {
           </div>
 
           {/* Stat 3 */}
-          <div className="flex items-center gap-4 pt-4 md:pt-0 md:px-4">
+          <div className="why-stat-card flex items-center gap-4 pt-4 md:pt-0 md:px-4">
             <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
               <Calendar size={24} />
             </div>
@@ -141,7 +163,7 @@ export function About() {
           </div>
 
           {/* Stat 4 */}
-          <div className="flex items-center gap-4 pt-4 md:pt-0 md:px-4">
+          <div className="why-stat-card flex items-center gap-4 pt-4 md:pt-0 md:px-4">
             <div className="p-3.5 rounded-2xl bg-accent text-dark font-bold shrink-0 shadow-md">
               <Headphones size={24} />
             </div>

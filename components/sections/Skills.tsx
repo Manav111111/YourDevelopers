@@ -3,7 +3,13 @@
 import { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 import {
   ArrowRight,
   Check,
@@ -33,15 +39,16 @@ export function Skills() {
     });
 
     gsap.from(".service-card", {
-      y: 40,
+      y: 45,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: "power3.out",
+      duration: 1.1,
+      stagger: 0.12,
+      ease: "expo.out",
       clearProps: "opacity,transform",
       scrollTrigger: {
         trigger: ".services-grid",
         start: "top 85%",
+        toggleActions: "play none none none",
       }
     });
   }, { scope: containerRef });

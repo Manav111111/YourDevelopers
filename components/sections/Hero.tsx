@@ -48,24 +48,65 @@ export function Hero() {
         { opacity: 1, y: 0, duration: 1 },
         "-=1"
       );
+
+    // Continuous smooth floating yoyo animation for Favicon Logo
+    gsap.to(".hero-favicon-wrapper", {
+      y: -14,
+      duration: 2.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    // Continuous Grayscale 1.7s Loop
+    gsap.to(".hero-favicon-grayscale", {
+      filter: "grayscale(100%)",
+      duration: 1.7,
+      repeat: -1,
+      yoyo: true,
+      ease: "power2.inOut"
+    });
+
+    // Ambient floating glow orbs motion
+    gsap.to(".ambient-orb-1", {
+      x: 35,
+      y: -25,
+      scale: 1.15,
+      duration: 6,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    gsap.to(".ambient-orb-2", {
+      x: -35,
+      y: 25,
+      scale: 1.2,
+      duration: 7,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
   }, { scope: containerRef });
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex flex-col pt-28 pb-16 text-dark overflow-hidden bg-transparent">
       {/* Background Ambient Effects */}
-      <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="ambient-orb-1 absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="ambient-orb-2 absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 flex-1">
 
         {/* Left Content Column */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left pt-2">
 
-
+          <h2 className="hero-badge hero-role self-start text-left text-sm sm:text-base md:text-lg lg:text-xl font-mono font-semibold tracking-wide text-dark/90 mb-5 border-l-4 border-accent pl-3 sm:pl-4 py-1">
+            Next-Gen AI & Full-Stack Development Studio
+          </h2>
           {/* Headline */}
-          <h1 className="hero-title text-4xl sm:text-[3rem] md:text-[3.75rem] lg:text-[4.25rem] font-display font-black leading-[1.05] tracking-tight text-dark mb-6">
-            Building <span className="text-accent">AI Products</span> <br className="hidden sm:block" />
-            That Scale Businesses<span className="text-accent">.</span>
+          <h1 className="hero-name self-start text-left flex flex-col text-[11vw] sm:text-[10vw] md:text-[6vw] lg:text-[5rem] font-display font-black leading-[0.9] tracking-tighter uppercase text-dark mb-4 drop-shadow-sm">
+            YOUR <br />
+            <span className="text-accent italic font-bold drop-shadow-[0_0_15px_rgba(var(--accent-rgb),0.2)] ml-20 sm:ml-2 md:ml-50 mt-2">DEVELOPERS</span>
           </h1>
 
           {/* Agency Description */}
@@ -139,17 +180,22 @@ export function Hero() {
 
         </div>
 
-        {/* Right Side: Plain Favicon Image beside existing content (3x size) */}
-        <div className="flex items-center justify-center shrink-0 pointer-events-none -translate-y-16 lg:-translate-y-36">
+        {/* Right Side: Plain Favicon Image with Quote below */}
+        <div className=" flex flex-col items-center justify-center shrink-0 pointer-events-none -translate-y-8 lg:-translate-y-20">
           <Image
             src="/favicon.ico"
             alt="Favicon"
-            width={700}
-            height={700}
-            className="w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-105"
+            width={400}
+            height={400}
+            className="hero-favicon-grayscale w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[460px] lg:h-[460px] object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-105"
             priority
             unoptimized
           />
+          <div className="w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[420px] py-2.5 bg-accent rounded-2xl sm:rounded-b-3xl flex justify-center items-center mt-2 lg:mt-[-10px] relative z-20 shadow-md">
+            <p className="hero-quote text-[10px] sm:text-[12px] md:text-[13px] font-mono font-bold uppercase tracking-widest text-dark/90 px-3 text-center italic">
+              "The best way to predict the future is to invent it."
+            </p>
+          </div>
         </div>
 
       </div>

@@ -25,16 +25,16 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-3 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group flex items-center gap-2.5 relative z-50">
+        <Link href="/" onClick={() => setMobileMenuOpen(false)} className="group flex items-center gap-3 relative z-50">
           <Image
             src="/yourdevlogo.png"
             alt="YourDevelopers Logo"
-            width={40}
-            height={40}
-            className="w-[34px] h-[34px] md:w-[38px] md:h-[38px] rounded-lg object-contain group-hover:scale-105 transition-transform duration-250"
+            width={52}
+            height={52}
+            className="w-[42px] h-[42px] md:w-[48px] md:h-[48px] rounded-xl object-contain group-hover:scale-105 transition-transform duration-250"
             priority
           />
-          <span className="text-lg md:text-xl font-display font-bold text-dark group-hover:text-dark/85 transition-colors duration-250 tracking-tight">
+          <span className="text-xl md:text-2xl font-display font-bold text-dark group-hover:text-dark/85 transition-colors duration-250 tracking-tight">
             YourDevelopers<span className="text-accent group-hover:scale-125 inline-block transition-transform duration-250">.</span>
           </span>
         </Link>

@@ -189,7 +189,7 @@ export function ConsultationModal() {
                   </label>
                   <input
                     type="text"
-                    placeholder="Mohit Aggarwal"
+                    placeholder="Alex Morgan"
                     {...register("name")}
                     className={`w-full px-4 py-3 rounded-xl bg-white/5 border ${
                       errors.name ? "border-red-500" : "border-white/15 focus:border-accent"
@@ -207,7 +207,7 @@ export function ConsultationModal() {
                   </label>
                   <input
                     type="email"
-                    placeholder="mohit@example.com"
+                    placeholder="alex@company.com"
                     {...register("email")}
                     className={`w-full px-4 py-3 rounded-xl bg-white/5 border ${
                       errors.email ? "border-red-500" : "border-white/15 focus:border-accent"

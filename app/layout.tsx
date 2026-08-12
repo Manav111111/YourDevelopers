@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://yourdevelopers.vercel.app/"; // Change after buying domain
+const SITE_URL = "https://yourdevelopers.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -105,10 +105,11 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/og-image.png",
+        url: "https://yourdevelopers.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "YourDevelopers AI Development Agency",
+        type: "image/png",
       },
     ],
   },
@@ -119,9 +120,9 @@ export const metadata: Metadata = {
     title: "YourDevelopers | AI Development Agency",
 
     description:
-      "AI Websites • Mobile Apps • SaaS • AI Chatbots • AI Agents • Automation",
+      "We design and build AI-powered websites, mobile apps, SaaS platforms, AI chatbots and intelligent automation solutions that help startups launch faster and businesses scale smarter.",
 
-    images: ["/og-image.png"],
+    images: ["https://yourdevelopers.vercel.app/og-image.png"],
 
     creator: "@yourdevelopers",
   },

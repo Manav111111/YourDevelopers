@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -22,6 +23,55 @@ export async function generateStaticParams() {
   return projects.map((p) => ({
     slug: p.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Case Study Not Found | YourDevelopers",
+    };
+  }
+
+  const title = `${project.title} — Case Study | YourDevelopers`;
+  const description = project.shortDescription;
+  const ogImage = project.mockupImage || "/og-image.png";
+  const absoluteImageUrl = ogImage.startsWith("http")
+    ? ogImage
+    : `https://yourdevelopers.vercel.app${ogImage}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://yourdevelopers.vercel.app/projects/${project.slug}`,
+      siteName: "YourDevelopers",
+      type: "article",
+      images: [
+        {
+          url: absoluteImageUrl,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [absoluteImageUrl],
+      creator: "@yourdevelopers",
+    },
+  };
 }
 
 export default async function ProjectDetailPage({

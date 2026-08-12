@@ -41,7 +41,7 @@ export async function generateMetadata({
 
   const title = `${project.title} — Case Study | YourDevelopers`;
   const description = project.shortDescription;
-  const ogImage = project.mockupImage || "/og-image.png";
+  const ogImage = project.coverImage || "/og-image.png";
   const absoluteImageUrl = ogImage.startsWith("http")
     ? ogImage
     : `https://yourdevelopers.vercel.app${ogImage}`;

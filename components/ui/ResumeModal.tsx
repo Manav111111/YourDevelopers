@@ -100,10 +100,10 @@ export function ResumeModal() {
         <div className="flex items-center justify-between px-6 py-4 border-b border-[#191918]/10 bg-white">
           <div className="flex flex-col">
             <h3 className="font-display font-bold text-[#191918] text-lg md:text-xl uppercase tracking-wider">
-              Mohit Aggarwal — Resume
+              YourDevelopers — Lead Developer Resume
             </h3>
             <span className="font-mono text-[10px] text-[#191918]/60 uppercase tracking-widest mt-0.5">
-              Full Stack AI Developer
+              AI & Full Stack Engineering
             </span>
           </div>
           

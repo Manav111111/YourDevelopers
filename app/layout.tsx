@@ -31,16 +31,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "YourDevelopers | AI Development Agency",
+    default: "YourDevelopers | AI & Full Stack Development",
     template: "%s | YourDevelopers",
   },
 
   description:
-    "YourDevelopers builds AI-powered websites, mobile applications, SaaS products, AI chatbots, AI agents and intelligent automation solutions for startups and businesses.",
+    "YourDevelopers — building modern AI-powered, full-stack web and mobile applications.",
 
   keywords: [
     "YourDevelopers",
     "AI Development Agency",
+    "Full Stack Development",
     "Website Development",
     "Web Development Company",
     "Mobile App Development",
@@ -55,7 +56,6 @@ export const metadata: Metadata = {
     "Custom Software Development",
     "Startup MVP Development",
     "Business Automation",
-    "Full Stack Development",
     "Artificial Intelligence",
     "LLM Integration",
     "OpenAI Integration",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: SITE_URL,
+    canonical: "https://yourdevelopers.vercel.app/",
   },
 
   category: "Technology",
@@ -95,20 +95,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_URL,
+    url: "https://yourdevelopers.vercel.app/",
     siteName: "YourDevelopers",
 
-    title: "YourDevelopers | AI Development Agency",
+    title: "YourDevelopers | AI & Full Stack Development",
 
     description:
-      "We design and build AI-powered websites, mobile apps, SaaS platforms, AI chatbots and intelligent automation solutions that help startups launch faster and businesses scale smarter.",
+      "YourDevelopers — building modern AI-powered, full-stack web and mobile applications.",
 
     images: [
       {
-        url: "https://yourdevelopers.vercel.app/og-image.png",
+        url: "https://yourdevelopers.vercel.app/og/yourdevelopers-og-v2.png",
         width: 1200,
         height: 630,
-        alt: "YourDevelopers AI Development Agency",
+        alt: "YourDevelopers | AI & Full Stack Development",
         type: "image/png",
       },
     ],
@@ -117,12 +117,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "YourDevelopers | AI Development Agency",
+    title: "YourDevelopers | AI & Full Stack Development",
 
     description:
-      "We design and build AI-powered websites, mobile apps, SaaS platforms, AI chatbots and intelligent automation solutions that help startups launch faster and businesses scale smarter.",
+      "YourDevelopers — building modern AI-powered, full-stack web and mobile applications.",
 
-    images: ["https://yourdevelopers.vercel.app/og-image.png"],
+    images: ["https://yourdevelopers.vercel.app/og/yourdevelopers-og-v2.png"],
 
     creator: "@yourdevelopers",
   },
@@ -149,12 +149,12 @@ const jsonLd = {
 
   url: SITE_URL,
 
-  logo: `${SITE_URL}/favicon.png`,
+  logo: `${SITE_URL}/yourdevlogo-Photoroom.png`,
 
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/og/yourdevelopers-og-v2.png`,
 
   description:
-    "YourDevelopers is an AI development agency building AI-powered websites, mobile applications, SaaS products, AI chatbots, AI agents and business automation solutions.",
+    "YourDevelopers — building modern AI-powered, full-stack web and mobile applications.",
 
   email: "yourdevelopers0@gmail.com",
 

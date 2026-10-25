@@ -1,0 +1,147 @@
+"use client";
+
+// The only interactive pieces of the page: phone menu, the two forms and the motion starter.
+// Everything else is rendered on the server (app/page.tsx).
+import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import { flushSync } from "react-dom";
+import { getLenis, startMotion } from "@/lib/motion";
+
+/** Starts smooth scroll and the scroll scenes once the page is on screen. */
+export function Motion() {
+  useEffect(() => startMotion(), []);
+  return null;
+}
+
+type NavLink = { href: string; label: string };
+
+/** Fixed top bar (wordmark, section links, button) and the full-screen phone menu. */
+export function Navigation({ links }: { links: readonly NavLink[] }) {
+  const [open, setOpenState] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
+  const menu = useRef<HTMLDivElement>(null);
+  const close = useRef<HTMLButtonElement>(null);
+
+  const setOpen = (next: boolean, restoreFocus = true) => {
+    flushSync(() => setOpenState(next)); // the menu must be visible before it can take focus
+    if (next) { getLenis()?.stop(); close.current?.focus(); }
+    else { getLenis()?.start(); if (restoreFocus) toggle.current?.focus(); }
+  };
+
+  // Keep Tab inside the open menu; Escape closes it.
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key ==="Escape") setOpen(false);
+    if (event.key !=="Tab" || !menu.current) return;
+    const items = [...menu.current.querySelectorAll<HTMLElement>("a, button")];
+    const first = items[0], last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  };
+
+  return (
+    <header id="navigation" data-8b-section="navigation" className="nav pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center gap-3 px-(--space-1) py-3.5 *:pointer-events-auto">
+      <a className="inline-flex min-h-12 items-baseline rounded-pill bg-ink px-[18px] pt-[9px] pb-0 font-display text-[25px] font-extrabold leading-[1.2] tracking-[-0.05em] text-paper no-underline" href="#hero" aria-label="Onda, back to the top">
+        Onda<span className="m-dot" aria-hidden="true" />
+      </a>
+      <nav className="mx-auto rounded-pill bg-ink px-2 text-paper max-[899px]:hidden" aria-label="Main">
+        <ul className="flex">
+          {links.map(link => (
+            <li key={link.href}><a className="m-link-2 mx-3.5 block py-3.5 after:bottom-2.5" href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <a className="m-btn shadow-[0_0_0_2px_var(--color-ink)] max-[899px]:hidden" href="#contact"><span className="m-btn__label">Start a project</span></a>
+      <button ref={toggle} className="m-btn-2 ml-auto min-[900px]:hidden" type="button" aria-expanded={open} aria-controls="menu" onClick={() => setOpen(true)}>
+        <span className="m-btn__label">Menu</span>
+      </button>
+      <div ref={menu} className="menu fixed inset-0 z-60 grid grid-rows-[auto_1fr_auto] overflow-y-auto bg-ink px-(--space-1) pt-3.5 pb-8 text-paper" id="menu" role="dialog" aria-modal="true" aria-label="Menu" data-lenis-prevent hidden={!open} onKeyDown={onKeyDown}>
+        <div className="flex justify-end">
+          <button ref={close} className="m-icon" type="button" aria-label="Close the menu" onClick={() => setOpen(false)}>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13" /></svg>
+          </button>
+        </div>
+        <ul className="grid gap-1.5 self-center">
+          {[...links, { href: "#contact", label: "Contact" }].map(link => (
+            <li key={link.href}>
+              <a className="font-display text-[length:clamp(42px,13vw,72px)] font-extrabold leading-none tracking-[-0.05em] no-underline" href={link.href} onClick={() => setOpen(false, false)}>
+                {link.label}<span className="m-dot" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="m-text text-fog">hello@onda.example · Lisbon and Brooklyn</p>
+      </div>
+    </header>
+  );
+}
+
+const CONTACT_SUCCESS ="Thank you. We will reply within two working days.";
+const CONTACT_ERROR ="Please add your name, a valid email and a few words about the project.";
+
+/**
+ * Contact form. It sends nothing yet: it checks the fields in the browser and shows a status text.
+ * To go live, POST `new FormData(form)` to your form service (Formspree, Netlify, an API route) before the reset.
+ */
+export function ContactForm() {
+  const [status, setStatus] = useState("");
+
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const ok = form.checkValidity();
+    setStatus(ok ? CONTACT_SUCCESS : CONTACT_ERROR);
+    if (ok) form.reset();
+    else form.querySelector<HTMLElement>(":invalid")?.focus();
+  };
+
+  const label ="grid gap-0.5 text-slate m-text-6";
+  return (
+    <form data-8b-placeholder="form" className="m-surface grid gap-[18px] p-[clamp(22px,3vw,40px)]" noValidate onSubmit={onSubmit}>
+      <div className="grid gap-[18px] min-[640px]:grid-cols-2">
+        <label className={label}>Your name<input className="m-field text-ink" name="name" type="text" autoComplete="name" required /></label>
+        <label className={label}>Email<input className="m-field text-ink" name="email" type="email" autoComplete="email" required /></label>
+      </div>
+      <div className="grid gap-[18px] min-[640px]:grid-cols-2">
+        <label className={label}>Company<input className="m-field text-ink" name="company" type="text" autoComplete="organization" /></label>
+        <label className={label}>
+          What can we help with?
+          <select className="m-field text-ink" name="topic">
+            <option>A new brand</option><option>A product or app</option><option>A campaign</option><option>Something else</option>
+          </select>
+        </label>
+      </div>
+      <label className={label}>A few words about the project<textarea className="m-field text-ink" name="message" rows={3} required /></label>
+      <div className="flex flex-wrap items-center gap-4 pt-1.5">
+        <button className="m-btn" type="submit"><span className="m-btn__label">Send message</span></button>
+        <p className="m-text text-ink" role="status" aria-live="polite" data-success={CONTACT_SUCCESS} data-error={CONTACT_ERROR}>{status}</p>
+      </div>
+    </form>
+  );
+}
+
+const NEWS_IDLE ="No spam, one email a month, unsubscribe in one click.";
+const NEWS_SUCCESS ="You are in. See you next month.";
+const NEWS_ERROR ="Please enter a valid email address.";
+
+/** Newsletter field in the footer. Like the contact form it only validates for now. */
+export function NewsletterForm() {
+  const [note, setNote] = useState(NEWS_IDLE);
+
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const ok = form.checkValidity();
+    setNote(ok ? NEWS_SUCCESS : NEWS_ERROR);
+    if (ok) form.reset();
+  };
+
+  return (
+    <form data-8b-placeholder="form" className="col-span-full grid gap-3.5 min-[900px]:col-auto" noValidate onSubmit={onSubmit}>
+      <label className="m-text-7" htmlFor="news-email">Onda in your inbox, once a month<span className="m-dot" aria-hidden="true" /></label>
+      <div className="flex items-center gap-3">
+        <input className="m-field flex-1" id="news-email" name="email" type="email" autoComplete="email" placeholder="Your email" required />
+        <button className="m-icon" type="submit" aria-label="Subscribe"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></button>
+      </div>
+      <p className="m-text-6 text-fog" role="status" aria-live="polite" data-idle={NEWS_IDLE} data-success={NEWS_SUCCESS} data-error={NEWS_ERROR}>{note}</p>
+    </form>
+  );
+}

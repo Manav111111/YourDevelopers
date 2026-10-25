@@ -1,6 +1,15 @@
 AGENTS.md: design studio website template
 One-page website for a design, brand or digital agency. One file, index.html, with inline CSS and scripts (GSAP, ScrollTrigger, Lenis from jsDelivr); no build step, and none is needed for copy, colour or photo edits.
 
+Next.js port (this repo)
+The site is the Next.js (App Router) + Tailwind port of the original single file (index.html, since removed; the curl commands below fetch it from the template repo). Everything below still applies (ids, data-8b-* attributes, class-name hooks, copy rules), with these places instead of the inline parts:
+app/page.tsx: all sections and their copy (content arrays at the top), styled with Tailwind utilities.
+app/globals.css: Tailwind import, tokens in @theme (colours are named ink, paper, violet, mist, fog, slate, night = --color-1 … --color-7 below), shared atoms (m-btn, m-link, m-badge, m-field …) and the scroll-scene states (is-track, is-wheel, is-deck, is-cycle, is-swap).
+lib/motion.ts: Lenis, the reveal effects and every scene (replaces the inline scripts).
+components/client.tsx: phone menu, contact form, newsletter form and the motion starter (the only client components). They are React now, so the section-script hooks below for navigation, contact and footer (.nav__menu, .menu__close, .contact__form, .footer__news …) no longer exist as class names; the scene hooks do. Class names that no CSS or script used were removed.
+lib/photos.ts: the 26 Unsplash photos (srcset, sizes, alt); CREDITS.md still lists them.
+app/layout.tsx: <title>, description, og tags, fonts (next/font), header comment and generator. app/icon.svg is the favicon letter.
+
 Files
 Edit these files, not a page fetched by URL (that arrives as a summary).
 
@@ -60,3 +69,13 @@ During the hero → statement handoff the travelling round photo briefly crosses
 Check
 375 and 1440 px, reduced motion on, console clean; data-8b-placeholder and Onda left only in class names.
 
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

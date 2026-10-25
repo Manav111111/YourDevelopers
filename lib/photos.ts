@@ -1,5 +1,5 @@
 // Photo table for the page: ids and sizes of the Unsplash photos (credits: CREDITS.md).
-// Generated from the original index.html; `photoSrc` / `photoSrcSet` rebuild its URLs exactly.
+// `photoSrc` / `photoSrcSet` rebuild the Unsplash URLs for each photo.
 
 export type Photo = {
   /** Unsplash photo id, without the `photo-` prefix. */

@@ -1,6 +1,6 @@
 # Credits
 
-Third-party photos, fonts and libraries used by `index.html`.
+Third-party photos, fonts and libraries used by the site.
 
 ## Photos (Unsplash License)
 

@@ -79,11 +79,11 @@ const stories = [
 ];
 
 const faq = [
-  { q: "What size of company do you work with? ", a: "Mostly companies between fifty and five thousand people, plus a few public bodies. Size matters less than whether the people who decide are in the room." },
-  { q: "How does a project usually start? ", a: "With a two-week listening sprint: interviews, data and a day on your front line. You get a short written point of view and a plan before any big commitment." },
-  { q: "Do you work alongside in-house teams? ", a: "Almost always. We pair with your designers, engineers and marketers, and we hand over every system we build so you are never stuck with us. Most partners keep us around anyway." },
-  { q: "How do you price the work? ", a: "Fixed fees for defined phases, then a monthly team for ongoing work. We are open about our rates on the first call." },
-  { q: "Where are you based? ", a: "Lisbon and Brooklyn, with people working remotely across Europe and the US east coast. We travel for workshops and launches." },
+  { q: "What size of company do you work with?", a: "Mostly companies between fifty and five thousand people, plus a few public bodies. Size matters less than whether the people who decide are in the room." },
+  { q: "How does a project usually start?", a: "With a two-week listening sprint: interviews, data and a day on your front line. You get a short written point of view and a plan before any big commitment." },
+  { q: "Do you work alongside in-house teams?", a: "Almost always. We pair with your designers, engineers and marketers, and we hand over every system we build so you are never stuck with us. Most partners keep us around anyway." },
+  { q: "How do you price the work?", a: "Fixed fees for defined phases, then a monthly team for ongoing work. We are open about our rates on the first call." },
+  { q: "Where are you based?", a: "Lisbon and Brooklyn, with people working remotely across Europe and the US east coast. We travel for workshops and launches." },
 ];
 
 // ---------------------------------------------------------------- small parts
@@ -135,14 +135,14 @@ function Hero() {
         <ArrowLink href="#work">See the work</ArrowLink>
       </div>
       <h1 className="m-text-2 self-end whitespace-nowrap pb-[clamp(18px,5svh,52px)] min-[900px]:landscape:text-[length:min(26.5vw,43svh)]" id="hero-title" style={{ "--len": 5 } as CSSProperties}>
-        <span className="hero__word inline-block"><span className="inline-block"><span className="inline-block">Hello</span></span></span>
+        <span className="hero__word inline-block"><span className="hero__mask inline-block"><span className="hero__glyphs inline-block">Hello</span></span></span>
         <span className="ml-[.035em] inline-block size-[.19em] rounded-pill bg-violet align-baseline min-[900px]:landscape:relative min-[900px]:landscape:bg-transparent" aria-hidden="true">
-          <span className="absolute left-[calc(50%-var(--ap)/2)] top-[calc(57%-var(--ap)/2)] size-(--ap) text-[16px] leading-[0] min-[900px]:landscape:top-auto min-[900px]:landscape:bottom-0 min-[900px]:landscape:left-0">
+          <span className="hero__stage absolute left-[calc(50%-var(--ap)/2)] top-[calc(57%-var(--ap)/2)] size-(--ap) text-[16px] leading-[0] min-[900px]:landscape:top-auto min-[900px]:landscape:bottom-0 min-[900px]:landscape:left-0">
             <span className="hero__orbit absolute -inset-[9%] block rounded-pill border border-paper/16">
               <span className="absolute left-1/2 top-0 -ml-[4.5%] -mt-[4.5%] size-[9%] rounded-pill bg-violet" />
             </span>
             <span className="hero__aperture absolute inset-0 block overflow-hidden rounded-pill bg-violet">
-              <Photo photo={photos.hero} className="size-full object-cover" />
+              <Photo photo={photos.hero} className="hero__img size-full object-cover" />
               <span className="hero__tint absolute inset-0 bg-violet opacity-0" />
             </span>
           </span>
@@ -213,7 +213,7 @@ function Again() {
           <ul className="again__wheel grid grid-cols-[minmax(0,1fr)] gap-4 min-[640px]:grid-cols-2 min-[1000px]:grid-cols-3">
             {partners.map((partner, i) => (
               <li key={partner.name} className="partner">
-                <div className="relative block aspect-[4/5] overflow-hidden rounded-card bg-night after:absolute after:inset-x-0 after:top-[35%] after:bottom-0 after:bg-linear-to-t/srgb after:from-ink/86 after:to-transparent after:content-['']">
+                <div className="partner__card relative block aspect-[4/5] overflow-hidden rounded-card bg-night after:absolute after:inset-x-0 after:top-[35%] after:bottom-0 after:bg-linear-to-t/srgb after:from-ink/86 after:to-transparent after:content-['']">
                   <Photo photo={photos.again[i]} className="absolute inset-0 size-full object-cover" />
                   <div className="absolute inset-x-[clamp(16px,1.8vw,26px)] bottom-[clamp(16px,1.8vw,26px)] z-1 grid justify-items-start gap-2.5">
                     <span className="m-badge bg-ink/62">{partner.year}</span>
@@ -266,7 +266,7 @@ function Method() {
         <p className="m-text-5 max-w-[34rem]" data-8b-motion="ink">Every project runs the same loop of four steps. The fourth is the one most studios skip, and it is where the best work happens.</p>
       </div>
       <div className="grid grid-cols-[minmax(0,1fr)_92px] items-start gap-5 min-[900px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] min-[900px]:gap-[7vw]">
-        <div className="relative col-start-2 row-start-1 aspect-square w-full min-[900px]:col-start-1 min-[900px]:w-[min(100%,50svh)] min-[900px]:justify-self-center" aria-hidden="true">
+        <div className="method__ring relative col-start-2 row-start-1 aspect-square w-full min-[900px]:col-start-1 min-[900px]:w-[min(100%,50svh)] min-[900px]:justify-self-center" aria-hidden="true">
           <svg className="absolute inset-0 size-full -rotate-90 overflow-visible" viewBox="0 0 400 400">
             <circle className="fill-none stroke-ink/14 stroke-[1.5]" cx="200" cy="200" r="170" />
             <circle className="method__arc fill-none stroke-violet stroke-[5] [stroke-linecap:round]" cx="200" cy="200" r="170" pathLength="1" strokeDasharray="1 1" strokeDashoffset="0" />
@@ -328,7 +328,7 @@ function Journal() {
         <h2 className="m-text-3" id="journal-title" data-8b-motion="rise">Ideas and news<Dot /></h2>
       </div>
       <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-7 min-[900px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] min-[900px]:gap-[7vw]">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-card bg-mist min-[900px]:aspect-[4/5]">
+        <div className="journal__frame relative aspect-[16/10] overflow-hidden rounded-card bg-mist min-[900px]:aspect-[4/5]">
           {photos.journal.map((photo, i) => (
             <Photo key={i} photo={photo} className="journal__shot absolute inset-0 size-full object-cover first:z-1" />
           ))}
@@ -406,7 +406,7 @@ function Footer() {
         <span className="footer__word inline-block">Bye</span>
         <span className="footer__period relative ml-[.035em] inline-block size-[.19em] align-baseline" aria-hidden="true">
           <span className="footer__aperture absolute bottom-0 left-0 size-(--ap) origin-bottom-left overflow-hidden rounded-pill bg-violet">
-            <Photo photo={photos.footer} className="size-full object-cover" />
+            <Photo photo={photos.footer} className="footer__img size-full object-cover" />
             <span className="footer__tint absolute inset-0 bg-violet opacity-0" />
           </span>
         </span>

@@ -95,7 +95,7 @@ export function ContactForm() {
 
   const label ="grid gap-0.5 text-slate m-text-6";
   return (
-    <form data-8b-placeholder="form" className="m-surface grid gap-[18px] p-[clamp(22px,3vw,40px)]" noValidate onSubmit={onSubmit}>
+    <form data-8b-placeholder="form" className="contact__form m-surface grid gap-[18px] p-[clamp(22px,3vw,40px)]" noValidate onSubmit={onSubmit}>
       <div className="grid gap-[18px] min-[640px]:grid-cols-2">
         <label className={label}>Your name<input className="m-field text-ink" name="name" type="text" autoComplete="name" required /></label>
         <label className={label}>Email<input className="m-field text-ink" name="email" type="email" autoComplete="email" required /></label>

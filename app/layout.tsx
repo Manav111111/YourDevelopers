@@ -12,9 +12,9 @@ import "./globals.css";
 const gabarito = Gabarito({ subsets: ["latin"], variable: "--font-gabarito", display: "swap" });
 const onest = Onest({ subsets: ["latin"], variable: "--font-onest", display: "swap" });
 
-const title = "Onda — brand, product and AI studio";
+const title = "YourDevelopers — a tech community for developers";
 const description =
-  "Onda is an independent brand, product and AI studio in Lisbon and Brooklyn. We make the things people come back to.";
+  "YourDevelopers is a tech community for developers: events, tech news, developer help, tech support and AI.";
 
 export const metadata: Metadata = {
   title,

@@ -27,7 +27,9 @@ export const photoSrc = (p: Photo) => unsplash(p, p.width, p.height, p.q);
 export const photoSrcSet = (p: Photo) =>
   p.widths.map(w => `${unsplash(p, w, Math.round((w * p.height) / p.width), p.q)} ${w}w`).join(', ');
 
-export const photos = {
+// The template's 26 photos, grouped as they were first placed. `photos` below re-uses the ones that fit a
+// developer community in their new slots. Swap in real event and community photos when you have them.
+const raw = {
   hero: { id: "1754738381783-f9a2847bfef2", ixid: "M3w0Mzc5fDB8MXxzZWFyY2h8MXx8cHVycGxlJTIwYWJzdHJhY3QlMjAzZCUyMHNoYXBlfGVufDF8Mnx8fDE3OTEyMDk2Mjd8MA", width: 1200, height: 1200, q: 68, widths: [280, 400, 470, 560, 640, 960],
     sizes: "(max-width: 767px) 74vw, 36vw",
     bg: "#590ca6 url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAYHBwkLCQwNDQwQERAREBgWFBQWGCMZGxkbGSM1ISchISchNS85LysvOS9UQjs7QlRhUk5SYXZpaXaUjZTBwf8BBgcHCQsJDA0NDBAREBEQGBYUFBYYIxkbGRsZIzUhJyEhJyE1LzkvKy85L1RCOztCVGFSTlJhdmlpdpSNlMHB///AABEIACAAIAMBIgACEQEDEQH/xABwAAAABwEAAAAAAAAAAAAAAAAAAQIDBAUGBxAAAgIBAwQCAwAAAAAAAAAAAQIDEQAEElEFIUFxEzEiI7EBAQADAQAAAAAAAAAAAAAAAAIAAQUHEQACAgICAwEAAAAAAAAAAAABEQACAxIhUQQiQXH/2gAMAwEAAhEDEQA/AOTxhiaJ81kvqawDU1p1dEFD7Pfk4pI/0Fx3a/rEz1PESIyD4F8Z06vj10txyuJvjENT38gSGkP5tfu8VAsRC/NZTftJH9xxNSzadUjINi2Zj99+PFYHjVlKrd3XvFiwkbIIKXXGQ11KyR9SrpcTiNh3Hg3mn6cySaOWMxmkG68j65RDHGm8SJd0vGE/UwsDLW2wLpdooeAOMeK+r3sSW/yPHdH2MzesUxNwdxywVmMAYej7yLPKJHYkg2cegkVSVYgiQHtjpko7BoEIGSt6shphT//Z) 50% 50% / cover no-repeat",
@@ -114,7 +116,7 @@ export const photos = {
     { id: "1745434159123-4908d0b9df94", ixid: "M3w0Mzc5fDB8MXxzZWFyY2h8NHx8cGVvcGxlJTIwbGF1Z2hpbmclMjBvZmZpY2V8ZW58MXwxfHx8MTc5MTIwOTc1MHww", width: 900, height: 1200, q: 80, widths: [170, 240, 340, 400, 640],
         sizes: "(max-width: 767px) 44vw, 19vw",
         bg: "#a68c73",
-        alt: "A smiling designer standing in front of a warm wall", lazy: true },
+        alt: "A smiling person standing in front of a warm wall", lazy: true },
     { id: "1787647560262-ebfcf6c5f979", ixid: "M3w0Mzc5fDB8MXxzZWFyY2h8M3x8Y3JlYXRpdmUlMjB0ZWFtJTIwbWVldGluZyUyMHN0dWRpb3xlbnwxfDB8fHwxNzkxMjA5NzQ5fDA", width: 1400, height: 933, q: 80, widths: [350, 400, 490, 690, 960, 1280],
         sizes: "(max-width: 767px) 91vw, 38vw",
         bg: "#737359",
@@ -146,4 +148,25 @@ export const photos = {
     sizes: "(max-width: 767px) 74vw, 36vw",
     bg: "#590ca6 url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAYHBwkLCQwNDQwQERAREBgWFBQWGCMZGxkbGSM1ISchISchNS85LysvOS9UQjs7QlRhUk5SYXZpaXaUjZTBwf8BBgcHCQsJDA0NDBAREBEQGBYUFBYYIxkbGRsZIzUhJyEhJyE1LzkvKy85L1RCOztCVGFSTlJhdmlpdpSNlMHB///AABEIACAAIAMBIgACEQEDEQH/xABwAAAABwEAAAAAAAAAAAAAAAAAAQIDBAUGBxAAAgIBAwQCAwAAAAAAAAAAAQIDEQAEElEFIUFxEzEiI7EBAQADAQAAAAAAAAAAAAAAAAIAAQUHEQACAgICAwEAAAAAAAAAAAABEQACAxIhUQQiQXH/2gAMAwEAAhEDEQA/AOTxhiaJ81kvqawDU1p1dEFD7Pfk4pI/0Fx3a/rEz1PESIyD4F8Z06vj10txyuJvjENT38gSGkP5tfu8VAsRC/NZTftJH9xxNSzadUjINi2Zj99+PFYHjVlKrd3XvFiwkbIIKXXGQ11KyR9SrpcTiNh3Hg3mn6cySaOWMxmkG68j65RDHGm8SJd0vGE/UwsDLW2wLpdooeAOMeK+r3sSW/yPHdH2MzesUxNwdxywVmMAYej7yLPKJHYkg2cegkVSVYgiQHtjpko7BoEIGSt6shphT//Z) 50% 50% / cover no-repeat",
     alt: "" },
+} satisfies Record<string, Photo | Photo[]>;
+
+/** The same photo in another slot: takes that slot's `sizes`, and an `alt` of its own when given. */
+const fit = (photo: Photo, slot: Photo, alt = photo.alt): Photo => ({ ...photo, sizes: slot.sizes, alt, lazy: true, priority: undefined });
+
+const { work, again, services, studio, journal } = raw;
+
+export const photos = {
+  hero: raw.hero,
+  // Events, Tech news, Developer help, Tech support, AI
+  work: [fit(work[3], work[0]), fit(services[2], work[1]), fit(journal[1], work[2]), fit(work[1], work[3]), fit(work[4], work[4])],
+  // Six "where you are on the way" cards
+  again: [
+    fit(services[3], again[0]), fit(journal[3], again[1]), fit(again[3], again[2]),
+    fit(raw.hero, again[3], "An abstract violet 3D shape"), fit(studio[1], again[4]), fit(studio[2], again[5]),
+  ],
+  // Events, Tech news, Developer help, Tech support, AI
+  services: [fit(journal[0], services[0]), fit(journal[2], services[1]), fit(studio[3], services[2]), fit(services[1], services[3]), fit(services[4], services[4])],
+  studio,
+  journal,
+  footer: raw.footer,
 } satisfies Record<string, Photo | Photo[]>;

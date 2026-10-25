@@ -39,8 +39,10 @@ export function Navigation({ links }: { links: readonly NavLink[] }) {
 
   return (
     <header id="navigation" data-8b-section="navigation" className="nav pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center gap-3 px-(--space-1) py-3.5 *:pointer-events-auto">
-      <a className="inline-flex min-h-12 items-baseline rounded-pill bg-ink px-[18px] pt-[9px] pb-0 font-display text-[25px] font-extrabold leading-[1.2] tracking-[-0.05em] text-paper no-underline" href="#hero" aria-label="Onda, back to the top">
-        Onda<span className="m-dot" aria-hidden="true" />
+      <a className="inline-flex min-h-12 items-center gap-2 rounded-pill bg-ink px-[14px] font-display text-[length:clamp(17px,5vw,25px)] font-extrabold leading-[1.2] tracking-[-0.05em] text-paper no-underline" href="#hero" aria-label="YourDevelopers, back to the top">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="size-8 flex-none" src="/logo.png" width={32} height={32} alt="" />
+        <span className="pt-[3px]">YourDevelopers<span className="m-dot" aria-hidden="true" /></span>
       </a>
       <nav className="mx-auto rounded-pill bg-ink px-2 text-paper max-[899px]:hidden" aria-label="Main">
         <ul className="flex">
@@ -49,7 +51,7 @@ export function Navigation({ links }: { links: readonly NavLink[] }) {
           ))}
         </ul>
       </nav>
-      <a className="m-btn shadow-[0_0_0_2px_var(--color-ink)] max-[899px]:hidden" href="#contact"><span className="m-btn__label">Start a project</span></a>
+      <a className="m-btn shadow-[0_0_0_2px_var(--color-ink)] max-[899px]:hidden" href="#contact"><span className="m-btn__label">Get in touch</span></a>
       <button ref={toggle} className="m-btn-2 ml-auto min-[900px]:hidden" type="button" aria-expanded={open} aria-controls="menu" onClick={() => setOpen(true)}>
         <span className="m-btn__label">Menu</span>
       </button>
@@ -68,14 +70,14 @@ export function Navigation({ links }: { links: readonly NavLink[] }) {
             </li>
           ))}
         </ul>
-        <p className="m-text text-fog">hello@onda.example · Lisbon and Brooklyn</p>
+        <p className="m-text text-fog">A tech community for developers.</p>
       </div>
     </header>
   );
 }
 
-const CONTACT_SUCCESS ="Thank you. We will reply within two working days.";
-const CONTACT_ERROR ="Please add your name, a valid email and a few words about the project.";
+const CONTACT_SUCCESS ="Thank you for your message.";
+const CONTACT_ERROR ="Please add your name, a valid email and a few words about your message.";
 
 /**
  * Contact form. It sends nothing yet: it checks the fields in the browser and shows a status text.
@@ -101,15 +103,15 @@ export function ContactForm() {
         <label className={label}>Email<input className="m-field text-ink" name="email" type="email" autoComplete="email" required /></label>
       </div>
       <div className="grid gap-[18px] min-[640px]:grid-cols-2">
-        <label className={label}>Company<input className="m-field text-ink" name="company" type="text" autoComplete="organization" /></label>
+        <label className={label}>Company (optional)<input className="m-field text-ink" name="company" type="text" autoComplete="organization" /></label>
         <label className={label}>
           What can we help with?
           <select className="m-field text-ink" name="topic">
-            <option>A new brand</option><option>A product or app</option><option>A campaign</option><option>Something else</option>
+            <option>Developer help</option><option>Tech support</option><option>AI</option><option>Events</option><option>Something else</option>
           </select>
         </label>
       </div>
-      <label className={label}>A few words about the project<textarea className="m-field text-ink" name="message" rows={3} required /></label>
+      <label className={label}>Your question or message<textarea className="m-field text-ink" name="message" rows={3} required /></label>
       <div className="flex flex-wrap items-center gap-4 pt-1.5">
         <button className="m-btn" type="submit"><span className="m-btn__label">Send message</span></button>
         <p className="m-text text-ink" role="status" aria-live="polite" data-success={CONTACT_SUCCESS} data-error={CONTACT_ERROR}>{status}</p>
@@ -118,8 +120,8 @@ export function ContactForm() {
   );
 }
 
-const NEWS_IDLE ="No spam, one email a month, unsubscribe in one click.";
-const NEWS_SUCCESS ="You are in. See you next month.";
+const NEWS_IDLE ="Enter your email to follow the news.";
+const NEWS_SUCCESS ="You are in. Thank you.";
 const NEWS_ERROR ="Please enter a valid email address.";
 
 /** Newsletter field in the footer. Like the contact form it only validates for now. */
@@ -136,7 +138,7 @@ export function NewsletterForm() {
 
   return (
     <form data-8b-placeholder="form" className="col-span-full grid gap-3.5 min-[900px]:col-auto" noValidate onSubmit={onSubmit}>
-      <label className="m-text-7" htmlFor="news-email">Onda in your inbox, once a month<span className="m-dot" aria-hidden="true" /></label>
+      <label className="m-text-7" htmlFor="news-email">Tech news in your inbox<span className="m-dot" aria-hidden="true" /></label>
       <div className="flex items-center gap-3">
         <input className="m-field flex-1" id="news-email" name="email" type="email" autoComplete="email" placeholder="Your email" required />
         <button className="m-icon" type="submit" aria-label="Subscribe"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" /></svg></button>

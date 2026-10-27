@@ -2,19 +2,24 @@
 
 /* Design tokens (colours, fonts, radii). Section styling lives in the markup as Tailwind utilities. */
 @theme static {
-  --color-ink: #0d0c11; /* near-black bands and text */
+  --color-ink: #0c0b0a; /* near-black bands and text (the logo's black) */
   --color-paper: #ffffff; /* white bands, text on black */
-  --color-violet: #6c3cff; /* dots, buttons, process ring, contact section */
-  --color-mist: #efeef4; /* pale cards for services and the form */
-  --color-fog: #aaa7b4; /* muted text on black */
-  --color-slate: #5d5a67; /* secondary text on white */
-  --color-night: #1f1d26; /* dark base under photos */
+  --color-flame: #f5871a; /* logo orange: dots, buttons, process ring. Text on it is ink, never paper */
+  --color-amber: #f8b808; /* top of the logo gradient */
+  --color-ember: #b84d00; /* darker orange for small text and focus rings on white (5.1:1) */
+  --color-mist: #f6f2ec; /* pale cards for services and the form */
+  --color-fog: #b0a89b; /* muted text on black */
+  --color-slate: #615a52; /* secondary text on white */
+  --color-night: #1c1915; /* dark base under photos */
   --font-display: var(--font-gabarito), "Gabarito Fallback", "Arial Black", Arial, sans-serif;
   --font-body: var(--font-onest), "Onest Fallback", Arial, sans-serif;
   --radius-card: 28px;
   --radius-pill: 999px;
   --radius-tile: 14px;
 }
+
+/* The logo's amber-to-orange gradient, top to bottom: contact band and buttons. */
+@utility bg-brand { background: linear-gradient(170deg, var(--color-amber), var(--color-flame) 55%, #f06018); }
 
 /* Metric-matched fallbacks so text does not jump when the web fonts arrive. */
 @font-face { font-family: "Gabarito Fallback"; src: local("Arial Black"), local("Arial-Black"), local("Arial Bold"); font-weight: 800 1000; size-adjust: 79.7%; ascent-override: 117.9%; descent-override: 32.6%; line-gap-override: 0%; }
@@ -31,7 +36,8 @@
   .lenis.lenis-smooth iframe { pointer-events: none; }
   body { background: var(--color-paper); color: var(--color-ink); overflow-x: clip; }
   main { overflow-x: clip; }
-  :focus-visible { outline: 3px solid var(--color-violet); outline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--color-ember); outline-offset: 3px; }
+  ::selection { background: var(--color-flame); color: var(--color-ink); }
 }
 
 /* Shared atoms: type styles, dot, buttons, links, badge, field. */
@@ -43,19 +49,19 @@
   .m-text-5 { font-family: var(--font-body); font-size: clamp(19px, 1.7vw, 25px); font-weight: 500; line-height: 1.28; letter-spacing: -0.015em; }
   .m-text-6 { font-family: var(--font-body); font-size: 13px; font-weight: 600; line-height: 1.3; letter-spacing: 0.01em; }
   .m-text-7 { font-family: var(--font-display); font-size: clamp(22px, 2.05vw, 30px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
-  .m-dot { display: inline-block; width: 0.19em; height: 0.19em; margin-left: 0.035em; border-radius: var(--radius-pill); background: var(--color-violet); vertical-align: baseline; }
+  .m-dot { display: inline-block; width: 0.19em; height: 0.19em; margin-left: 0.035em; border-radius: var(--radius-pill); background: var(--color-flame); vertical-align: baseline; }
   .m-surface { border-radius: var(--radius-card); background: var(--color-mist); color: var(--color-ink); }
 
   .m-btn, .m-btn-2 { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px 0 18px; overflow: hidden; border: 0; border-radius: var(--radius-pill); font-family: var(--font-body); font-size: 16px; font-weight: 600; line-height: 1; letter-spacing: -0.01em; text-decoration: none; cursor: pointer; }
-  .m-btn { background: var(--color-violet); color: var(--color-paper); }
+  .m-btn { background: linear-gradient(170deg, var(--color-amber), var(--color-flame) 60%, #f06018); color: var(--color-ink); transition: color .35s; }
   .m-btn-2 { background: var(--color-paper); color: var(--color-ink); transition: color .35s; }
   .m-btn::before, .m-btn-2::before { content: ""; width: 8px; height: 8px; flex: none; border-radius: var(--radius-pill); background: currentColor; }
-  .m-btn-2::before { background: var(--color-violet); }
+  .m-btn-2::before { background: var(--color-flame); }
   .m-btn::after, .m-btn-2::after { content: ""; position: absolute; z-index: -1; left: 22px; top: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: var(--radius-pill); background: var(--color-ink); transform: scale(0); transition: transform .5s cubic-bezier(.7, 0, .2, 1); }
   .m-btn__label { position: relative; }
   @media (hover: hover) {
     .m-btn:hover::after, .m-btn-2:hover::after { transform: scale(60); }
-    .m-btn-2:hover { color: var(--color-paper); }
+    .m-btn:hover, .m-btn-2:hover { color: var(--color-paper); }
   }
 
   .m-link { display: inline-flex; align-items: center; gap: 0.45em; font-family: var(--font-body); font-size: clamp(17px, 1.45vw, 21px); font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; text-decoration: none; }
@@ -70,19 +76,19 @@
   }
 
   .m-icon { position: relative; isolation: isolate; display: inline-grid; place-items: center; width: 48px; height: 48px; flex: none; padding: 0; border: 1.5px solid currentColor; border-radius: var(--radius-pill); background: transparent; color: inherit; cursor: pointer; transition: color .35s; }
-  .m-icon::after { content: ""; position: absolute; inset: 3px; z-index: -1; border-radius: var(--radius-pill); background: var(--color-violet); transform: scale(0); transition: transform .45s cubic-bezier(.7, 0, .2, 1); }
+  .m-icon::after { content: ""; position: absolute; inset: 3px; z-index: -1; border-radius: var(--radius-pill); background: var(--color-flame); transform: scale(0); transition: transform .45s cubic-bezier(.7, 0, .2, 1); }
   .m-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
-  @media (hover: hover) { .m-icon:hover { color: var(--color-paper); } .m-icon:hover::after { transform: scale(1); } }
+  @media (hover: hover) { .m-icon:hover { color: var(--color-ink); } .m-icon:hover::after { transform: scale(1); } }
 
   .m-badge { display: inline-flex; align-items: center; min-height: 30px; padding: 0 12px; border: 1px solid color-mix(in srgb, currentColor 32%, transparent); border-radius: var(--radius-pill); font-family: var(--font-body); font-size: 13px; font-weight: 500; line-height: 1; letter-spacing: 0; white-space: nowrap; }
   .m-field { display: block; width: 100%; min-height: 48px; padding: 10px 0; border: 0; border-bottom: 1.5px solid color-mix(in srgb, currentColor 40%, transparent); border-radius: 0; background: transparent; color: inherit; font-family: var(--font-body); font-size: 17px; font-weight: 400; line-height: 1.4; letter-spacing: 0; }
-  .m-field:focus-visible { outline: none; border-bottom-color: var(--color-violet); box-shadow: 0 2px 0 var(--color-violet); }
+  .m-field:focus-visible { outline: none; border-bottom-color: var(--color-ember); box-shadow: 0 2px 0 var(--color-ember); }
   textarea.m-field { min-height: 112px; resize: vertical; }
 }
 
-/* Focus rings on the violet contact band. */
-#contact :focus-visible { outline-color: var(--color-paper); }
-#contact .contact__form :focus-visible { outline-color: var(--color-violet); }
+/* Focus rings on the orange contact band. */
+#contact :focus-visible { outline-color: var(--color-ink); }
+#contact .contact__form :focus-visible { outline-color: var(--color-ember); }
 
 /*
   Scroll scenes. lib/motion.ts adds the is-* classes and sets the --custom properties below;
@@ -94,21 +100,16 @@
   #hero .hero__glyphs { animation: hero-rise .95s cubic-bezier(.16, .84, .24, 1) backwards; }
   #hero .hero__stage { transform-origin: 50% 50%; animation: hero-swell 1.1s cubic-bezier(.2, .9, .25, 1.12) backwards; }
   #hero .hero__intro { animation: hero-lift .9s .12s cubic-bezier(.16, .84, .24, 1) backwards; }
-  #hero .hero__img { animation: hero-turn 46s linear infinite; }
   #hero .hero__orbit { animation: hero-orbit 13s linear infinite; }
-  #hero.is-offscreen .hero__img, #hero.is-offscreen .hero__orbit { animation-play-state: paused; }
+  #hero.is-offscreen .hero__orbit { animation-play-state: paused; }
   @media (min-width: 900px) and (orientation: landscape) { #hero .hero__stage { transform-origin: 0 100%; animation-name: hero-inflate; } }
   @keyframes hero-mask { from, to { clip-path: inset(-40% -8% 0 -8%); } }
   @keyframes hero-rise { from { transform: translateY(92%); } }
   @keyframes hero-swell { from { transform: scale(.72); } }
   @keyframes hero-inflate { from { transform: scale(.36); } }
   @keyframes hero-lift { from { transform: translateY(26px); } }
-  @keyframes hero-turn { to { transform: rotate(360deg); } }
   @keyframes hero-orbit { to { transform: rotate(360deg); } }
 
-  #footer .footer__img { animation: footer-turn 46s linear infinite; }
-  #footer.is-offscreen .footer__img { animation-play-state: paused; }
-  @keyframes footer-turn { to { transform: rotate(360deg); } }
 
   #work.is-track { height: calc(100svh + var(--run, 0px)); }
   #work.is-track .work__stage { position: sticky; top: 0; height: 100svh; min-height: 560px; padding-top: clamp(84px, 13svh, 120px); padding-bottom: clamp(24px, 5svh, 48px); grid-template-rows: auto minmax(0, 1fr); overflow: clip; }

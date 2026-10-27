@@ -4,6 +4,7 @@
 import type { ComponentProps, CSSProperties } from "react";
 import { ContactForm, Motion, Navigation, NewsletterForm } from "@/components/client";
 import { photoSrc, photoSrcSet, photos, type Photo as PhotoData } from "@/lib/photos";
+import { contactEmail } from "@/lib/site";
 
 // ---------------------------------------------------------------- content
 
@@ -68,6 +69,9 @@ const shots = [
   "col-span-2 aspect-[3/2] min-[900px]:left-[31%] min-[900px]:top-[53.3%] min-[900px]:w-[36%]",
 ];
 
+// The community's WhatsApp group (studio, contact, footer).
+const whatsapp = { href: "https://chat.whatsapp.com/H6wijRlqBtBG9mi3wUSSgp", target: "_blank", rel: "noopener noreferrer" };
+
 const ways = [
   { title: "Come to an event", place: "Events" },
   { title: "Ask for help", place: "Help" },
@@ -111,7 +115,7 @@ function Photo({ photo, className }: { photo: PhotoData; className?: string }) {
   );
 }
 
-/** The violet full stop that ends every section heading. */
+/** The orange full stop that ends every section heading. */
 function Dot({ className ="" }: { className?: string }) {
   return <span className={`m-dot ${className}`.trim()} aria-hidden="true" />;
 }
@@ -140,14 +144,15 @@ function Hero() {
       </div>
       <h1 className="m-text-2 self-end whitespace-nowrap pb-[clamp(18px,5svh,52px)] min-[900px]:landscape:text-[length:min(26.5vw,43svh)]" id="hero-title" style={{ "--len": 5 } as CSSProperties}>
         <span className="hero__word inline-block"><span className="hero__mask inline-block"><span className="hero__glyphs inline-block">Hello</span></span></span>
-        <span className="ml-[.035em] inline-block size-[.19em] rounded-pill bg-violet align-baseline min-[900px]:landscape:relative min-[900px]:landscape:bg-transparent" aria-hidden="true">
+        <span className="ml-[.035em] inline-block size-[.19em] rounded-pill bg-flame align-baseline min-[900px]:landscape:relative min-[900px]:landscape:bg-transparent" aria-hidden="true">
           <span className="hero__stage absolute left-[calc(50%-var(--ap)/2)] top-[calc(57%-var(--ap)/2)] size-(--ap) text-[16px] leading-[0] min-[900px]:landscape:top-auto min-[900px]:landscape:bottom-0 min-[900px]:landscape:left-0">
             <span className="hero__orbit absolute -inset-[9%] block rounded-pill border border-paper/16">
-              <span className="absolute left-1/2 top-0 -ml-[4.5%] -mt-[4.5%] size-[9%] rounded-pill bg-violet" />
+              <span className="absolute left-1/2 top-0 -ml-[4.5%] -mt-[4.5%] size-[9%] rounded-pill bg-flame" />
             </span>
-            <span className="hero__aperture absolute inset-0 block overflow-hidden rounded-pill bg-violet">
-              <Photo photo={photos.hero} className="hero__img size-full object-cover" />
-              <span className="hero__tint absolute inset-0 bg-violet opacity-0" />
+            <span className="hero__aperture absolute inset-0 block overflow-hidden rounded-pill border border-flame/30 bg-black shadow-[0_0_90px_color-mix(in_srgb,var(--color-flame)_28%,transparent)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="absolute inset-0 m-auto size-[56%] object-contain" src="/logo-mark.png" width={1024} height={1024} alt="" fetchPriority="high" />
+              <span className="hero__tint absolute inset-0 bg-flame opacity-0" />
             </span>
           </span>
         </span>
@@ -273,13 +278,13 @@ function Method() {
         <div className="method__ring relative col-start-2 row-start-1 aspect-square w-full min-[900px]:col-start-1 min-[900px]:w-[min(100%,50svh)] min-[900px]:justify-self-center" aria-hidden="true">
           <svg className="absolute inset-0 size-full -rotate-90 overflow-visible" viewBox="0 0 400 400">
             <circle className="fill-none stroke-ink/14 stroke-[1.5]" cx="200" cy="200" r="170" />
-            <circle className="method__arc fill-none stroke-violet stroke-[5] [stroke-linecap:round]" cx="200" cy="200" r="170" pathLength="1" strokeDasharray="1 1" strokeDashoffset="0" />
+            <circle className="method__arc fill-none stroke-flame stroke-[5] [stroke-linecap:round]" cx="200" cy="200" r="170" pathLength="1" strokeDasharray="1 1" strokeDashoffset="0" />
           </svg>
           {[[0, -1], [1, 0], [0, 1], [-1, 0]].map(([x, y]) => (
-            <span key={`${x},${y}`} className="method__station absolute top-[calc(50%+42.5%*var(--y))] left-[calc(50%+42.5%*var(--x))] -mt-[4.5%] -ml-[4.5%] size-[9%] rounded-pill bg-violet" style={{ "--x": x, "--y": y } as CSSProperties} />
+            <span key={`${x},${y}`} className="method__station absolute top-[calc(50%+42.5%*var(--y))] left-[calc(50%+42.5%*var(--x))] -mt-[4.5%] -ml-[4.5%] size-[9%] rounded-pill bg-flame" style={{ "--x": x, "--y": y } as CSSProperties} />
           ))}
           <span className="method__arm absolute inset-[7.5%]">
-            <span className="absolute top-0 left-1/2 -mt-[7.5%] -ml-[7.5%] size-[15%] rounded-pill border-[3px] border-violet bg-paper" />
+            <span className="absolute top-0 left-1/2 -mt-[7.5%] -ml-[7.5%] size-[15%] rounded-pill border-[3px] border-flame bg-paper" />
           </span>
         </div>
         <ol className="method__steps col-start-1 row-start-1 grid gap-[clamp(56px,18vh,170px)] min-[900px]:col-start-2 min-[900px]:pt-[8svh] min-[900px]:pb-[14svh]">
@@ -318,6 +323,7 @@ function Studio() {
               </li>
             ))}
           </ul>
+          <ArrowLink {...whatsapp}>Join the WhatsApp group</ArrowLink>
           <ArrowLink href="#contact">Get in touch</ArrowLink>
         </div>
       </div>
@@ -340,7 +346,7 @@ function Journal() {
         <ol className="grid gap-[clamp(36px,8vh,72px)] min-[900px]:gap-[clamp(64px,18vh,170px)] min-[900px]:pt-[6svh] min-[900px]:pb-[10svh]">
           {stories.map(story => (
             <li key={story.kind} className="story grid max-w-xl gap-3 border-t border-ink/16 pt-5">
-              <p className="m-text-6 text-violet">{story.kind}</p>
+              <p className="m-text-6 text-ember">{story.kind}</p>
               <h3 className="m-text-7">{story.title}</h3>
               <p className="m-text text-slate">{story.text}</p>
             </li>
@@ -360,7 +366,7 @@ function Faq() {
           <details key={item.q} className="group/item border-b border-ink/16 first:border-t">
             <summary className="m-text-7 group/row flex cursor-pointer list-none items-center justify-between gap-5 py-[22px] [&::-webkit-details-marker]:hidden">
               {item.q}
-              <span className="relative size-[34px] flex-none rounded-pill border-[1.5px] border-ink after:absolute after:inset-0 after:m-auto after:size-2.5 after:rounded-pill after:bg-violet after:transition-transform after:duration-[450ms] after:ease-[cubic-bezier(.7,0,.2,1)] after:content-[''] group-hover/row:after:scale-[1.8] group-open/item:after:scale-[3.1] group-open/item:group-hover/row:after:scale-[3.1]" aria-hidden="true" />
+              <span className="relative size-[34px] flex-none rounded-pill border-[1.5px] border-ink after:absolute after:inset-0 after:m-auto after:size-2.5 after:rounded-pill after:bg-flame after:transition-transform after:duration-[450ms] after:ease-[cubic-bezier(.7,0,.2,1)] after:content-[''] group-hover/row:after:scale-[1.8] group-open/item:after:scale-[3.1] group-open/item:group-hover/row:after:scale-[3.1]" aria-hidden="true" />
             </summary>
             <p className="m-text max-w-[40rem] pb-[26px] text-slate">{item.a}</p>
           </details>
@@ -372,13 +378,25 @@ function Faq() {
 
 function Contact() {
   return (
-    <section id="contact" data-8b-section="contact" aria-labelledby="contact-title" className="relative bg-violet px-(--space-1) py-(--space-2) text-paper">
-      <h2 className="m-text-3 contact__title text-[length:min(19vw,calc((100vw-2*var(--space-1))/(var(--len)*0.5)))] leading-[0.86] whitespace-nowrap [&_.m-dot]:bg-paper" id="contact-title" style={{ "--len": 10 } as CSSProperties}>
+    <section id="contact" data-8b-section="contact" aria-labelledby="contact-title" className="bg-brand relative px-(--space-1) py-(--space-2) text-ink">
+      <h2 className="m-text-3 contact__title text-[length:min(19vw,calc((100vw-2*var(--space-1))/(var(--len)*0.5)))] leading-[0.86] whitespace-nowrap [&_.m-dot]:bg-ink" id="contact-title" style={{ "--len": 10 } as CSSProperties}>
         <span className="contact__voice">Let&apos;s talk</span><Dot />
       </h2>
       <div className="mt-[clamp(40px,8vh,88px)] grid grid-cols-[minmax(0,1fr)] gap-12 min-[1000px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] min-[1000px]:gap-[6vw]">
         <div className="grid content-start gap-8">
           <p className="m-text-5 max-w-[30rem]">Have a question, a problem to solve or an idea for an event? Tell us what you are working on.</p>
+          <ul className="grid gap-5">
+            <li className="grid gap-1">
+              <p className="m-text-6">Call us</p>
+              <a className="m-text-7 w-fit no-underline" href="tel:+919205394233">+91 92053 94233</a>
+              <a className="m-text-7 w-fit no-underline" href="tel:+917827465966">+91 78274 65966</a>
+            </li>
+            <li className="grid gap-1">
+              <p className="m-text-6">Email us</p>
+              <a className="m-text-7 w-fit no-underline" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+            </li>
+          </ul>
+          <ArrowLink {...whatsapp}>Or join the WhatsApp group</ArrowLink>
         </div>
         <ContactForm />
       </div>
@@ -394,21 +412,26 @@ function Footer() {
       <p className="m-text-2 footer__bye relative whitespace-nowrap pt-(--ap) text-[length:min(36vw,40svh)] min-[900px]:text-[length:min(24vw,40svh)]" style={{ "--len": 3 } as CSSProperties}>
         <span className="footer__word inline-block">Bye</span>
         <span className="footer__period relative ml-[.035em] inline-block size-[.19em] align-baseline" aria-hidden="true">
-          <span className="footer__aperture absolute bottom-0 left-0 size-(--ap) origin-bottom-left overflow-hidden rounded-pill bg-violet">
-            <Photo photo={photos.footer} className="footer__img size-full object-cover" />
-            <span className="footer__tint absolute inset-0 bg-violet opacity-0" />
+          <span className="footer__aperture absolute bottom-0 left-0 size-(--ap) origin-bottom-left overflow-hidden rounded-pill border border-flame/30 bg-black shadow-[0_0_90px_color-mix(in_srgb,var(--color-flame)_28%,transparent)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="absolute inset-0 m-auto size-[56%] object-contain" src="/logo-mark.png" width={1024} height={1024} alt="" loading="lazy" />
+            <span className="footer__tint absolute inset-0 bg-flame opacity-0" />
           </span>
         </span>
       </p>
-      <div className="mt-[clamp(48px,9vh,96px)] grid grid-cols-2 gap-x-6 gap-y-10 border-t border-paper/16 pt-8 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+      <div className="mt-[clamp(48px,9vh,96px)] grid grid-cols-2 gap-x-6 gap-y-10 border-t border-paper/16 pt-8 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)]">
         <nav className={col} aria-label="Footer">
           <p className={label}>Explore</p>
           {navLinks.map(link => <a key={link.href} className="m-link-2" href={link.href}>{link.label}</a>)}
         </nav>
+        <div className={col}>
+          <p className={label}>Join us</p>
+          <a className="m-link-2" {...whatsapp}>WhatsApp group</a>
+        </div>
         <NewsletterForm />
       </div>
       <div className="m-text-6 mt-14 flex flex-wrap justify-between gap-x-6 gap-y-2 text-fog">
-        <p>© 2026 YourDevelopers · Design: <a href="https://8b.com/" style={{ color: "inherit" }} data-8b-credit="">8B</a></p>
+        <p>© 2026 YourDevelopers</p>
       </div>
     </footer>
   );

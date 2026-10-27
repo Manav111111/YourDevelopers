@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { flushSync } from "react-dom";
 import { getLenis, startMotion } from "@/lib/motion";
+import { contactEmail } from "@/lib/site";
 
 /** Starts smooth scroll and the scroll scenes once the page is on screen. */
 export function Motion() {
@@ -78,26 +79,50 @@ export function Navigation({ links }: { links: readonly NavLink[] }) {
 
 const CONTACT_SUCCESS ="Thank you for your message.";
 const CONTACT_ERROR ="Please add your name, a valid email and a few words about your message.";
+const CONTACT_SENDING ="Sending…";
+const CONTACT_FAILED = `Sorry, your message did not go through. Please try again, or write to ${contactEmail}.`;
 
 /**
- * Contact form. It sends nothing yet: it checks the fields in the browser and shows a status text.
- * To go live, POST `new FormData(form)` to your form service (Formspree, Netlify, an API route) before the reset.
+ * Contact form. It checks the fields in the browser, then posts them to FormSubmit (formsubmit.co),
+ * which emails every message to `contactEmail`. The first message ever sent makes FormSubmit mail a
+ * one-time activation link to that address: click it once and later messages arrive normally.
  */
 export function ContactForm() {
   const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const ok = form.checkValidity();
-    setStatus(ok ? CONTACT_SUCCESS : CONTACT_ERROR);
-    if (ok) form.reset();
-    else form.querySelector<HTMLElement>(":invalid")?.focus();
+    if (!form.checkValidity()) {
+      setStatus(CONTACT_ERROR);
+      form.querySelector<HTMLElement>(":invalid")?.focus();
+      return;
+    }
+    // A hidden field that people leave empty and bots fill in: FormSubmit drops those messages.
+    if (new FormData(form).get("_honey")) return;
+    setSending(true);
+    setStatus(CONTACT_SENDING);
+    try {
+      const body = new FormData(form);
+      body.append("_subject", "New message from the YourDevelopers website");
+      body.append("_template", "table");
+      body.append("_captcha", "false");
+      const response = await fetch(`https://formsubmit.co/ajax/${contactEmail}`, { method: "POST", headers: { Accept: "application/json" }, body });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || String(result.success) !== "true") throw new Error("Form service refused the message");
+      setStatus(CONTACT_SUCCESS);
+      form.reset();
+    } catch {
+      setStatus(CONTACT_FAILED);
+    } finally {
+      setSending(false);
+    }
   };
 
   const label ="grid gap-0.5 text-slate m-text-6";
   return (
-    <form data-8b-placeholder="form" className="contact__form m-surface grid gap-[18px] p-[clamp(22px,3vw,40px)]" noValidate onSubmit={onSubmit}>
+    <form className="contact__form m-surface grid gap-[18px] p-[clamp(22px,3vw,40px)]" noValidate onSubmit={onSubmit}>
       <div className="grid gap-[18px] min-[640px]:grid-cols-2">
         <label className={label}>Your name<input className="m-field text-ink" name="name" type="text" autoComplete="name" required /></label>
         <label className={label}>Email<input className="m-field text-ink" name="email" type="email" autoComplete="email" required /></label>
@@ -112,8 +137,9 @@ export function ContactForm() {
         </label>
       </div>
       <label className={label}>Your question or message<textarea className="m-field text-ink" name="message" rows={3} required /></label>
+      <input className="hidden" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="flex flex-wrap items-center gap-4 pt-1.5">
-        <button className="m-btn" type="submit"><span className="m-btn__label">Send message</span></button>
+        <button className="m-btn disabled:opacity-60" type="submit" disabled={sending}><span className="m-btn__label">{sending ? "Sending…" : "Send message"}</span></button>
         <p className="m-text text-ink" role="status" aria-live="polite" data-success={CONTACT_SUCCESS} data-error={CONTACT_ERROR}>{status}</p>
       </div>
     </form>

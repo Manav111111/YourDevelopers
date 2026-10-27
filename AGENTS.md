@@ -4,7 +4,7 @@ One-page website for a design, brand or digital agency. One file, index.html, wi
 Next.js port (this repo)
 The site is the Next.js (App Router) + Tailwind port of the original single file (index.html, since removed; the curl commands below fetch it from the template repo). Everything below still applies (ids, data-8b-* attributes, class-name hooks, copy rules), with these places instead of the inline parts:
 app/page.tsx: all sections and their copy (content arrays at the top), styled with Tailwind utilities.
-app/globals.css: Tailwind import, tokens in @theme (colours are named ink, paper, violet, mist, fog, slate, night = --color-1 … --color-7 below), shared atoms (m-btn, m-link, m-badge, m-field …) and the scroll-scene states (is-track, is-wheel, is-deck, is-cycle, is-swap).
+app/globals.css: Tailwind import, tokens in @theme (colours are named ink, paper, flame, mist, fog, slate, night = --color-1 … --color-7 below, plus amber and ember; bg-brand is the logo gradient), shared atoms (m-btn, m-link, m-badge, m-field …) and the scroll-scene states (is-track, is-wheel, is-deck, is-cycle, is-swap).
 lib/motion.ts: Lenis, the reveal effects and every scene (replaces the inline scripts).
 components/client.tsx: phone menu, contact form, newsletter form and the motion starter (the only client components). They are React now, so the section-script hooks below for navigation, contact and footer (.nav__menu, .menu__close, .contact__form, .footer__news …) no longer exist as class names; the scene hooks do. Class names that no CSS or script used were removed.
 lib/photos.ts: the 26 Unsplash photos (srcset, sizes, alt); CREDITS.md still lists them.
@@ -37,9 +37,9 @@ scene:contact: .contact__voice .contact__title .m-dot
 scene:footer: .footer__aperture .footer__period .footer__bye .footer__tint .footer__word
 hero directly above statement, work directly above again: the animation crosses that border and stops if they are split.
 style="--len:N" = characters in that display line, spaces included: Hello is 5, Let's talk is 10, Bye is 3.
-Section headings (and Open roles) end in a violet dot (<span class="m-dot">), not a typed full stop: keep the span when you change one. Hello and Bye use a round photo instead; case, partner, service, step and story titles have no dot.
+Section headings (and Open roles) end in an orange (flame) dot (<span class="m-dot">), not a typed full stop: keep the span when you change one. Hello and Bye use a round photo instead; case, partner, service, step and story titles have no dot.
 "Hello" in the hero is sized by its style="--len:N" on phones only (wide screens use a fixed size), and "Let's talk" in contact by its own --len; "Bye" in the footer has a fixed size whatever its --len says. Keep Hello and Bye to one short word.
-Colours and fonts are variables in :root (data-8b-part="tokens"): --color-1 #0d0c11 (near-black bands and text), --color-2 #ffffff (white bands, text on black), --color-3 #6c3cff (violet dots, buttons, process ring, contact section), --color-4 #efeef4 (pale cards for services and the form), --color-5 #aaa7b4 (muted text on black), --color-6 #5d5a67 (secondary text on white), --color-7 #1f1d26 (dark base under photos); body text needs 4.5:1 contrast.
+Colours and fonts are variables in :root (data-8b-part="tokens"): --color-1 #0c0b0a (near-black bands and text), --color-2 #ffffff (white bands, text on black), --color-3 #f5871a (flame: logo-orange dots, buttons, process ring; text on it is ink, never white), --color-4 #f6f2ec (pale cards for services and the form), --color-5 #b0a89b (muted text on black), --color-6 #615a52 (secondary text on white), --color-7 #1c1915 (dark base under photos); amber #f8b808 (gradient top), ember #b84d00 (small orange text and focus rings on white); the contact band and buttons use the amber-to-orange logo gradient; body text needs 4.5:1 contrast.
 With reduced motion the page must read in full.
 Keep the header comment and <meta name="generator">. Keep the "Design: 8B" footer link unless the site owner asks to remove it.
 Replace

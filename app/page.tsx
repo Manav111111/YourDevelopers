@@ -1,8 +1,10 @@
 // The whole one-page site. Sections are server components styled with Tailwind utilities.
 // Keep the ids, data-8b-* attributes and the plain class names (hero__aperture, case__img, …):
 // lib/motion.ts finds its elements through them. Demo text is the template's: replace it with yours.
-import type { ComponentProps, CSSProperties } from "react";
+import { Suspense, type ComponentProps, type CSSProperties } from "react";
 import { ContactForm, Motion, Navigation, NewsletterForm } from "@/components/client";
+import { DailyAiNews } from "@/components/DailyAiNews";
+import { AiNewsAggregator } from "@/lib/news/aggregator";
 import { photoSrc, photoSrcSet, photos, type Photo as PhotoData } from "@/lib/photos";
 import { contactEmail } from "@/lib/site";
 
@@ -331,28 +333,30 @@ function Studio() {
   );
 }
 
-function Journal() {
+async function Journal() {
+  const aggregator = new AiNewsAggregator();
+  const newsData = await aggregator.getDailyNews();
+
   return (
     <section id="journal" data-8b-section="journal" aria-labelledby="journal-title" className="relative bg-paper px-(--space-1) pt-[calc(var(--space-2)*0.6)] pb-(--space-2)">
-      <div className="mb-[clamp(40px,7vh,88px)]">
-        <h2 className="m-text-3" id="journal-title" data-8b-motion="rise">Ideas and news<Dot /></h2>
-      </div>
-      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-7 min-[900px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] min-[900px]:gap-[7vw]">
-        <div className="journal__frame relative aspect-[16/10] overflow-hidden rounded-card bg-mist min-[900px]:aspect-[4/5]">
-          {photos.journal.map((photo, i) => (
-            <Photo key={i} photo={photo} className="journal__shot absolute inset-0 size-full object-cover first:z-1" />
-          ))}
+      <div className="mb-[clamp(40px,7vh,72px)] flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
+        <div>
+          <p className="m-text-6 text-ember font-semibold tracking-wide uppercase mb-2">Automated Daily Intelligence</p>
+          <h2 className="m-text-3" id="journal-title" data-8b-motion="rise">
+            Today&apos;s Top 5 AI News<Dot />
+          </h2>
         </div>
-        <ol className="grid gap-[clamp(36px,8vh,72px)] min-[900px]:gap-[clamp(64px,18vh,170px)] min-[900px]:pt-[6svh] min-[900px]:pb-[10svh]">
-          {stories.map(story => (
-            <li key={story.kind} className="story grid max-w-xl gap-3 border-t border-ink/16 pt-5">
-              <p className="m-text-6 text-ember">{story.kind}</p>
-              <h3 className="m-text-7">{story.title}</h3>
-              <p className="m-text text-slate">{story.text}</p>
-            </li>
-          ))}
-        </ol>
+        <p className="m-text-5 max-w-[30rem] text-slate">
+          Discovered, fact-checked, and summarized daily at 6:00 AM IST for developers and AI engineers.
+        </p>
       </div>
+
+      <Suspense fallback={<div className="h-48 animate-pulse rounded-card bg-mist/50" />}>
+        <DailyAiNews
+          initialArticles={newsData.articles}
+          initialLastUpdatedIst={newsData.lastUpdatedIst}
+        />
+      </Suspense>
     </section>
   );
 }
@@ -439,7 +443,7 @@ function Footer() {
 
 // ---------------------------------------------------------------- page
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <a className="skip fixed top-3 left-(--space-1) z-100 -translate-y-[160%] rounded-pill bg-paper px-4 py-2.5 font-body text-[15px] font-semibold text-ink no-underline focus-visible:translate-y-0" href="#main">Skip to content</a>

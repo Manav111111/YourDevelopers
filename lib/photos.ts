@@ -2,15 +2,17 @@
 // `photoSrc` / `photoSrcSet` rebuild the Unsplash URLs for each photo.
 
 export type Photo = {
-  /** Unsplash photo id, without the `photo-` prefix. */
-  id: string;
-  ixid: string;
+  /** Unsplash photo id, without the `photo-` prefix (optional if src is provided). */
+  id?: string;
+  ixid?: string;
+  src?: string;
+  srcSet?: string;
   /** Intrinsic size of the largest crop, used for the width/height attributes and the `src`. */
   width: number;
   height: number;
-  q: number;
+  q?: number;
   /** Widths offered in the srcset; heights follow the intrinsic ratio. */
-  widths: number[];
+  widths?: number[];
   sizes: string;
   /** Placeholder shown while the photo loads: a dominant colour, or a colour plus a tiny blurred preview. */
   bg: string;
@@ -22,10 +24,10 @@ export type Photo = {
 const unsplash = (p: Photo, w: number, h: number, q: number) =>
   `https://images.unsplash.com/photo-${p.id}?ixid=${p.ixid}&ixlib=rb-4.1.0&auto=format&fit=crop&w=${w}&h=${h}&q=${q}`;
 
-export const photoSrc = (p: Photo) => unsplash(p, p.width, p.height, p.q);
+export const photoSrc = (p: Photo) => p.src ?? (p.id ? unsplash(p, p.width, p.height, p.q ?? 80) : "");
 
 export const photoSrcSet = (p: Photo) =>
-  p.widths.map(w => `${unsplash(p, w, Math.round((w * p.height) / p.width), p.q)} ${w}w`).join(', ');
+  p.srcSet ?? (p.src ? p.src : (p.widths ?? []).map(w => `${unsplash(p, w, Math.round((w * p.height) / (p.width || 1)), p.q ?? 80)} ${w}w`).join(', '));
 
 // The template's 26 photos, grouped as they were first placed. `photos` below re-uses the ones that fit a
 // developer community in their new slots. Swap in real event and community photos when you have them.
@@ -155,18 +157,129 @@ const fit = (photo: Photo, slot: Photo, alt = photo.alt): Photo => ({ ...photo, 
 
 const { work, again, services, studio, journal } = raw;
 
+const eventsPhoto: Photo = {
+  src: "/images/events.jpg",
+  width: 1600,
+  height: 900,
+  sizes: "(max-width: 767px) 183vw, 52vw",
+  bg: "#1c140e",
+  alt: "Developers collaborating at laptops during a vibrant hackathon with stage banner and warm orange ambient lighting",
+  lazy: true,
+};
+
+const techNewsPhoto: Photo = {
+  src: "/images/tech-news.png",
+  width: 1600,
+  height: 900,
+  sizes: "(max-width: 767px) 183vw, 52vw",
+  bg: "#14110e",
+  alt: "Developer reading tech and AI news on monitor, phone, and laptop in a warm studio",
+  lazy: true,
+};
+
+const developerHelpPhoto: Photo = {
+  src: "/images/developer-help.jpg",
+  width: 1600,
+  height: 900,
+  sizes: "(max-width: 767px) 183vw, 52vw",
+  bg: "#18120d",
+  alt: "Two developers pair programming and troubleshooting code together in an ambient office",
+  lazy: true,
+};
+
+const techSupportPhoto: Photo = {
+  src: "/images/tech-support.jpg",
+  width: 1600,
+  height: 900,
+  sizes: "(max-width: 767px) 183vw, 52vw",
+  bg: "#111417",
+  alt: "Software engineer deploying to production with CI/CD pipeline and server racks in the background",
+  lazy: true,
+};
+
+const aiPhoto: Photo = {
+  src: "/images/ai.jpg",
+  width: 1600,
+  height: 900,
+  sizes: "(max-width: 767px) 183vw, 52vw",
+  bg: "#120e0c",
+  alt: "Developer working with AI model, neural network visualization, and agent architecture",
+  lazy: true,
+};
+
+const hittingWallPhoto: Photo = {
+  src: "/images/again-stuck.jpg",
+  width: 900,
+  height: 1125,
+  sizes: "(max-width: 767px) 91vw, 30vw",
+  bg: "#1a1310",
+  alt: "Developer holding head in frustration in front of monitors displaying code errors",
+  lazy: true,
+};
+
+const runningTeamPhoto: Photo = {
+  src: "/images/again-leading.jpg",
+  width: 900,
+  height: 1125,
+  sizes: "(max-width: 767px) 91vw, 30vw",
+  bg: "#161b18",
+  alt: "Tech lead presenting system architecture on whiteboard to team",
+  lazy: true,
+};
+
+const tryingAiPhoto: Photo = {
+  src: "/images/again-ai.jpg",
+  width: 900,
+  height: 1125,
+  sizes: "(max-width: 767px) 91vw, 30vw",
+  bg: "#0d131f",
+  alt: "Developer working with AI tools and glowing neural network brain visualization",
+  lazy: true,
+};
+
+const keepingUpPhoto: Photo = {
+  src: "/images/again-current.jpg",
+  width: 900,
+  height: 1125,
+  sizes: "(max-width: 767px) 91vw, 30vw",
+  bg: "#181412",
+  alt: "Developer with headphones reading tech news on a tablet with floating news cards",
+  lazy: true,
+};
+
 export const photos = {
   hero: raw.hero,
   // Events, Tech news, Developer help, Tech support, AI
-  work: [fit(work[3], work[0]), fit(services[2], work[1]), fit(journal[1], work[2]), fit(work[1], work[3]), fit(work[4], work[4])],
+  work: [
+    eventsPhoto,
+    techNewsPhoto,
+    developerHelpPhoto,
+    techSupportPhoto,
+    aiPhoto,
+  ],
   // Six "where you are on the way" cards
   again: [
-    fit(services[3], again[0]), fit(journal[3], again[1]), fit(again[3], again[2]),
-    fit(raw.hero, again[3], "An abstract violet 3D shape"), fit(studio[1], again[4]), fit(studio[2], again[5]),
+    fit(services[3], again[0]),
+    fit(journal[3], again[1]),
+    hittingWallPhoto,
+    runningTeamPhoto,
+    tryingAiPhoto,
+    keepingUpPhoto,
   ],
   // Events, Tech news, Developer help, Tech support, AI
-  services: [fit(journal[0], services[0]), fit(journal[2], services[1]), fit(studio[3], services[2]), fit(services[1], services[3]), fit(services[4], services[4])],
+  services: [
+    fit(eventsPhoto, services[0]),
+    fit(techNewsPhoto, services[1]),
+    fit(developerHelpPhoto, services[2]),
+    fit(techSupportPhoto, services[3]),
+    fit(aiPhoto, services[4]),
+  ],
   studio,
-  journal,
+  journal: [
+    fit(eventsPhoto, journal[0]),
+    fit(developerHelpPhoto, journal[1]),
+    fit(techNewsPhoto, journal[2]),
+    fit(aiPhoto, journal[3]),
+  ],
   footer: raw.footer,
 } satisfies Record<string, Photo | Photo[]>;
